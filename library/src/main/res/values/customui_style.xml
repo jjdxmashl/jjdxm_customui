@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ProgressBarSmall">
+        <item name="android:indeterminateDrawable">@drawable/customui_progress_small</item>
+        <item name="android:minWidth">20dip</item>
+        <item name="android:maxWidth">20dip</item>
+        <item name="android:minHeight">20dip</item>
+        <item name="android:maxHeight">20dip</item>
+        <item name="android:indeterminateOnly">true</item>
+        <item name="android:indeterminateBehavior">repeat</item>
+        <item name="android:indeterminateDuration">3500</item>
+    </style>
+
+</resources>

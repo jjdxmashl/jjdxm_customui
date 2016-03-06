@@ -13,8 +13,9 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.ImageView;
+
+import com.dou361.utils.ResourceUtils;
 
 /**
  * @author jjdxm 2015-3-17 下午5:53:39 说明 圆形ImageView，可设置最多两个宽度不同且颜色不同的圆形边框。可以人脸定位
@@ -48,14 +49,14 @@ public class RoundImageView extends ImageView {
     }
 
     private void setCustomAttributes(AttributeSet attrs) {
-        TypedArray a = getTypedArray(attrs, "roundedimageview");
+        TypedArray a = ResourceUtils.getTypedArray(mContext, attrs, "roundedimageview");
         mBorderThickness = a.getDimensionPixelSize(
-                getResourceIdByName("styleable", "roundedimageview_border_thickness"), 0);
+                ResourceUtils.getResourceIdByName(mContext, "styleable", "roundedimageview_border_thickness"), 0);
         mBorderOutsideColor = a
-                .getColor(getResourceIdByName("styleable", "roundedimageview_border_outside_color"),
+                .getColor(ResourceUtils.getResourceIdByName(mContext, "styleable", "roundedimageview_border_outside_color"),
                         defaultColor);
         mBorderInsideColor = a.getColor(
-                getResourceIdByName("styleable", "roundedimageview_border_inside_color"), defaultColor);
+                ResourceUtils.getResourceIdByName(mContext, "styleable", "roundedimageview_border_inside_color"), defaultColor);
     }
 
     @Override
@@ -202,65 +203,4 @@ public class RoundImageView extends ImageView {
         canvas.drawCircle(defaultWidth / 2, defaultHeight / 2, radius, paint);
     }
 
-    private int getResourceIdByName(String className, String name) {
-        int id = 0;
-        if (this.mContext == null) {
-            return id;
-        } else {
-            String packageName = this.mContext.getPackageName();
-
-            try {
-                String var10 = packageName + ".R$" + className;
-                Class desireClass = Class.forName(var10);
-                if (desireClass != null) {
-                    id = desireClass.getField(name).getInt(desireClass);
-                }
-            } catch (ClassNotFoundException var7) {
-                Log.d("dou361", "ClassNotFoundException: class=" + className + " fieldname=" + name);
-            } catch (IllegalArgumentException var8) {
-                Log.d("dou361", "IllegalArgumentException: class=" + className + " fieldname=" + name);
-            } catch (SecurityException var9) {
-                Log.d("dou361", "SecurityException: class=" + className + " fieldname=" + name);
-            } catch (IllegalAccessException var101) {
-                Log.d("dou361", "IllegalAccessException: class=" + className + " fieldname=" + name);
-            } catch (NoSuchFieldException var11) {
-                Log.d("dou361", "NoSuchFieldException: class=" + className + " fieldname=" + name);
-            }
-
-            return id;
-        }
-    }
-
-    private TypedArray getTypedArray(AttributeSet attrs, String name) {
-
-        TypedArray typedArray = null;
-        String className = "styleable";
-        if (this.mContext == null) {
-            return null;
-        } else {
-            String packageName = this.mContext.getPackageName();
-
-            try {
-                String var10 = packageName + ".R$" + className;
-                Class desireClass = Class.forName(var10);
-                int[] ids;
-                if (desireClass != null) {
-                    ids = (int[]) desireClass.getField(name).get(desireClass);
-                    typedArray = mContext.obtainStyledAttributes(attrs, ids);
-                }
-            } catch (ClassNotFoundException var7) {
-                Log.d("dou361", "ClassNotFoundException: class=" + className + " fieldname=" + name);
-            } catch (IllegalArgumentException var8) {
-                Log.d("dou361", "IllegalArgumentException: class=" + className + " fieldname=" + name);
-            } catch (SecurityException var9) {
-                Log.d("dou361", "SecurityException: class=" + className + " fieldname=" + name);
-            } catch (IllegalAccessException var101) {
-                Log.d("dou361", "IllegalAccessException: class=" + className + " fieldname=" + name);
-            } catch (NoSuchFieldException var11) {
-                Log.d("dou361", "NoSuchFieldException: class=" + className + " fieldname=" + name);
-            }
-
-            return typedArray;
-        }
-    }
 }
