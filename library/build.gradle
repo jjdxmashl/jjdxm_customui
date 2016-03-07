@@ -20,6 +20,7 @@ android {
 }
 
 dependencies {
+    compile 'com.android.support:support-v4:23.1.1'
 }
 
 //定义一个函数，target是生成jar包的文件名，classDir是class文件所在的文件夹

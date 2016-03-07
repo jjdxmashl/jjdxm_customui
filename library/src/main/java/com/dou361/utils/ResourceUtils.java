@@ -2,6 +2,7 @@ package com.dou361.utils;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Looper;
 import android.util.AttributeSet;
 import android.util.Log;
 
@@ -27,6 +28,13 @@ import android.util.Log;
  */
 public class ResourceUtils {
     private static final String TAG = ResourceUtils.class.getSimpleName();
+
+    /**
+     * 判断当前的线程是不是在主线程
+     */
+    public static boolean isRunInMainThread() {
+        return Thread.currentThread() == Looper.getMainLooper().getThread();
+    }
 
     private ResourceUtils() {
         throw new UnsupportedOperationException("cannot be instantiated");

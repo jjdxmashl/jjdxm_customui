@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="customui_bg_tab_pressed">#6633b5e5</color>
+    <color name="customui_bg_tab_pressed2">#ff3898ff</color>
+</resources>
