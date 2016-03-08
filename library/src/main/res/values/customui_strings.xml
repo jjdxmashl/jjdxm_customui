@@ -2,4 +2,5 @@
 <resources>
     <string name="customui_load_more">加载中...</string>
     <string name="customui_load_error">加载失败，点击重试</string>
+    <integer name="animation_default_duration">300</integer>
 </resources>
