@@ -76,7 +76,7 @@ public class StickEditText extends PopupWindow {
         super(mContext);
         mMenuView = LayoutInflater.from(mContext).inflate(ResourceUtils.getResourceIdByName(mContext, "layout", "customui_popu_stickedittext"), null);
         et_content = (EditText) mMenuView.findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "customui_et_content"));
-        iv_opereator = (ImageView) mMenuView.findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "customuiiv_opereator"));
+        iv_opereator = (ImageView) mMenuView.findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "customui_iv_opereator"));
         // 取消按钮
         iv_opereator.setOnClickListener(new OnClickListener() {
 
@@ -141,29 +141,35 @@ public class StickEditText extends PopupWindow {
         this.setHeight(LayoutParams.WRAP_CONTENT);
         // 设置SelectPicPopupWindow弹出窗体可点击
         this.setFocusable(true);
+        this.setOutsideTouchable(false);
         // 设置SelectPicPopupWindow弹出窗体动画效果
         // this.setAnimationStyle(R.style.AnimBottom);
         // 实例化一个ColorDrawable颜色为半透明
         ColorDrawable dw = new ColorDrawable(0xb0000000);
         // 设置SelectPicPopupWindow弹出窗体的背景
         this.setBackgroundDrawable(dw);
+
         //防止虚拟软键盘被弹出菜单遮住
-        this.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+        this.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE |
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+        this.setInputMethodMode(PopupWindow.INPUT_METHOD_NEEDED);
+        this.setAnimationStyle(ResourceUtils.getResourceIdByName(mContext,"style","Animations_GrowFromBottom"));
+
         // mMenuView添加OnTouchListener监听判断获取触屏位置如果在选择框外面则销毁弹出框
-        mMenuView.setOnTouchListener(new OnTouchListener() {
-
-            public boolean onTouch(View v, MotionEvent event) {
-
-                int height = mMenuView.findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "customui_pop_layout")).getTop();
-                int y = (int) event.getY();
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-                    if (y < height) {
-                        dismiss();
-                    }
-                }
-                return true;
-            }
-        });
+//        mMenuView.setOnTouchListener(new OnTouchListener() {
+//
+//            public boolean onTouch(View v, MotionEvent event) {
+//
+//                int height = mMenuView.findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "customui_pop_layout")).getTop();
+//                int y = (int) event.getY();
+//                if (event.getAction() == MotionEvent.ACTION_UP) {
+//                    if (y < height) {
+//                        dismiss();
+//                    }
+//                }
+//                return true;
+//            }
+//        });
 
         /** 调起输入法 */
         Timer timer = new Timer();

@@ -28,4 +28,9 @@
         <item name="android:backgroundDimEnabled">true</item>
     </style>
 
+    <style name="Animations_GrowFromBottom">
+        <item name="@android:windowEnterAnimation">@anim/customui_grow_from_bottom</item>
+        <item name="@android:windowExitAnimation">@anim/customui_shrink_from_top</item>
+    </style>
+
 </resources>
