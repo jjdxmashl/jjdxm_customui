@@ -39,6 +39,18 @@ import java.util.List;
  * <p>
  * 描 述：精仿iOSAlertViewController控件
  * 点击取消按钮返回 －1，其他按钮从0开始算
+ * 使用：
+ * private void showAlertDialog() {
+ * new AlertView("退出登陆", "是否要退出账号？", null, null, new String[]{"确定", "取消"}, mContext, AlertView.Style.Alert, new AlertView.OnItemClickListener() {
+ *
+ * @Override public void onItemClick(Object o, int position) {
+ * if (position == 0) {
+ * logout();
+ * }
+ * }
+ * }).setCancelable(true)
+ * .show();
+ * }
  * <p>
  * <p>
  * 修订历史：

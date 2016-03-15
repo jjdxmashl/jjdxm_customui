@@ -12,22 +12,25 @@ import com.dou361.utils.ResourceUtils;
 
 /**
  * ========================================
- * <p/>
+ * <p>
  * 版 权：dou361.com 版权所有 （C） 2015
- * <p/>
+ * <p>
  * 作 者：陈冠明
- * <p/>
+ * <p>
  * 个人网站：http://www.dou361.com
- * <p/>
+ * <p>
  * 版 本：1.0
- * <p/>
+ * <p>
  * 创建日期：2015/11/11
- * <p/>
+ * <p>
  * 描 述：加载进度提示
- * <p/>
- * <p/>
+ * 使用：
+ * 显示进度条：LoadingTieDialog.showTie((Activity)mContext);
+ * 关闭进度条：LoadingTieDialog.dismssTie((Activity)mContext);
+ * <p>
+ * <p>
  * 修订历史：
- * <p/>
+ * <p>
  * ========================================
  */
 public class LoadingTieDialog {

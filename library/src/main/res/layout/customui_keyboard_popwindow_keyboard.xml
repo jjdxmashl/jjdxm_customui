@@ -1,0 +1,124 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/customui_keyboard_corner_bg_white_transprent"
+    android:focusable="true"
+    android:focusableInTouchMode="true" >
+
+    <ViewFlipper
+        android:id="@+id/viewFlipper1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:scrollbars="vertical" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/RelativeLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="44dip"
+                android:background="@drawable/bar1"
+                android:orientation="vertical"
+                android:visibility="gone" >
+
+                <Button
+                    android:id="@+id/btn_finish"
+                    android:layout_width="50dip"
+                    android:layout_height="30dip"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dip"
+                    android:background="@drawable/customui_keyboard_finish_btn_bg"
+                    android:text="完成"
+                    android:textColor="#FF000000"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="216dip"
+                android:background="#FFFFFFFF"
+                android:orientation="vertical" >
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="#ffd7d7d7" />
+
+                <LinearLayout
+                    android:id="@+id/llkeyboard"
+                    android:layout_width="match_parent"
+                    android:layout_height="162dip"
+                    android:orientation="vertical" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout4"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dip"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:paddingBottom="12dip" >
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout5"
+                        android:layout_width="224dip"
+                        android:layout_height="38dip"
+                        android:layout_marginRight="5dip"
+                        android:layout_marginTop="1dip"
+                        android:layout_weight="1"
+                        android:background="@drawable/customui_keyboard_tab_bg" >
+
+                        <Button
+                            android:id="@+id/btn_number"
+                            android:layout_width="65dip"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/customui_keyboard_keyboard_number"
+                            android:text="数字"
+                            android:textColor="#FFFFFFFF"
+                            android:textSize="18sp" />
+
+                        <Button
+                            android:id="@+id/btn_character"
+                            android:layout_width="65dip"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/customui_keyboard_key_btn_normal"
+                            android:text="字母"
+                            android:textColor="#FF000000"
+                            android:textSize="18sp" />
+
+                        <Button
+                            android:id="@+id/btn_symbol"
+                            android:layout_width="65dip"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/customui_keyboard_key_btn_normal"
+                            android:text="符号"
+                            android:textColor="#FF000000"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btn_keyboard_ok"
+                        android:layout_width="66dip"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/customui_keyboard_enterbtnbg"
+                        android:text="确定"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ViewFlipper>
+
+</ScrollView>

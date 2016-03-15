@@ -1,0 +1,363 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlframe"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="10dip"
+    android:paddingTop="15dip" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="41dip"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip" >
+
+        <Button
+            android:id="@+id/btn_character17"
+            android:layout_width="33dip"
+            android:layout_height="39dip"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="17"
+            android:text="Q"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_character23"
+            android:layout_width="33dip"
+            android:layout_height="39dip"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="23"
+            android:text="W"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_character5"
+            android:layout_width="33dip"
+            android:layout_height="39dip"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="5"
+            android:text="E"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_character18"
+            android:layout_width="33dip"
+            android:layout_height="39dip"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="18"
+            android:text="R"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_character20"
+            android:layout_width="33dip"
+            android:layout_height="39dip"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="20"
+            android:text="T"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_character25"
+            android:layout_width="33dip"
+            android:layout_height="39dip"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="25"
+            android:text="Y"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_character21"
+            android:layout_width="33dip"
+            android:layout_height="39dip"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="21"
+            android:text="U"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_character9"
+            android:layout_width="33dip"
+            android:layout_height="39dip"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="9"
+            android:text="I"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_character16"
+            android:layout_width="33dip"
+            android:layout_height="39dip"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="16"
+            android:text="O"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_character15"
+            android:layout_width="33dip"
+            android:layout_height="39dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="15"
+            android:text="P"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="41dip"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip" >
+
+        <Button
+            android:id="@+id/btn_character1"
+            android:layout_width="28dip"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="1"
+            android:text="A"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_character19"
+            android:layout_width="28dip"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="19"
+            android:text="S"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_character4"
+            android:layout_width="28dip"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="4"
+            android:text="D"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_character6"
+            android:layout_width="28dip"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="6"
+            android:text="F"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_character7"
+            android:layout_width="28dip"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="7"
+            android:text="G"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_character8"
+            android:layout_width="28dip"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="8"
+            android:text="H"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_character10"
+            android:layout_width="28dip"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="10"
+            android:text="J"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_character11"
+            android:layout_width="28dip"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="11"
+            android:text="K"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_character12"
+            android:layout_width="28dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="12"
+            android:text="L"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="41dip"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip" >
+
+        <Button
+            android:id="@+id/btn_shift"
+            android:layout_width="42dip"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_shift_btn_touch"
+            android:textColor="#FF000000" />
+
+        <Button
+            android:id="@+id/btn_character26"
+            android:layout_width="28dip"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:text="Z"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_character24"
+            android:layout_width="28dip"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="24"
+            android:text="X"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_character3"
+            android:layout_width="28dip"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="3"
+            android:text="C"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_character22"
+            android:layout_width="28dip"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="22"
+            android:text="V"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_character2"
+            android:layout_width="28dip"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="2"
+            android:text="B"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_character14"
+            android:layout_width="28dip"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="14"
+            android:text="N"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_character13"
+            android:layout_width="28dip"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_wordbtnbg"
+            android:tag="13"
+            android:text="M"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_clear"
+            android:layout_width="42dip"
+            android:layout_height="fill_parent"
+            android:background="@drawable/customui_keyboard_delbtnbg"
+            android:text="清除"
+            android:textColor="#FFFF0000"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</LinearLayout>

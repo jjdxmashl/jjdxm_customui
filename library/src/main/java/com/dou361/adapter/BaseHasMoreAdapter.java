@@ -24,7 +24,9 @@ import java.util.List;
  * <p>
  * 创建日期：2015/12/21 16:19
  * <p>
- * 描 述： ListView的适配器包括加载更多的，如果不需要加载更多需要重新hasMore()
+ * 描 述： ListView或者GridView的适配器，采用holder的形式分类和简化代码，
+ * 便于代码阅读包括加载更多的，
+ * 如果不需要加载更多需要重新hasMore()
  * <p>
  * <p>
  * 修订历史：

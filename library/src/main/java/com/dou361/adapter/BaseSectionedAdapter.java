@@ -8,12 +8,30 @@ import android.widget.BaseAdapter;
 import com.dou361.ui.PinnedHeaderListView.PinnedSectionedHeaderAdapter;
 
 /**
- * @author jjdxm 2015-9-17 上午11:57:51 说明 分组Listview适配器
- *         如果需要添加头部，一定要在Adapter中重写方法
+ * ========================================
+ * <p>
+ * 版 权：dou361.com 版权所有 （C） 2015
+ * <p>
+ * 作 者：陈冠明
+ * <p>
+ * 个人网站：http://www.dou361.com
+ * <p>
+ * 版 本：1.0
+ * <p>
+ * 创建日期：2016/3/15 21:25
+ * <p>
+ * 描 述：分组Listview适配器，结合PinnedHeaderListView使用
+ * 如果需要添加头部，一定要在Adapter中重写方法
+ *
  * @Override public boolean hasHeaderType() {
  * return true;
  * }
  * 默认是false的
+ * <p>
+ * <p>
+ * 修订历史：
+ * <p>
+ * ========================================
  */
 public abstract class BaseSectionedAdapter extends BaseAdapter implements PinnedSectionedHeaderAdapter {
 

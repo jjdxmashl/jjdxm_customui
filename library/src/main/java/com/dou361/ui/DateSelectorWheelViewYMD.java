@@ -27,7 +27,7 @@ import java.util.Date;
  */
 public class DateSelectorWheelViewYMD extends RelativeLayout implements
         OnWheelChangedListener {
-    private final String flag = "PfpsDateWheelView";
+    private final String flag = this.getClass().getSimpleName();
     private RelativeLayout rlTitle;
     private LinearLayout llWheelViews;
     private TextView tvSubTitle;

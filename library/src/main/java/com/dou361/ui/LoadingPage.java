@@ -12,8 +12,38 @@ import com.dou361.pool.ThreadManagerCUI;
 import com.dou361.utils.ResourceUtils;
 
 /**
- * created by jjdxm on 2015-2-24 下午1:06:04 说明 请求网络时显示的页面
- **/
+ * ========================================
+ * <p>
+ * 版 权：dou361.com 版权所有 （C） 2015
+ * <p>
+ * 作 者：陈冠明
+ * <p>
+ * 个人网站：http://www.dou361.com
+ * <p>
+ * 版 本：1.0
+ * <p>
+ * 创建日期：2016/3/15 21:53
+ * <p>
+ * 描 述：请求网络时显示的页面，总共有四种状态，加载中，加载失败，没有数据，有数据
+ * 使用：
+ * mLoadingPage = new LoadingPage(mContext) {
+ *
+ * @Override public View createSuccessView() {
+ * return CategoryActivity.this.createSuccessView();
+ * }
+ * @Override public LoadResult load() {
+ * return CategoryActivity.this.load();
+ * }
+ * };
+ * ll_content.addView(mLoadingPage, new ViewGroup.LayoutParams(
+ * ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+ * mLoadingPage.show();
+ * <p>
+ * <p>
+ * 修订历史：
+ * <p>
+ * ========================================
+ */
 public abstract class LoadingPage extends FrameLayout {
 
     /**

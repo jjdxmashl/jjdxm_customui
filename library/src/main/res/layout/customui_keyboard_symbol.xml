@@ -1,0 +1,165 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlframe"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="10dip"
+    android:paddingTop="15dip" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="41dip"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip" >
+
+        <Button
+            android:id="@+id/btn_symbol1"
+            android:layout_width="66dip"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_keybtnbg"
+            android:text=" ! "
+            android:textColor="#FF000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_symbol2"
+            android:layout_width="66dip"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_keybtnbg"
+            android:text=" @"
+            android:textColor="#FF000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_symbol3"
+            android:layout_width="66dip"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_keybtnbg"
+            android:text="# "
+            android:textColor="#FF000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_symbol4"
+            android:layout_width="66dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_keybtnbg"
+            android:text="%"
+            android:textColor="#FF000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="41dip"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip" >
+
+        <Button
+            android:id="@+id/btn_symbol5"
+            android:layout_width="66dip"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_keybtnbg"
+            android:text="^"
+            android:textColor="#FF000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_symbol6"
+            android:layout_width="66dip"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_keybtnbg"
+            android:text="&amp;"
+            android:textColor="#FF000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_symbol7"
+            android:layout_width="66dip"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_keybtnbg"
+            android:text="*"
+            android:textColor="#FF000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_symbol8"
+            android:layout_width="66dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_keybtnbg"
+            android:text="( "
+            android:textColor="#FF000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="41dip"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip" >
+
+        <Button
+            android:id="@+id/btn_symbol9"
+            android:layout_width="66dip"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_keybtnbg"
+            android:text=" )"
+            android:textColor="#FF000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_symbol10"
+            android:layout_width="66dip"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_keybtnbg"
+            android:text=" ?"
+            android:textColor="#FF000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_clear"
+            android:layout_width="144dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/customui_keyboard_dellongbtnbg"
+            android:text="清除"
+            android:textColor="#FFFF0000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

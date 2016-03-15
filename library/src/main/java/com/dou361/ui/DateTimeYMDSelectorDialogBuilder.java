@@ -12,8 +12,24 @@ import android.widget.RelativeLayout;
 import com.dou361.utils.ResourceUtils;
 
 /**
- * 项目名称: QYH 类名称: DateTimeSelectorDialogBuilder 创建人: xhl 创建时间: 2014-12-24
- * 下午2:15:14 版本: v1.0 类描述: 选择生日日期的Dialog
+ * ========================================
+ * <p/>
+ * 版 权：dou361.com 版权所有 （C） 2015
+ * <p/>
+ * 作 者：陈冠明
+ * <p/>
+ * 个人网站：http://www.dou361.com
+ * <p/>
+ * 版 本：1.0
+ * <p/>
+ * 创建日期：2016/3/15 21:29
+ * <p/>
+ * 描 述：
+ * <p/>
+ * <p/>
+ * 修订历史：
+ * <p/>
+ * ========================================
  */
 public class DateTimeYMDSelectorDialogBuilder extends NiftyDialogBuilder implements
         View.OnClickListener {

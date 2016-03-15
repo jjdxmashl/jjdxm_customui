@@ -8,8 +8,25 @@ import android.widget.FrameLayout;
 import com.dou361.utils.ResourceUtils;
 
 /**
- * created by jjdxm on 2015-2-24 下午1:05:31 说明 图片按照比例缩放显示
- **/
+ * ========================================
+ * <p>
+ * 版 权：dou361.com 版权所有 （C） 2015
+ * <p>
+ * 作 者：陈冠明
+ * <p>
+ * 个人网站：http://www.dou361.com
+ * <p>
+ * 版 本：1.0
+ * <p>
+ * 创建日期：2016/3/15 22:02
+ * <p>
+ * 描 述：按比例拉伸的布局，相对应线性布局，比例为宽：高
+ * <p>
+ * <p>
+ * 修订历史：
+ * <p>
+ * ========================================
+ */
 public class RatioLayout extends FrameLayout {
     // 宽和高的比例
     private float ratio = 0.0f;

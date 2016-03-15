@@ -4,59 +4,65 @@ import java.io.Serializable;
 
 /**
  * ========================================
- * <p/>
- * 版 权：深圳市晶网电子科技有限公司 版权所有 （C） 2015
- * <p/>
+ * <p>
+ * 版 权：dou361.com 版权所有 （C） 2015
+ * <p>
  * 作 者：陈冠明
- * <p/>
+ * <p>
  * 个人网站：http://www.dou361.com
- * <p/>
+ * <p>
  * 版 本：1.0
- * <p/>
- * 创建日期：2015/11/11
- * <p/>
+ * <p>
+ * 创建日期：2016/3/15 21:29
+ * <p>
  * 描 述：下拉列表的Bean对象，条目名称和其对于的索引或者编码
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * 修订历史：
- * <p/>
+ * <p>
  * ========================================
  */
 public class Popu implements Serializable {
 
-	/**
-	 * 序列化id
-	 */
-	private static final long serialVersionUID = -6482229637703795368L;
-	/** 下拉条目id */
-	int id;
-	/** 下拉条目sid */
-	String sid;
-	/** 下拉条目标题 */
-	String title;
+    /**
+     * 序列化id
+     */
+    private static final long serialVersionUID = -6482229637703795368L;
+    /**
+     * 下拉条目id
+     */
+    int id;
+    /**
+     * 下拉条目sid
+     */
+    String sid;
+    /**
+     * 下拉条目标题
+     */
+    String title;
 
-	public int getId() {
-		return id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public String getSid() {
-		return sid;
-	}
+    public String getSid() {
+        return sid;
+    }
 
-	public void setSid(String sid) {
-		this.sid = sid;
-	}
+    public void setSid(String sid) {
+        this.sid = sid;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
 }
