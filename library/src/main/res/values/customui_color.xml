@@ -26,4 +26,5 @@
     <color name="bgColor_alert_button_press">#EAEAEA</color>
     <!--actionsheet模式的取消按钮背景颜色-->
     <color name="bgColor_actionsheet_cancel_nor">#ffffff</color>
+    <color name="datepick_surance_blue">#3598da</color>
 </resources>
