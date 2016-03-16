@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.dou361.demotest001.activity.DatePickActivity;
+import com.dou361.demotest001.activity.PhotoActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -122,6 +123,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_roundimageview:
                 break;
             case R.id.btn_selectpicpopupwindow:
+                startActivity(PhotoActivity.class);
                 break;
             case R.id.btn_stickedittext:
                 break;

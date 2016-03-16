@@ -2,7 +2,9 @@ package com.dou361.utils;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
@@ -19,6 +21,7 @@ import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -29,22 +32,22 @@ import java.util.Date;
 
 /**
  * ========================================
- * <p/>
+ * <p>
  * 版 权：dou361.com 版权所有 （C） 2015
- * <p/>
+ * <p>
  * 作 者：陈冠明
- * <p/>
+ * <p>
  * 个人网站：http://www.dou361.com
- * <p/>
+ * <p>
  * 版 本：1.0
- * <p/>
+ * <p>
  * 创建日期：2016/3/15 23:31
- * <p/>
+ * <p>
  * 描 述：图片选择
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * 修订历史：
- * <p/>
+ * <p>
  * ========================================
  */
 public class PhotoUtils {
@@ -83,9 +86,6 @@ public class PhotoUtils {
             if (activity != null) {
                 activity.startActivityForResult(takePictureIntent,
                         TAKEPHOTO);
-            } else {
-                activity.startActivityForResult(takePictureIntent,
-                        TAKEPHOTO);
             }
         }
         return numCameras;
@@ -101,9 +101,6 @@ public class PhotoUtils {
         innerIntent.setType("image/*");
         Intent wrapperIntent = Intent.createChooser(innerIntent, null);
         if (activity != null) {
-            activity.startActivityForResult(wrapperIntent,
-                    SELECTPHOTO);
-        } else {
             activity.startActivityForResult(wrapperIntent,
                     SELECTPHOTO);
         }
@@ -147,8 +144,6 @@ public class PhotoUtils {
         intent.putExtra("scaleUpIfNeeded", true);
         if (activity != null) {
             activity.startActivityForResult(intent, requestCode);
-        } else {
-            activity.startActivityForResult(intent, requestCode);
         }
     }
 
@@ -159,6 +154,7 @@ public class PhotoUtils {
      * @param isFromCamera 是否是拍照的，true拍照，false选择相册
      */
     public static String saveImage(Intent data, String strIconPath, boolean isFromCamera, int degree) {
+        Log.e("","------saveImage-----strIconPath----------"+strIconPath);
         Bundle extras = data.getExtras();
         String strCutPath = "";
         if (extras != null) {
@@ -458,6 +454,49 @@ public class PhotoUtils {
         canvas.drawBitmap(bitmap, src, dst, paint); // 以Mode.SRC_IN模式合并bitmap和已经draw了的Circle
 
         return output;
+    }
+
+
+    public static String getImagePathFromUri(Uri fileUrl, Context context)
+    {
+        String fileName = null;
+        Uri filePathUri = fileUrl;
+        if (fileUrl != null)
+        {
+            if (fileUrl.getScheme().toString().compareTo("content") == 0)
+            {
+                // content://开头的uri
+                Cursor cursor = context.getContentResolver().query(fileUrl, null, null, null, null);
+                if (cursor != null && cursor.moveToFirst())
+                {
+                    int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+                    fileName = cursor.getString(column_index); // 取出文件路径
+
+                    // Android 4.1 更改了SD的目录，sdcard映射到/storage/sdcard0
+                    if (!fileName.startsWith("/storage") && !fileName.startsWith("/mnt"))
+                    {
+                        // 检查是否有”/mnt“前缀
+                        fileName = "/mnt" + fileName;
+                    }
+                    cursor.close();
+                }
+            }
+            else if (fileUrl.getScheme().compareTo("file") == 0) // file:///开头的uri
+            {
+                fileName = filePathUri.toString();// 替换file://
+                fileName = filePathUri.toString().replace("file://", "");
+                int index = fileName.indexOf("/sdcard");
+                fileName  = index == -1 ? fileName : fileName.substring(index);
+
+
+                if (!fileName.startsWith("/mnt"))
+                {
+                    // 加上"/mnt"头
+                    fileName = "/mnt"+fileName;
+                }
+            }
+        }
+        return fileName;
     }
 
 }
