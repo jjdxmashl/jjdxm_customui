@@ -20,22 +20,22 @@ import java.util.Date;
 
 /**
  * ========================================
- * <p/>
+ * <p>
  * 版 权：dou361.com 版权所有 （C） 2015
- * <p/>
+ * <p>
  * 作 者：陈冠明
- * <p/>
+ * <p>
  * 个人网站：http://www.dou361.com
- * <p/>
+ * <p>
  * 版 本：1.0
- * <p/>
+ * <p>
  * 创建日期：2016/3/16 10:39
- * <p/>
+ * <p>
  * 描 述：
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * 修订历史：
- * <p/>
+ * <p>
  * ========================================
  */
 public class DateSelectorWheelView extends RelativeLayout implements
@@ -99,6 +99,9 @@ public class DateSelectorWheelView extends RelativeLayout implements
     private StrericWheelAdapter minutesAdapter;
     private StrericWheelAdapter secondsAdapter;
     private int currentDateType;
+    private int todayHour;
+    private int todayMinute;
+    private int todaySecond;
 
     public DateSelectorWheelView(Context context, AttributeSet attrs,
                                  int defStyleAttr) {
@@ -250,13 +253,13 @@ public class DateSelectorWheelView extends RelativeLayout implements
         wvDay.setCyclic(true);
 
         wvHour.setAdapter(hoursAdapter);
-        wvHour.setCurrentItem(getTodayMonth());
+        wvHour.setCurrentItem(getTodayHour());
         wvHour.setCyclic(true);
         wvMinute.setAdapter(minutesAdapter);
-        wvMinute.setCurrentItem(getTodayMonth());
+        wvMinute.setCurrentItem(getTodayMinute());
         wvMinute.setCyclic(true);
         wvSecond.setAdapter(secondsAdapter);
-        wvSecond.setCurrentItem(getTodayMonth());
+        wvSecond.setCurrentItem(getTodaySecond());
         wvSecond.setCyclic(true);
     }
 
@@ -343,65 +346,6 @@ public class DateSelectorWheelView extends RelativeLayout implements
                 wvSecond.setStyle(14, 2);
                 break;
         }
-    }
-
-    /**
-     * 获取当前日期的天数的日子
-     *
-     * @return
-     */
-    private int getTodayDay() {
-        // 2015年12月01日
-        int position = 0;
-        String today = getToday();
-        String day = today.substring(8, 10);
-        day = day + " 日";
-        for (int i = 0; i < bigDays.length; i++) {
-            if (day.equals(bigDays[i])) {
-                position = i;
-                break;
-            }
-        }
-        return position;
-    }
-
-    /**
-     * 获取当前日期的月数的位置
-     *
-     * @return
-     */
-    private int getTodayMonth() {
-        // 2015年12月01日
-        int position = 0;
-        String today = getToday();
-        String month = today.substring(5, 7);
-        month = month + " 月";
-        for (int i = 0; i < months.length; i++) {
-            if (month.equals(months[i])) {
-                position = i;
-                break;
-            }
-        }
-        return position;
-    }
-
-    /**
-     * 获取当天的年份
-     *
-     * @return
-     */
-    private int getTodayYear() {
-        int position = 0;
-        String today = getToday();
-        String year = today.substring(0, 4);
-        year = year + " 年";
-        for (int i = 0; i < years.length; i++) {
-            if (year.equals(years[i])) {
-                position = i;
-                break;
-            }
-        }
-        return position;
     }
 
     /**
@@ -618,6 +562,13 @@ public class DateSelectorWheelView extends RelativeLayout implements
 
     }
 
+    public int getTitleId() {
+        if (rlTitle != null) {
+            return rlTitle.getId();
+        }
+        return 0;
+    }
+
     /**
      * 获取今天的日期
      *
@@ -625,16 +576,110 @@ public class DateSelectorWheelView extends RelativeLayout implements
      */
     @SuppressLint("SimpleDateFormat")
     private String getToday() {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy年MM月dd日");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
         Date curDate = new Date(System.currentTimeMillis());// 获取当前时间
         String str = formatter.format(curDate);
         return str;
     }
 
-    public int getTitleId() {
-        if (rlTitle != null) {
-            return rlTitle.getId();
+    /**
+     * 获取当天的年份
+     *
+     * @return
+     */
+    private int getTodayYear() {
+        int position = 0;
+        String today = getToday();
+        String year = today.substring(0, 4);
+        year = year + " 年";
+        for (int i = 0; i < years.length; i++) {
+            if (year.equals(years[i])) {
+                position = i;
+                break;
+            }
         }
-        return 0;
+        return position;
+    }
+
+    /**
+     * 获取当前日期的月数的位置
+     *
+     * @return
+     */
+    private int getTodayMonth() {
+        // 2015年12月01日
+        int position = 0;
+        String today = getToday();
+        String month = today.substring(5, 7);
+        month = month + " 月";
+        for (int i = 0; i < months.length; i++) {
+            if (month.equals(months[i])) {
+                position = i;
+                break;
+            }
+        }
+        return position;
+    }
+
+    /**
+     * 获取当前日期的天数的日子
+     *
+     * @return
+     */
+    private int getTodayDay() {
+        // 2015年12月01日
+        int position = 0;
+        String today = getToday();
+        String day = today.substring(8, 10);
+        day = day + " 日";
+        for (int i = 0; i < bigDays.length; i++) {
+            if (day.equals(bigDays[i])) {
+                position = i;
+                break;
+            }
+        }
+        return position;
+    }
+
+    public int getTodayHour() {
+        int position = 0;
+        String today = getToday();
+        String hour = today.substring(12, 14);
+        hour = hour + " 时";
+        for (int i = 0; i < hours.length; i++) {
+            if (hour.equals(hours[i])) {
+                position = i;
+                break;
+            }
+        }
+        return position;
+    }
+
+    public int getTodayMinute() {
+        int position = 0;
+        String today = getToday();
+        String minute = today.substring(15, 17);
+        minute = minute + " 分";
+        for (int i = 0; i < minutes.length; i++) {
+            if (minute.equals(minutes[i])) {
+                position = i;
+                break;
+            }
+        }
+        return position;
+    }
+
+    public int getTodaySecond() {
+        int position = 0;
+        String today = getToday();
+        String second = today.substring(18, 20);
+        second = second + " 秒";
+        for (int i = 0; i < seconds.length; i++) {
+            if (second.equals(seconds[i])) {
+                position = i;
+                break;
+            }
+        }
+        return position;
     }
 }

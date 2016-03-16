@@ -487,13 +487,6 @@ public class PhotoUtils {
                 fileName = filePathUri.toString().replace("file://", "");
                 int index = fileName.indexOf("/sdcard");
                 fileName  = index == -1 ? fileName : fileName.substring(index);
-
-
-                if (!fileName.startsWith("/mnt"))
-                {
-                    // 加上"/mnt"头
-                    fileName = "/mnt"+fileName;
-                }
             }
         }
         return fileName;

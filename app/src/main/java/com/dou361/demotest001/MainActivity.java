@@ -8,7 +8,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.dou361.demotest001.activity.DatePickActivity;
+import com.dou361.demotest001.activity.KeyBoardActivity;
 import com.dou361.demotest001.activity.PhotoActivity;
+import com.dou361.demotest001.activity.StickEditTextActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -90,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_childviewpager:
                 break;
             case R.id.btn_customkeyboard:
+                startActivity(KeyBoardActivity.class);
                 break;
             case R.id.btn_datetimeymdselectordialogbuilder:
                 startActivity(DatePickActivity.class);
@@ -126,6 +129,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(PhotoActivity.class);
                 break;
             case R.id.btn_stickedittext:
+                startActivity(StickEditTextActivity.class);
                 break;
         }
     }

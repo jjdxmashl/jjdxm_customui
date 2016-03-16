@@ -5,8 +5,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
+import android.text.InputType;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
@@ -308,7 +310,7 @@ public class CustomKeyBoard extends View implements OnClickListener {
 
             et_password.setText("");
 
-        } else if (v.getId() == btn_shift.getId()) {
+        } else if (btn_shift!=null&&v.getId() == btn_shift.getId()) {
             if (isCapital == true) {
                 isCapital = false;
             } else {
@@ -339,4 +341,50 @@ public class CustomKeyBoard extends View implements OnClickListener {
         }
     }
 
+
+    public boolean onTouch(View v, MotionEvent event) {
+        final View v0 = ((Activity)mContext).getWindow().peekDecorView();
+        if (v0 != null && v0.getWindowToken() != null) {
+            InputMethodManager imm = (InputMethodManager) mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(v0.getWindowToken(), 0);
+        }
+        ((Activity)mContext).getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+        if (event.getAction() == MotionEvent.ACTION_UP) {
+
+            v.setFocusableInTouchMode(true);
+            v.setFocusable(true);
+            v.requestFocus();
+
+            if (popup == null
+                    || popup.isShowing() == false
+                    || isShowing == false) {
+
+                clearViews();
+
+                isCapital = false;
+                isShowing = true;
+
+                if(v instanceof EditText ){
+                    EditText et = (EditText)v;
+                    int oldType = et.getInputType();
+                    /** 拦截系统输入法 */
+                    et.setInputType(InputType.TYPE_NULL);
+                    showKeyboard(et);
+                    v.onTouchEvent(event);
+                    /** 重新设置焦点 */
+                    et.setInputType(oldType);
+                    String str = et.getText().toString();
+                    et.setSelection(str.length());
+                }
+
+
+                return true;
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
 }

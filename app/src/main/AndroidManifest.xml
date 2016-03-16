@@ -21,6 +21,8 @@
         </activity>
         <activity android:name=".activity.DatePickActivity"/>
         <activity android:name=".activity.PhotoActivity"/>
+        <activity android:name=".activity.KeyBoardActivity"/>
+        <activity android:name=".activity.StickEditTextActivity"/>
 
     </application>
 
