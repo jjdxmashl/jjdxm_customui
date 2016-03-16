@@ -1,41 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout android:id="@+id/main"
+              xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              android:paddingBottom="@dimen/activity_vertical_margin"
-              android:paddingLeft="@dimen/activity_horizontal_margin"
-              android:id="@+id/main"
-              android:paddingRight="@dimen/activity_horizontal_margin"
-              android:paddingTop="@dimen/activity_vertical_margin"
               tools:context="com.dou361.demotest001.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"/>
-
-    <com.dou361.ui.RoundImageView
-        android:id="@+id/mine_riv_icon"
-        xmlns:dou361="http://schemas.android.com/apk/res-auto"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_centerInParent="true"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ic_launcher"
-        dou361:backgroundTint="#ff0000"
-        dou361:border_thickness="2dp"
-        />
-
-    <EditText
-        android:id="@+id/et_keyboard"
+    <com.dou361.ui.PullToRefreshView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="选择图片"/>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_alertview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="AlertView 弹出提示框"/>
+
+                <Button
+                    android:id="@+id/btn_childviewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ChildViewPager 嵌套viewpager使用"/>
+
+                <Button
+                    android:id="@+id/btn_customkeyboard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CustomKeyBoard 自定义软键盘"/>
+
+                <Button
+                    android:id="@+id/btn_datetimeymdselectordialogbuilder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="DateTimeYMDSelectorDialogBuilder 日期选择器"/>
+
+                <Button
+                    android:id="@+id/btn_horizontallistview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="HorizontalListView 横向列表"/>
+
+                <Button
+                    android:id="@+id/btn_indicatorview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="IndicatorView 导航点"/>
+
+                <Button
+                    android:id="@+id/btn_loadingpage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="LoadingPage 网络加载不同状态view"/>
+
+                <Button
+                    android:id="@+id/btn_loadingtiedialog"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="LoadingTieDialog 加载进度框"/>
+
+                <Button
+                    android:id="@+id/btn_mydialog"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MyDialog 自定义对话框"/>
+
+                <Button
+                    android:id="@+id/btn_mygridview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MyGridView 自定义列表适合scrollview嵌套"/>
+
+                <Button
+                    android:id="@+id/btn_mylistview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MyListView 自定义列表适合scrollview嵌套"/>
+
+                <Button
+                    android:id="@+id/btn_pagertab"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PagerTab 分页Tab"/>
+
+                <Button
+                    android:id="@+id/btn_pinnedheaderlistview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PinnedHeaderListView 分组列表"/>
+
+                <Button
+                    android:id="@+id/btn_popuwindowview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PopuWindowView 下拉列表"/>
+
+                <Button
+                    android:id="@+id/btn_pulldoorview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PullDoorView 推送门"/>
+
+                <Button
+                    android:id="@+id/btn_pulltorefreshview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PullToRefreshView 上下拉布局"/>
+
+                <Button
+                    android:id="@+id/btn_ratiolayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RatioLayout 按比例伸缩布局"/>
+
+                <Button
+                    android:id="@+id/btn_roundimageview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RoundImageView 人脸定位显示图片"/>
+
+                <Button
+                    android:id="@+id/btn_selectpicpopupwindow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SelectPicPopupWindow 选择图片"/>
+
+                <Button
+                    android:id="@+id/btn_stickedittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="StickEditText 输入编辑框"/>
+
+            </LinearLayout>
+        </ScrollView>
+    </com.dou361.ui.PullToRefreshView>
 </LinearLayout>

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -18,14 +19,26 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * 项目名称:  DateSelector
- * 类名称:   DateSelectorWheelView
- * 创建人:    xhl
- * 创建时间:  2015-1-14 下午5:07:34
- * 版本:      v1.0
- * 类描述:
+ * ========================================
+ * <p/>
+ * 版 权：dou361.com 版权所有 （C） 2015
+ * <p/>
+ * 作 者：陈冠明
+ * <p/>
+ * 个人网站：http://www.dou361.com
+ * <p/>
+ * 版 本：1.0
+ * <p/>
+ * 创建日期：2016/3/16 10:39
+ * <p/>
+ * 描 述：
+ * <p/>
+ * <p/>
+ * 修订历史：
+ * <p/>
+ * ========================================
  */
-public class DateSelectorWheelViewYMD extends RelativeLayout implements
+public class DateSelectorWheelView extends RelativeLayout implements
         OnWheelChangedListener {
     private final String flag = this.getClass().getSimpleName();
     private RelativeLayout rlTitle;
@@ -34,15 +47,47 @@ public class DateSelectorWheelViewYMD extends RelativeLayout implements
     private TextView tvYear;
     private TextView tvMonth;
     private TextView tvDay;
+    private TextView tvHour;
+    private TextView tvMinute;
+    private TextView tvSecond;
+    private View line0;
+    private TextView tv_empty;
+    private TextView tv_line1;
+    private TextView tv_line2;
     private WheelView wvYear;
     private WheelView wvMonth;
     private WheelView wvDay;
-    private String[] years = new String[100];
+    private WheelView wvHour;
+    private WheelView wvMinute;
+    private WheelView wvSecond;
+    /**
+     * 显示年份数
+     */
+    private String[] years = new String[141];
+    /**
+     * 显示月份数
+     */
     private String[] months = new String[12];
+    /**
+     * 显示日数
+     */
     private String[] tinyDays = new String[28];
     private String[] smallDays = new String[29];
     private String[] normalDays = new String[30];
     private String[] bigDays = new String[31];
+    /**
+     * 显示时数
+     */
+    private String[] hours = new String[24];
+    /**
+     * 显示分数
+     */
+    private String[] minutes = new String[60];
+    /**
+     * 显示秒数
+     */
+    private String[] seconds = new String[60];
+
     private StrericWheelAdapter yearsAdapter;
     private StrericWheelAdapter monthsAdapter;
     private StrericWheelAdapter tinyDaysAdapter;
@@ -50,18 +95,23 @@ public class DateSelectorWheelViewYMD extends RelativeLayout implements
     private StrericWheelAdapter bigDaysAdapter;
     private StrericWheelAdapter normalDaysAdapter;
 
-    public DateSelectorWheelViewYMD(Context context, AttributeSet attrs,
-                                    int defStyleAttr) {
+    private StrericWheelAdapter hoursAdapter;
+    private StrericWheelAdapter minutesAdapter;
+    private StrericWheelAdapter secondsAdapter;
+    private int currentDateType;
+
+    public DateSelectorWheelView(Context context, AttributeSet attrs,
+                                 int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initLayout(context);
     }
 
-    public DateSelectorWheelViewYMD(Context context, AttributeSet attrs) {
+    public DateSelectorWheelView(Context context, AttributeSet attrs) {
         super(context, attrs);
         initLayout(context);
     }
 
-    public DateSelectorWheelViewYMD(Context context) {
+    public DateSelectorWheelView(Context context) {
         super(context);
         initLayout(context);
     }
@@ -74,20 +124,38 @@ public class DateSelectorWheelViewYMD extends RelativeLayout implements
         tvSubTitle = (TextView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_date_time_subtitle"));
         tvYear = (TextView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_date_time_year"));
         tvMonth = (TextView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_date_time_month"));
+        tvHour = (TextView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_date_time_hour"));
+        tvMinute = (TextView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_date_time_minute"));
+        tvSecond = (TextView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_date_time_second"));
+        line0 = findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_date_time_line0"));
+        tv_empty = (TextView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_date_time_empty"));
+        tv_line1 = (TextView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_date_time_line1"));
+        tv_line2 = (TextView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_date_time_line2"));
+
         tvDay = (TextView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_date_time_day"));
         wvYear = (WheelView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "wv_date_of_year"));
         wvMonth = (WheelView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "wv_date_of_month"));
         wvDay = (WheelView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "wv_date_of_day"));
+        wvHour = (WheelView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "wv_date_of_hour"));
+        wvMinute = (WheelView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "wv_date_of_minute"));
+        wvSecond = (WheelView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "wv_date_of_second"));
         wvYear.addChangingListener(this);
         wvMonth.addChangingListener(this);
         wvDay.addChangingListener(this);
+
+        wvHour.addChangingListener(this);
+        wvMinute.addChangingListener(this);
+        wvSecond.addChangingListener(this);
         setData();
+        setShowDateType(DateTimeSelectorDialogBuilder.TYPE_YYYYMMDD);
     }
 
     private void setData() {
+        /** 年初始化 */
         for (int i = 0; i < years.length; i++) {
             years[i] = 1960 + i + " 年";
         }
+        /** 月初始化 */
         for (int i = 0; i < months.length; i++) {
             if (i < 9) {
                 months[i] = "0" + (1 + i) + " 月";
@@ -95,6 +163,7 @@ public class DateSelectorWheelViewYMD extends RelativeLayout implements
                 months[i] = (1 + i) + " 月";
             }
         }
+        /** 日初始化 */
         for (int i = 0; i < tinyDays.length; i++) {
             if (i < 9) {
                 tinyDays[i] = "0" + (1 + i) + " 日";
@@ -123,12 +192,43 @@ public class DateSelectorWheelViewYMD extends RelativeLayout implements
                 bigDays[i] = (1 + i) + " 日";
             }
         }
+        /** 时初始化 */
+        for (int i = 0; i < hours.length; i++) {
+            if (i <= 9) {
+                hours[i] = "0" + i + " 时";
+            } else {
+                hours[i] = i + " 时";
+            }
+        }
+        /** 分初始化 */
+        for (int i = 0; i < minutes.length; i++) {
+            if (i <= 9) {
+                minutes[i] = "0" + i + " 分";
+            } else {
+                minutes[i] = i + " 分";
+            }
+        }
+        /** 秒初始化 */
+        for (int i = 0; i < seconds.length; i++) {
+            if (i <= 9) {
+                seconds[i] = "0" + i + " 秒";
+            } else {
+                seconds[i] = i + " 秒";
+            }
+        }
+
+
         yearsAdapter = new StrericWheelAdapter(years);
         monthsAdapter = new StrericWheelAdapter(months);
         tinyDaysAdapter = new StrericWheelAdapter(tinyDays);
         smallDaysAdapter = new StrericWheelAdapter(smallDays);
         normalDaysAdapter = new StrericWheelAdapter(normalDays);
         bigDaysAdapter = new StrericWheelAdapter(bigDays);
+
+        hoursAdapter = new StrericWheelAdapter(hours);
+        minutesAdapter = new StrericWheelAdapter(minutes);
+        secondsAdapter = new StrericWheelAdapter(seconds);
+
         wvYear.setAdapter(yearsAdapter);
         wvYear.setCurrentItem(getTodayYear());
         wvYear.setCyclic(true);
@@ -148,6 +248,101 @@ public class DateSelectorWheelViewYMD extends RelativeLayout implements
         }
         wvDay.setCurrentItem(getTodayDay());
         wvDay.setCyclic(true);
+
+        wvHour.setAdapter(hoursAdapter);
+        wvHour.setCurrentItem(getTodayMonth());
+        wvHour.setCyclic(true);
+        wvMinute.setAdapter(minutesAdapter);
+        wvMinute.setCurrentItem(getTodayMonth());
+        wvMinute.setCyclic(true);
+        wvSecond.setAdapter(secondsAdapter);
+        wvSecond.setCurrentItem(getTodayMonth());
+        wvSecond.setCyclic(true);
+    }
+
+    /**
+     * 设置显示的样式
+     */
+    public void setShowDateType(int type) {
+        currentDateType = type;
+        switch (type) {
+            case DateTimeSelectorDialogBuilder.TYPE_YYYYMM:
+                line0.setVisibility(View.GONE);
+                tvDay.setVisibility(View.GONE);
+                tv_empty.setVisibility(View.GONE);
+                tv_line1.setVisibility(View.GONE);
+                tv_line2.setVisibility(View.GONE);
+                tvHour.setVisibility(View.GONE);
+                tvMinute.setVisibility(View.GONE);
+                tvSecond.setVisibility(View.GONE);
+                wvHour.setVisibility(View.GONE);
+                wvMinute.setVisibility(View.GONE);
+                wvSecond.setVisibility(View.GONE);
+                wvYear.setStyle(18, 4);
+                wvMonth.setStyle(18, 4);
+                wvDay.setStyle(18, 4);
+                wvHour.setStyle(18, 4);
+                wvMinute.setStyle(18, 4);
+                wvSecond.setStyle(18, 4);
+                break;
+            case DateTimeSelectorDialogBuilder.TYPE_YYYYMMDD:
+                line0.setVisibility(View.VISIBLE);
+                tvDay.setVisibility(View.VISIBLE);
+                tv_empty.setVisibility(View.GONE);
+                tv_line1.setVisibility(View.GONE);
+                tv_line2.setVisibility(View.GONE);
+                tvHour.setVisibility(View.GONE);
+                tvMinute.setVisibility(View.GONE);
+                tvSecond.setVisibility(View.GONE);
+                wvHour.setVisibility(View.GONE);
+                wvMinute.setVisibility(View.GONE);
+                wvSecond.setVisibility(View.GONE);
+                wvYear.setStyle(14, 2);
+                wvMonth.setStyle(14, 2);
+                wvDay.setStyle(14, 2);
+                wvHour.setStyle(14, 2);
+                wvMinute.setStyle(14, 2);
+                wvSecond.setStyle(14, 2);
+                break;
+            case DateTimeSelectorDialogBuilder.TYPE_YYYYMMDDHHMM:
+                line0.setVisibility(View.VISIBLE);
+                tvDay.setVisibility(View.VISIBLE);
+                tv_empty.setVisibility(View.VISIBLE);
+                tv_line1.setVisibility(View.VISIBLE);
+                tvHour.setVisibility(View.VISIBLE);
+                tvMinute.setVisibility(View.VISIBLE);
+                wvHour.setVisibility(View.VISIBLE);
+                wvMinute.setVisibility(View.VISIBLE);
+                tvSecond.setVisibility(View.GONE);
+                tv_line2.setVisibility(View.GONE);
+                wvSecond.setVisibility(View.GONE);
+                wvYear.setStyle(14, 2);
+                wvMonth.setStyle(14, 2);
+                wvDay.setStyle(14, 2);
+                wvHour.setStyle(14, 2);
+                wvMinute.setStyle(14, 2);
+                wvSecond.setStyle(14, 2);
+                break;
+            case DateTimeSelectorDialogBuilder.TYPE_YYYYMMDDHHMMSS:
+                line0.setVisibility(View.VISIBLE);
+                tvDay.setVisibility(View.VISIBLE);
+                tv_empty.setVisibility(View.VISIBLE);
+                tv_line1.setVisibility(View.VISIBLE);
+                tv_line2.setVisibility(View.VISIBLE);
+                tvHour.setVisibility(View.VISIBLE);
+                tvMinute.setVisibility(View.VISIBLE);
+                tvSecond.setVisibility(View.VISIBLE);
+                wvHour.setVisibility(View.VISIBLE);
+                wvMinute.setVisibility(View.VISIBLE);
+                wvSecond.setVisibility(View.VISIBLE);
+                wvYear.setStyle(14, 2);
+                wvMonth.setStyle(14, 2);
+                wvDay.setStyle(14, 2);
+                wvHour.setStyle(14, 2);
+                wvMinute.setStyle(14, 2);
+                wvSecond.setStyle(14, 2);
+                break;
+        }
     }
 
     /**
@@ -265,9 +460,34 @@ public class DateSelectorWheelViewYMD extends RelativeLayout implements
      * @return
      */
     public String getSelectedDate() {
+        switch (currentDateType) {
+            case DateTimeSelectorDialogBuilder.TYPE_YYYYMM:
+                return tvYear.getText().toString().trim() + "-"
+                        + tvMonth.getText().toString().trim();
+            case DateTimeSelectorDialogBuilder.TYPE_YYYYMMDD:
+                return tvYear.getText().toString().trim() + "-"
+                        + tvMonth.getText().toString().trim() + "-"
+                        + tvDay.getText().toString().trim();
+            case DateTimeSelectorDialogBuilder.TYPE_YYYYMMDDHHMM:
+                return tvYear.getText().toString().trim() + "-"
+                        + tvMonth.getText().toString().trim() + "-"
+                        + tvDay.getText().toString().trim() + " "
+                        + tvHour.getText().toString().trim() + ":"
+                        + tvMinute.getText().toString().trim();
+            case DateTimeSelectorDialogBuilder.TYPE_YYYYMMDDHHMMSS:
+                return tvYear.getText().toString().trim() + "-"
+                        + tvMonth.getText().toString().trim() + "-"
+                        + tvDay.getText().toString().trim() + " "
+                        + tvHour.getText().toString().trim() + ":"
+                        + tvMinute.getText().toString().trim() + ":"
+                        + tvSecond.getText().toString().trim();
+        }
         return tvYear.getText().toString().trim() + "-"
                 + tvMonth.getText().toString().trim() + "-"
-                + tvDay.getText().toString().trim();
+                + tvDay.getText().toString().trim() + " "
+                + tvHour.getText().toString().trim() + ":"
+                + tvMinute.getText().toString().trim() + ":"
+                + tvSecond.getText().toString().trim();
     }
 
     /**
@@ -384,6 +604,15 @@ public class DateSelectorWheelViewYMD extends RelativeLayout implements
             }
         } else if (wheel.getId() == wvDay.getId()) {
             tvDay.setText((wvDay.getCurrentItemValue())
+                    .trim().split(" ")[0]);
+        } else if (wheel.getId() == wvHour.getId()) {
+            tvHour.setText((wvHour.getCurrentItemValue())
+                    .trim().split(" ")[0]);
+        } else if (wheel.getId() == wvMinute.getId()) {
+            tvMinute.setText((wvMinute.getCurrentItemValue())
+                    .trim().split(" ")[0]);
+        } else if (wheel.getId() == wvSecond.getId()) {
+            tvSecond.setText((wvSecond.getCurrentItemValue())
                     .trim().split(" ")[0]);
         }
 

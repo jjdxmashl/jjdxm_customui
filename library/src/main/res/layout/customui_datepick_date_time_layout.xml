@@ -47,7 +47,7 @@
                 android:text="12"/>
 
             <View
-                android:id="@+id/hangxian"
+                android:id="@+id/tv_date_time_line0"
                 android:layout_width="5dp"
                 android:layout_height="1dp"
                 android:layout_gravity="center_vertical"
@@ -59,6 +59,48 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="20"/>
+
+            <TextView
+                android:id="@+id/tv_date_time_empty"
+                style="@style/FontStyleNormalBlueMiddle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  "/>
+
+            <TextView
+                android:id="@+id/tv_date_time_hour"
+                style="@style/FontStyleNormalBlueMiddle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"/>
+
+            <TextView
+                android:id="@+id/tv_date_time_line1"
+                style="@style/FontStyleNormalBlueMiddle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"/>
+
+            <TextView
+                android:id="@+id/tv_date_time_minute"
+                style="@style/FontStyleNormalBlueMiddle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="18"/>
+
+            <TextView
+                android:id="@+id/tv_date_time_line2"
+                style="@style/FontStyleNormalBlueMiddle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"/>
+
+            <TextView
+                android:id="@+id/tv_date_time_second"
+                style="@style/FontStyleNormalBlueMiddle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="30"/>
         </LinearLayout>
     </RelativeLayout>
 
@@ -91,6 +133,24 @@
 
         <com.dou361.ui.WheelView
             android:id="@+id/wv_date_of_day"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <com.dou361.ui.WheelView
+            android:id="@+id/wv_date_of_hour"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <com.dou361.ui.WheelView
+            android:id="@+id/wv_date_of_minute"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <com.dou361.ui.WheelView
+            android:id="@+id/wv_date_of_second"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"/>

@@ -106,7 +106,8 @@ public class WheelView extends View {
      * Text size
      */
     // private static final int TEXT_SIZE = 45;
-    private int TEXT_SIZE = 18;
+    private int TEXT_SIZE = 14;
+    private int START_OFFSET = 4;
 
     /**
      * Top and bottom items offset (to hide that)
@@ -180,6 +181,7 @@ public class WheelView extends View {
     // Listeners
     private List<OnWheelChangedListener> changingListeners = new LinkedList<OnWheelChangedListener>();
     private List<OnWheelScrollListener> scrollingListeners = new LinkedList<OnWheelScrollListener>();
+    private Context mContext;
 
     /**
      * Constructor
@@ -205,12 +207,18 @@ public class WheelView extends View {
         initData(context);
     }
 
+    public void setStyle(int textSize,int startOffset){
+        TEXT_SIZE = ResourceUtils.dip2px(mContext, textSize);
+        START_OFFSET = startOffset;
+    }
+
     /**
      * Initializes class data
      *
      * @param context the context
      */
     private void initData(Context context) {
+        mContext = context;
         gestureDetector = new GestureDetector(context, gestureListener);
         gestureDetector.setIsLongpressEnabled(false);
 
@@ -751,8 +759,8 @@ public class WheelView extends View {
         if (itemsWidth > 0) {
             canvas.save();
             // Skip padding space and hide a part of top and bottom items
-
-            canvas.translate(this.getWidth() / 4, -ITEM_OFFSET);
+            /** 位移  6等分时除以2,3等分是除以4 */
+            canvas.translate(this.getWidth() / START_OFFSET, -ITEM_OFFSET);
             drawItems(canvas);
             drawValue(canvas);
             canvas.restore();

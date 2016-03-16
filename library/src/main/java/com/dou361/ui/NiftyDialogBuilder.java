@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -236,7 +237,8 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
         mDivider = mDialogView.findViewById(ResourceUtils.getResourceIdByName(context, "id", "titleDivider"));
         mButton1 = (Button) mDialogView.findViewById(ResourceUtils.getResourceIdByName(context, "id", "button1"));
         mButton2 = (Button) mDialogView.findViewById(ResourceUtils.getResourceIdByName(context, "id", "button2"));
-
+        /**  去掉原有的标题栏 */
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(mDialogView);
 
         this.setOnShowListener(new OnShowListener() {
