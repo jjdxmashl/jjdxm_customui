@@ -3,6 +3,10 @@ package com.dou361.holder;
 import android.content.Context;
 import android.view.View;
 
+import com.dou361.ui.LoadingPage;
+
+import java.util.List;
+
 /**
  * ========================================
  * <p>
@@ -97,5 +101,18 @@ public abstract class BaseHolder<T> {
         this.position = position;
     }
 
+    /**
+     * 验证数据状态
+     */
+    protected <T> LoadingPage.LoadResult checkData(List<T> list) {
+        if (list == null) {
+            return LoadingPage.LoadResult.ERROR;
+        }
+        if (list.size() > 0) {
+            return LoadingPage.LoadResult.SUCCESS;
+        } else {
+            return LoadingPage.LoadResult.EMPTY;
+        }
+    }
 
 }
