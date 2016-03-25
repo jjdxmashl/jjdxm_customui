@@ -61,7 +61,7 @@ public class ThreadManagerCUI {
     public static ThreadPoolProxy getLongPool() {
         synchronized (mLongLock) {
             if (mLongPool == null) {
-                mLongPool = new ThreadPoolProxy(5, 5, 5L);
+                mLongPool = new ThreadPoolProxy(8, 8, 5L);
             }
             return mLongPool;
         }

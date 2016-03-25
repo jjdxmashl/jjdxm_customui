@@ -39,17 +39,14 @@ public class ChildViewPager extends ViewPager {
 
     public ChildViewPager(Context context, AttributeSet attrs) {
         super(context, attrs);
-        // TODO Auto-generated constructor stub
     }
 
     public ChildViewPager(Context context) {
         super(context);
-        // TODO Auto-generated constructor stub
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent arg0) {
-        // TODO Auto-generated method stub
         //每次进行onTouch事件都记录当前的按下的坐标
         if (getChildCount() <= 1) {
             return super.onTouchEvent(arg0);

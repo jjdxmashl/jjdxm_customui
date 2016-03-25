@@ -38,6 +38,8 @@ import java.util.Date;
  * 在xml布局中添加类作为View使用，里面一定要添加列表View或滚动view
  * mCreateInCode用来判断该view是否使用代码创建，true为在代码中创建，false为在xml中创建。
  * 默认为在xml使用，默认使用该构造函数PullToRefreshView(Context context)在代码中创建
+ * 如果需要主动刷新，可以调用以下方法：
+ * headerRefreshing();
  * <p/>
  * <p/>
  * 修订历史：
@@ -598,7 +600,7 @@ public class PullToRefreshView extends LinearLayout {
     /**
      * 刷新中header refreshing
      */
-    private void headerRefreshing() {
+    public void headerRefreshing() {
         mHeaderState = REFRESHING;
         setHeaderTopMargin(0);
         mHeaderImageView.setVisibility(View.GONE);
