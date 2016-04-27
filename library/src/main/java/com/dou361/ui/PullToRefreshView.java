@@ -23,27 +23,27 @@ import java.util.Date;
 
 /**
  * ========================================
- * <p/>
+ * <p>
  * 版 权：dou361.com 版权所有 （C） 2015
- * <p/>
+ * <p>
  * 作 者：陈冠明
- * <p/>
+ * <p>
  * 个人网站：http://www.dou361.com
- * <p/>
+ * <p>
  * 版 本：1.0
- * <p/>
+ * <p>
  * 创建日期：2015-9-29 下午8:30:16
- * <p/>
+ * <p>
  * 描 述：LinearLayout上拉下拉的阻尼效果。 如果需要上拉刷新和下拉加载更多，则需要设置 使用流程，
  * 在xml布局中添加类作为View使用，里面一定要添加列表View或滚动view
  * mCreateInCode用来判断该view是否使用代码创建，true为在代码中创建，false为在xml中创建。
  * 默认为在xml使用，默认使用该构造函数PullToRefreshView(Context context)在代码中创建
  * 如果需要主动刷新，可以调用以下方法：
  * headerRefreshing();
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * 修订历史：
- * <p/>
+ * <p>
  * ========================================
  */
 public class PullToRefreshView extends LinearLayout {
@@ -385,7 +385,12 @@ public class PullToRefreshView extends LinearLayout {
                 int deltaY = y - mLastMotionY;
                 if (isRefreshViewScroll(deltaY)) {
                     /** 如果满足上下拉，则把事件给处理了 */
-                    return true;
+                    if (Math.abs(deltaY) < 10) {
+                        /**如果滑动距离较小则不拦截，交个子类*/
+                        return false;
+                    } else {
+                        return true;
+                    }
                 }
                 break;
             case MotionEvent.ACTION_UP:
