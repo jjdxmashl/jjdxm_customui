@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.dou361.demotest001.activity.CustomSimpleActivity;
 import com.dou361.demotest001.activity.DatePickActivity;
 import com.dou361.demotest001.activity.KeyBoardActivity;
 import com.dou361.demotest001.activity.PhotoActivity;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private LinearLayout main;
+    private Button btn_emoji;
     private Button btn_alertview;
     private Button btn_childviewpager;
     private Button btn_customkeyboard;
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        btn_emoji = (Button) findViewById(R.id.btn_emoji);
         btn_alertview = (Button) findViewById(R.id.btn_alertview);
         btn_childviewpager = (Button) findViewById(R.id.btn_childviewpager);
         btn_customkeyboard = (Button) findViewById(R.id.btn_customkeyboard);
@@ -62,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_roundimageview = (Button) findViewById(R.id.btn_roundimageview);
         btn_selectpicpopupwindow = (Button) findViewById(R.id.btn_selectpicpopupwindow);
         btn_stickedittext = (Button) findViewById(R.id.btn_stickedittext);
+        btn_emoji.setOnClickListener(this);
         btn_alertview.setOnClickListener(this);
         btn_childviewpager.setOnClickListener(this);
         btn_customkeyboard.setOnClickListener(this);
@@ -88,6 +92,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.btn_emoji:
+                startActivity(CustomSimpleActivity.class);
+                break;
             case R.id.btn_alertview:
                 break;
             case R.id.btn_childviewpager:
