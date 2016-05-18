@@ -25,6 +25,7 @@
         <activity android:name=".activity.KeyBoardActivity"/>
         <activity android:name=".activity.StickEditTextActivity"/>
         <activity android:name=".activity.PulltoRefreshActivity"/>
+        <activity android:name=".activity.PageTabActivity"/>
 
     </application>
 

@@ -204,8 +204,8 @@ public class PagerTab extends ViewGroup {
         tab.setSingleLine();
         tab.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTabTextSize);
         tab.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-        tab.setTextColor(mActivity.getResources().getColorStateList(ResourceUtils.getResourceIdByName(mActivity, "color", "customui_pagertab_bg_text")));
-        tab.setBackgroundDrawable(mActivity.getResources().getDrawable(ResourceUtils.getResourceIdByName(mActivity, "drawable", "customui_pagertab_text_color")));
+        tab.setTextColor(mActivity.getResources().getColorStateList(ResourceUtils.getResourceIdByName(mActivity, "drawable", "customui_pagertab_text_color")));
+        tab.setBackgroundDrawable(mActivity.getResources().getDrawable(ResourceUtils.getResourceIdByName(mActivity, "drawable", "customui_pagertab_text_bg")));
         tab.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT));
         addTab(position, tab);
     }

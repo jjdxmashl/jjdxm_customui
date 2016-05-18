@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import com.dou361.demotest001.activity.CustomSimpleActivity;
 import com.dou361.demotest001.activity.DatePickActivity;
 import com.dou361.demotest001.activity.KeyBoardActivity;
+import com.dou361.demotest001.activity.PageTabActivity;
 import com.dou361.demotest001.activity.PhotoActivity;
 import com.dou361.demotest001.activity.PulltoRefreshActivity;
 import com.dou361.demotest001.activity.StickEditTextActivity;
@@ -120,6 +121,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_mylistview:
                 break;
             case R.id.btn_pagertab:
+                startActivity(PageTabActivity.class);
                 break;
             case R.id.btn_pinnedheaderlistview:
                 break;
