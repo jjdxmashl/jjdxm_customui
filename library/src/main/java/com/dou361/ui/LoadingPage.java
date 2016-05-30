@@ -7,23 +7,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.dou361.pool.ThreadManagerCUI;
 import com.dou361.utils.ResourceUtils;
 
 /**
  * ========================================
- * <p>
+ * <p/>
  * 版 权：dou361.com 版权所有 （C） 2015
- * <p>
+ * <p/>
  * 作 者：陈冠明
- * <p>
+ * <p/>
  * 个人网站：http://www.dou361.com
- * <p>
+ * <p/>
  * 版 本：1.0
- * <p>
+ * <p/>
  * 创建日期：2016/3/15 21:53
- * <p>
+ * <p/>
  * 描 述：请求网络时显示的页面，总共有四种状态，加载中，加载失败，没有数据，有数据
  * 使用：
  * mLoadingPage = new LoadingPage(mContext) {
@@ -38,10 +39,10 @@ import com.dou361.utils.ResourceUtils;
  * ll_content.addView(mLoadingPage, new ViewGroup.LayoutParams(
  * ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
  * mLoadingPage.show();
- * <p>
- * <p>
+ * <p/>
+ * <p/>
  * 修订历史：
- * <p>
+ * <p/>
  * ========================================
  */
 public abstract class LoadingPage extends FrameLayout {
@@ -202,7 +203,26 @@ public abstract class LoadingPage extends FrameLayout {
      * 创建加载成功但数据为空的View
      */
     private View createEmptyView() {
-        return LayoutInflater.from(mContext).inflate(ResourceUtils.getResourceIdByName(mContext, "layout", "customui_loading_page_empty"), null);
+        View view = LayoutInflater.from(mContext).inflate(ResourceUtils.getResourceIdByName(mContext, "layout", "customui_loading_page_empty"), null);
+        ImageView ivIcon = (ImageView) view.findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "iv_icon"));
+        TextView tvContent = (TextView) view.findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "tv_content"));
+        setEmptyView(ivIcon, tvContent);
+        return view;
+    }
+
+    /**
+     * 操作空数据页面
+     */
+    public void setEmptyView(ImageView ivIcon, TextView tvContent) {
+
+    }
+
+    /**
+     * 显示空数据页面
+     */
+    public void showEmptyView() {
+        mState = STATE_EMPTY;
+        showPage();
     }
 
     /**
@@ -281,5 +301,6 @@ public abstract class LoadingPage extends FrameLayout {
             return value;
         }
     }
+
 
 }
