@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout android:id="@+id/ll_keyboard"
+              xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:background="@color/white"
@@ -14,7 +15,7 @@
         android:paddingBottom="8dp"
         android:paddingTop="8dp">
 
-        <!-- 语音/文字切换-->
+        <!-- 表情/文字切换-->
         <ImageView
             android:id="@+id/btn_face"
             android:layout_width="34dp"
@@ -43,12 +44,12 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:background="@null"
-                android:textColor="@color/black"
                 android:focusable="false"
                 android:focusableInTouchMode="false"
                 android:lineSpacingExtra="4dp"
                 android:maxLines="4"
                 android:paddingLeft="8dp"
+                android:textColor="@color/black"
                 android:textSize="16sp"/>
         </RelativeLayout>
 
@@ -60,11 +61,13 @@
             android:layout_centerVertical="true"
             android:focusableInTouchMode="true"
             android:orientation="horizontal">
+
             <View
                 android:id="@+id/v_line"
-                android:visibility="gone"
                 android:layout_width="1dp"
-                android:layout_height="1dp"/>
+                android:layout_height="1dp"
+                android:layout_centerInParent="true"
+                android:visibility="visible"/>
             <!--发送-->
             <Button
                 android:id="@+id/btn_send"

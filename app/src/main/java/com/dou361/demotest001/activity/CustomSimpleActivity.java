@@ -10,12 +10,12 @@ import android.widget.AbsListView;
 import android.widget.ListView;
 
 import com.dou361.bean.EmojiBean;
-import com.dou361.bean.EmojiParse;
 import com.dou361.bean.EmoticonEntity;
 import com.dou361.bean.ImMsgBean;
 import com.dou361.demotest001.R;
 import com.dou361.listener.EmoticonClickListener;
 import com.dou361.ui.CustomAppsGridView;
+import com.dou361.ui.CustomEmoticonsKeyBoard;
 import com.dou361.ui.CustomSimpleEmoticonsKeyBoard;
 import com.dou361.ui.EmoticonsEditText;
 import com.dou361.ui.FuncLayout;
@@ -48,7 +48,7 @@ import java.util.List;
 public class CustomSimpleActivity extends Activity implements FuncLayout.OnFuncKeyBoardListener {
 
 
-    ListView lvChat;
+//    ListView lvChat;
     CustomSimpleEmoticonsKeyBoard ekBar;
 
     @Override
@@ -59,10 +59,10 @@ public class CustomSimpleActivity extends Activity implements FuncLayout.OnFuncK
     }
 
     private void initView() {
-        lvChat = (ListView) findViewById(R.id.lv_chat);
+//        lvChat = (ListView) findViewById(R.id.lv_chat);
         ekBar = (CustomSimpleEmoticonsKeyBoard) findViewById(R.id.ek_bar);
         initEmoticonsKeyBoardBar();
-        initListView();
+//        initListView();
     }
 
     private void initEmoticonsKeyBoardBar() {
@@ -84,6 +84,7 @@ public class CustomSimpleActivity extends Activity implements FuncLayout.OnFuncK
                 ekBar.getEtChat().setText("");
             }
         });
+        ekBar.requestFocus();
     }
 
     EmoticonClickListener emoticonClickListener = new EmoticonClickListener() {
@@ -111,7 +112,7 @@ public class CustomSimpleActivity extends Activity implements FuncLayout.OnFuncK
                     if (TextUtils.isEmpty(content)) {
                         return;
                     }
-                    Log.e("dou361","-----content--------"+content);
+                    Log.e("dou361", "-----content--------" + content);
                     int index = ekBar.getEtChat().getSelectionStart();
                     Editable editable = ekBar.getEtChat().getText();
                     editable.insert(index, content);
@@ -127,29 +128,29 @@ public class CustomSimpleActivity extends Activity implements FuncLayout.OnFuncK
             bean.setContent("Test:" + i);
             beanList.add(bean);
         }
-        lvChat.setOnScrollListener(new AbsListView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
-                switch (scrollState) {
-                    case SCROLL_STATE_FLING:
-                        break;
-                    case SCROLL_STATE_IDLE:
-                        break;
-                    case SCROLL_STATE_TOUCH_SCROLL:
-                        ekBar.reset();
-                        break;
-                }
-            }
-
-            @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-            }
-        });
+//        lvChat.setOnScrollListener(new AbsListView.OnScrollListener() {
+//            @Override
+//            public void onScrollStateChanged(AbsListView view, int scrollState) {
+//                switch (scrollState) {
+//                    case SCROLL_STATE_FLING:
+//                        break;
+//                    case SCROLL_STATE_IDLE:
+//                        break;
+//                    case SCROLL_STATE_TOUCH_SCROLL:
+//                        ekBar.reset();
+//                        break;
+//                }
+//            }
+//
+//            @Override
+//            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+//            }
+//        });
     }
 
     private void OnSendBtnClick(String msg) {
 
-        Log.e("dou361","-----msg--------"+msg);
+        Log.e("dou361", "-----msg--------" + msg);
         if (!TextUtils.isEmpty(msg)) {
             ImMsgBean bean = new ImMsgBean();
             bean.setContent(msg);
@@ -164,13 +165,13 @@ public class CustomSimpleActivity extends Activity implements FuncLayout.OnFuncK
     }
 
     private void scrollToBottom() {
-        lvChat.requestLayout();
-        lvChat.post(new Runnable() {
-            @Override
-            public void run() {
-                lvChat.setSelection(lvChat.getBottom());
-            }
-        });
+//        lvChat.requestLayout();
+//        lvChat.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                lvChat.setSelection(lvChat.getBottom());
+//            }
+//        });
     }
 
     @Override

@@ -5,25 +5,28 @@
                                              android:layout_height="match_parent"
                                              android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ListView
+        <!--<ListView
             android:id="@+id/lv_chat"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:cacheColorHint="#00000000"
-            android:divider="@null"
-            android:fadingEdge="none"
-            android:fitsSystemWindows="true"
-            android:listSelector="#00000000"
-            android:scrollbarStyle="outsideOverlay"
-            android:scrollingCache="false"
-            android:smoothScrollbar="true"
-            android:stackFromBottom="true"/>
-    </LinearLayout>
+            android:layout_height="match_parent"/>-->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="fasdfdsafdsafdsa"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="1234153456465456"/>
+    </RelativeLayout>
 
 </com.dou361.ui.CustomSimpleEmoticonsKeyBoard>
 
