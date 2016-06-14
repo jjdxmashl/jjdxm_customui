@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 
 import com.dou361.demotest001.activity.CustomSimpleActivity;
 import com.dou361.demotest001.activity.DatePickActivity;
+import com.dou361.demotest001.activity.HorizontalListViewActivity;
 import com.dou361.demotest001.activity.KeyBoardActivity;
 import com.dou361.demotest001.activity.PageTabActivity;
 import com.dou361.demotest001.activity.PhotoActivity;
@@ -107,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(DatePickActivity.class);
                 break;
             case R.id.btn_horizontallistview:
+                startActivity(HorizontalListViewActivity.class);
                 break;
             case R.id.btn_indicatorview:
                 break;

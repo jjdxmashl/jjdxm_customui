@@ -1283,9 +1283,9 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 isFullScroll = false;
 
                 int lastVisiblePos = getLastVisiblePosition();
-                if (lastVisiblePos >= mAdapter.getCount() - 1) {
+                if (mAdapter != null && lastVisiblePos >= mAdapter.getCount() - 1) {
                     View view = getChildAt(getChildCount() - 1);
-                    if (Math.abs(view.getRight() - getWidth()) < 10) {
+                    if (view != null && Math.abs(view.getRight() - getWidth()) < 10) {
                         isFullScroll = true;
                     }
                 }
