@@ -1,29 +1,55 @@
 apply plugin: 'com.android.application'
 
+Properties props = new Properties();
+props.load(new FileInputStream(file(rootProject.file("signing.properties"))))
+
 android {
-    compileSdkVersion 22
-    buildToolsVersion '22.0.1'
+
+    signingConfigs {
+        release {
+            keyAlias props['signing.alias']
+            keyPassword props['signing.password']
+            storeFile file(rootProject.file("debug.keystore"))
+            storePassword props['signing.password']
+        }
+
+        debug {
+            keyAlias props['signing.jjdxm_alias']
+            keyPassword props['signing.jjdxm_password']
+            storeFile file(rootProject.file("debug.keystore"))
+            storePassword props['signing.jjdxm_password']
+        }
+    }
+
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
     defaultConfig {
         applicationId "com.dou361.demotest001"
-        minSdkVersion 15
-        targetSdkVersion 22
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
     }
     buildTypes {
-        release {
+
+        debug {
+            signingConfig signingConfigs.debug
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-    }
-    productFlavors {
+
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
     }
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:22.2.0'
+    compile rootProject.ext.jjdxm_v7
     compile project(':library')
 }
-

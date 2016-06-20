@@ -1,13 +1,14 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion '22.0.1'
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 22
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.jjdxm_minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.jjdxm_versionCode
+        versionName rootProject.ext.jjdxm_versionName
     }
     buildTypes {
         release {
@@ -15,26 +16,26 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    productFlavors {
-    }
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:23.1.1'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile rootProject.ext.jjdxm_v7
     compile 'com.nineoldandroids:library:2.4.0'
 }
 
 //定义一个函数，target是生成jar包的文件名，classDir是class文件所在的文件夹
 def makeJar(String target,String classDir){
-    exec{
-        executable "jar"   //调用jar
-        args "cvf",target
-        args "-C", classDir
-        args "","."
-    }
+	exec{
+		executable "jar"   //调用jar
+		args "cvf",target
+		args "-C", classDir
+		args "","."
+	}
 }
-
+    
 //新建一个task,名为buildLib,依赖build(build是一个自带的task)
 task buildLib(dependsOn:['build'])<< {
-    makeJar("jjdxmloadingpage.jar","build/intermediates/classes/release")
+	makeJar("jjdxmbaseutils.jar","build/intermediates/classes/release")
 }
