@@ -208,18 +208,42 @@ public class CustomSimpleEmoticonsKeyBoard extends AutoHeightLayout implements V
     public void onClick(View v) {
         int i = v.getId();
         if (i == ResourceUtils.getResourceIdByName(mContext, "id", "btn_face")) {
-            if (vLine.isShown()) {
-                /**表情*/
-                vLine.setVisibility(GONE);
-                mBtnFace.setImageResource(ResourceUtils.getResourceIdByName(mContext, "drawable", "customui_btn_voice_or_text_keyboard"));
-            } else {
-                /**软键盘*/
-                vLine.setVisibility(VISIBLE);
-                mBtnFace.setImageResource(ResourceUtils.getResourceIdByName(mContext, "drawable", "customui_btn_emoji_or_text"));
-            }
-            toggleFuncView(FUNC_TYPE_EMOTION);
-            isReset = false;
+            togglePanl();
         }
+    }
+
+    /**
+     * 点击开关
+     */
+    private void togglePanl() {
+        if (vLine.isShown()) {
+            /**表情*/
+            vLine.setVisibility(GONE);
+            mBtnFace.setImageResource(ResourceUtils.getResourceIdByName(mContext, "drawable", "customui_btn_voice_or_text_keyboard"));
+        } else {
+            /**软键盘*/
+            vLine.setVisibility(VISIBLE);
+            mBtnFace.setImageResource(ResourceUtils.getResourceIdByName(mContext, "drawable", "customui_btn_emoji_or_text"));
+        }
+        toggleFuncView(FUNC_TYPE_EMOTION);
+        isReset = false;
+    }
+
+    /**
+     * 显示面板
+     */
+    public void showUI() {
+        if (vLine == null) {
+            return;
+        }
+        togglePanl();
+    }
+
+    /**
+     * 判断是否显示面板
+     */
+    public boolean isPanlShow() {
+        return (mLyKvml != null && mLyKvml.isShown());
     }
 
     @Override

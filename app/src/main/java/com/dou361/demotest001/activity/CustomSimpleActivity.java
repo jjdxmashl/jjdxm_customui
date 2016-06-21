@@ -6,8 +6,7 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.widget.AbsListView;
-import android.widget.ListView;
+import android.widget.Button;
 
 import com.dou361.bean.EmojiBean;
 import com.dou361.bean.EmoticonEntity;
@@ -15,7 +14,6 @@ import com.dou361.bean.ImMsgBean;
 import com.dou361.demotest001.R;
 import com.dou361.listener.EmoticonClickListener;
 import com.dou361.ui.CustomAppsGridView;
-import com.dou361.ui.CustomEmoticonsKeyBoard;
 import com.dou361.ui.CustomSimpleEmoticonsKeyBoard;
 import com.dou361.ui.EmoticonsEditText;
 import com.dou361.ui.FuncLayout;
@@ -45,11 +43,12 @@ import java.util.List;
  * <p/>
  * ========================================
  */
-public class CustomSimpleActivity extends Activity implements FuncLayout.OnFuncKeyBoardListener {
+public class CustomSimpleActivity extends Activity implements FuncLayout.OnFuncKeyBoardListener, View.OnClickListener {
 
 
-//    ListView lvChat;
+    //    ListView lvChat;
     CustomSimpleEmoticonsKeyBoard ekBar;
+    private Button btn_ok;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +60,8 @@ public class CustomSimpleActivity extends Activity implements FuncLayout.OnFuncK
     private void initView() {
 //        lvChat = (ListView) findViewById(R.id.lv_chat);
         ekBar = (CustomSimpleEmoticonsKeyBoard) findViewById(R.id.ek_bar);
+        btn_ok = (Button) findViewById(R.id.btn_ok);
+        btn_ok.setOnClickListener(this);
         initEmoticonsKeyBoardBar();
 //        initListView();
     }
@@ -192,5 +193,10 @@ public class CustomSimpleActivity extends Activity implements FuncLayout.OnFuncK
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+    }
+
+    @Override
+    public void onClick(View v) {
+        ekBar.showUI();
     }
 }
