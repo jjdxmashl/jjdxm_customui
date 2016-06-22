@@ -14,34 +14,65 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.dou361.adapter.PageSetAdapter;
 import com.dou361.bean.PageSetEntity;
 import com.dou361.utils.EmoticonsKeyboardUtils;
 import com.dou361.utils.ResourceUtils;
 
-public class CustomSimpleEmoticonsKeyBoard extends AutoHeightLayout implements View.OnClickListener, EmoticonsFuncView.OnEmoticonsPageViewListener,
-        EmoticonsEditText.OnBackKeyClickListener, FuncLayout.OnFuncChangeListener {
+import java.util.ArrayList;
+
+/**
+ * ========================================
+ * <p/>
+ * 版 权：dou361.com 版权所有 （C） 2015
+ * <p/>
+ * 作 者：陈冠明
+ * <p/>
+ * 个人网站：http://www.dou361.com
+ * <p/>
+ * 版 本：1.0
+ * <p/>
+ * 创建日期：2016/6/22 11:46
+ * <p/>
+ * 描 述：自定义表情键盘
+ * <p/>
+ * <p/>
+ * 修订历史：
+ * <p/>
+ * ========================================
+ */
+public class CustomEmojiKeyBoard extends AutoHeightLayout implements View.OnClickListener, EmoticonsFuncView.OnEmoticonsPageViewListener,
+        EmoticonsToolBarView.OnToolBarItemClickListener, EmoticonsEditText.OnBackKeyClickListener, FuncLayout.OnFuncChangeListener {
 
     public static final int FUNC_TYPE_EMOTION = -1;
     public static final int FUNC_TYPE_APPPS = -2;
+    public static final int FUNC_TYPE_PTT = 1;
+    public static final int FUNC_TYPE_PTV = 2;
+    public static final int FUNC_TYPE_IMAGE = 3;
+    public static final int FUNC_TYPE_CAMERA = 4;
+    public static final int FUNC_TYPE_HONGBAO = 5;
+    public static final int FUNC_TYPE_PLUG = 6;
 
     protected LayoutInflater mInflater;
 
+    protected ImageView mBtnVoiceOrText;
+    protected Button mBtnVoice;
     protected EmoticonsEditText mEtChat;
     protected ImageView mBtnFace;
+    protected RelativeLayout mRlInput;
+    protected ImageView mBtnMultimedia;
     protected Button mBtnSend;
     protected FuncLayout mLyKvml;
-    protected View vLine;
 
     protected EmoticonsFuncView mEmoticonsFuncView;
     protected EmoticonsIndicatorView mEmoticonsIndicatorView;
+    protected EmoticonsToolBarView mEmoticonsToolBarView;
 
     protected boolean mDispatchKeyEventPreImeLock = false;
-    private LinearLayout ll_keyboard;
-    private boolean isReset = true;
 
-    public CustomSimpleEmoticonsKeyBoard(Context context, AttributeSet attrs) {
+    public CustomEmojiKeyBoard(Context context, AttributeSet attrs) {
         super(context, attrs);
         mInflater = (LayoutInflater) mContext.getSystemService(mContext.LAYOUT_INFLATER_SERVICE);
         inflateKeyboardBar();
@@ -49,32 +80,29 @@ public class CustomSimpleEmoticonsKeyBoard extends AutoHeightLayout implements V
         initFuncView();
     }
 
+
     protected void inflateKeyboardBar() {
-        mInflater.inflate(ResourceUtils.getResourceIdByName(mContext, "layout", "customui_view_keyboard_custom_simple"), this);
+        mInflater.inflate(ResourceUtils.getResourceIdByName(mContext, "layout", "customui_view_keyboard_custom"), this);
     }
 
     protected View inflateFunc() {
-        return mInflater.inflate(ResourceUtils.getResourceIdByName(mContext, "layout", "customui_view_func_emoticon_simple"), null);
+        return mInflater.inflate(ResourceUtils.getResourceIdByName(mContext, "layout", "customui_view_func_emoticon"), null);
     }
 
     protected void initView() {
-        ll_keyboard = ((LinearLayout) findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "ll_keyboard")));
+        mBtnVoiceOrText = ((ImageView) findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "btn_voice_or_text")));
+        mBtnVoice = ((Button) findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "btn_voice")));
         mEtChat = ((EmoticonsEditText) findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "et_chat")));
         mBtnFace = ((ImageView) findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "btn_face")));
+        mRlInput = ((RelativeLayout) findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "rl_input")));
+        mBtnMultimedia = ((ImageView) findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "btn_multimedia")));
         mBtnSend = ((Button) findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "btn_send")));
         mLyKvml = ((FuncLayout) findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "ly_kvml")));
-        vLine = findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "v_line"));
-        mBtnFace.setOnClickListener(this);
-        mEtChat.setOnBackKeyClickListener(this);
-    }
 
-    public void setKeyBarVisibility(boolean flag) {
-        if (ll_keyboard != null) {
-            ll_keyboard.setVisibility(flag ? VISIBLE : GONE);
-        }
-        if (!flag) {
-            reset();
-        }
+        mBtnVoiceOrText.setOnClickListener(this);
+        mBtnFace.setOnClickListener(this);
+        mBtnMultimedia.setOnClickListener(this);
+        mEtChat.setOnBackKeyClickListener(this);
     }
 
     protected void initFuncView() {
@@ -87,7 +115,9 @@ public class CustomSimpleEmoticonsKeyBoard extends AutoHeightLayout implements V
         mLyKvml.addFuncView(FUNC_TYPE_EMOTION, keyboardView);
         mEmoticonsFuncView = ((EmoticonsFuncView) findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "view_epv")));
         mEmoticonsIndicatorView = ((EmoticonsIndicatorView) findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "view_eiv")));
+        mEmoticonsToolBarView = ((EmoticonsToolBarView) findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "view_etv")));
         mEmoticonsFuncView.setOnIndicatorListener(this);
+        mEmoticonsToolBarView.setOnToolBarItemClickListener(this);
         mLyKvml.setOnFuncChangeListener(this);
     }
 
@@ -98,13 +128,6 @@ public class CustomSimpleEmoticonsKeyBoard extends AutoHeightLayout implements V
                 if (!mEtChat.isFocused()) {
                     mEtChat.setFocusable(true);
                     mEtChat.setFocusableInTouchMode(true);
-                }
-                if (vLine.isShown()) {
-                    vLine.setVisibility(VISIBLE);
-                    if (isReset) {
-                        toggleFuncView(FUNC_TYPE_EMOTION);
-                        isReset = false;
-                    }
                 }
                 return false;
             }
@@ -122,14 +145,26 @@ public class CustomSimpleEmoticonsKeyBoard extends AutoHeightLayout implements V
             @Override
             public void afterTextChanged(Editable s) {
                 if (!TextUtils.isEmpty(s)) {
+                    mBtnSend.setVisibility(VISIBLE);
+                    mBtnMultimedia.setVisibility(GONE);
                     mBtnSend.setBackgroundResource(ResourceUtils.getResourceIdByName(mContext, "drawable", "customui_btn_send_bg"));
                 } else {
+                    mBtnMultimedia.setVisibility(VISIBLE);
+                    mBtnSend.setVisibility(GONE);
                 }
             }
         });
     }
 
     public void setAdapter(PageSetAdapter pageSetAdapter) {
+        if (pageSetAdapter != null) {
+            ArrayList<PageSetEntity> pageSetEntities = pageSetAdapter.getPageSetEntityList();
+            if (pageSetEntities != null) {
+                for (PageSetEntity pageSetEntity : pageSetEntities) {
+                    mEmoticonsToolBarView.addToolItemView(pageSetEntity);
+                }
+            }
+        }
         mEmoticonsFuncView.setAdapter(pageSetAdapter);
     }
 
@@ -137,25 +172,49 @@ public class CustomSimpleEmoticonsKeyBoard extends AutoHeightLayout implements V
         mLyKvml.addFuncView(FUNC_TYPE_APPPS, view);
     }
 
+
+    public void addFuncView(int type, View view) {
+        mLyKvml.addFuncView(type, view);
+    }
+
     public void reset() {
-        isReset = true;
         EmoticonsKeyboardUtils.closeSoftKeyboard(this);
         mLyKvml.hideAllFuncView();
-        vLine.setVisibility(VISIBLE);
-        mBtnFace.setImageResource(ResourceUtils.getResourceIdByName(mContext, "drawable", "customui_btn_emoji_or_text"));
+        mBtnFace.setImageResource(ResourceUtils.getResourceIdByName(mContext, "drawable", "customui_icon_face_nomal"));
+    }
+
+    protected void showVoice() {
+        mRlInput.setVisibility(GONE);
+        mBtnVoice.setVisibility(VISIBLE);
+        reset();
+    }
+
+    protected void checkVoice() {
+        if (mBtnVoice.isShown()) {
+            mBtnVoiceOrText.setImageResource(ResourceUtils.getResourceIdByName(mContext, "drawable", "customui_btn_voice_or_text_keyboard"));
+        } else {
+            mBtnVoiceOrText.setImageResource(ResourceUtils.getResourceIdByName(mContext, "drawable", "customui_btn_voice_or_text"));
+        }
+    }
+
+    protected void showText() {
+        mRlInput.setVisibility(VISIBLE);
+        mBtnVoice.setVisibility(GONE);
     }
 
     protected void toggleFuncView(int key) {
+        showText();
         mLyKvml.toggleFuncView(key, isSoftKeyboardPop(), mEtChat);
     }
 
     @Override
     public void onFuncChange(int key) {
         if (FUNC_TYPE_EMOTION == key) {
-            mBtnFace.setImageResource(ResourceUtils.getResourceIdByName(mContext, "drawable", "customui_btn_voice_or_text_keyboard"));
+            mBtnFace.setImageResource(ResourceUtils.getResourceIdByName(mContext, "drawable", "customui_icon_face_pop"));
         } else {
-            mBtnFace.setImageResource(ResourceUtils.getResourceIdByName(mContext, "drawable", "customui_btn_emoji_or_text"));
+            mBtnFace.setImageResource(ResourceUtils.getResourceIdByName(mContext, "drawable", "customui_icon_face_nomal"));
         }
+        checkVoice();
     }
 
     protected void setFuncViewHeight(int height) {
@@ -192,6 +251,7 @@ public class CustomSimpleEmoticonsKeyBoard extends AutoHeightLayout implements V
 
     @Override
     public void emoticonSetChanged(PageSetEntity pageSetEntity) {
+        mEmoticonsToolBarView.setToolBtnSelect(pageSetEntity.getUuid());
     }
 
     @Override
@@ -207,43 +267,25 @@ public class CustomSimpleEmoticonsKeyBoard extends AutoHeightLayout implements V
     @Override
     public void onClick(View v) {
         int i = v.getId();
-        if (i == ResourceUtils.getResourceIdByName(mContext, "id", "btn_face")) {
-            togglePanl();
+        if (i == ResourceUtils.getResourceIdByName(mContext, "id", "btn_voice_or_text")) {
+            if (mRlInput.isShown()) {
+                mBtnVoiceOrText.setImageResource(ResourceUtils.getResourceIdByName(mContext, "drawable", "customui_btn_voice_or_text_keyboard"));
+                showVoice();
+            } else {
+                showText();
+                mBtnVoiceOrText.setImageResource(ResourceUtils.getResourceIdByName(mContext, "drawable", "customui_btn_voice_or_text"));
+                EmoticonsKeyboardUtils.openSoftKeyboard(mEtChat);
+            }
+        } else if (i == ResourceUtils.getResourceIdByName(mContext, "id", "btn_face")) {
+            toggleFuncView(FUNC_TYPE_EMOTION);
+        } else if (i == ResourceUtils.getResourceIdByName(mContext, "id", "btn_multimedia")) {
+            toggleFuncView(FUNC_TYPE_APPPS);
         }
     }
 
-    /**
-     * 点击开关
-     */
-    private void togglePanl() {
-        if (vLine.isShown()) {
-            /**表情*/
-            vLine.setVisibility(GONE);
-            mBtnFace.setImageResource(ResourceUtils.getResourceIdByName(mContext, "drawable", "customui_btn_voice_or_text_keyboard"));
-        } else {
-            /**软键盘*/
-            vLine.setVisibility(VISIBLE);
-            mBtnFace.setImageResource(ResourceUtils.getResourceIdByName(mContext, "drawable", "customui_btn_emoji_or_text"));
-        }
-        toggleFuncView(FUNC_TYPE_EMOTION);
-        isReset = false;
-    }
-
-    /**
-     * 显示面板
-     */
-    public void showUI() {
-        if (vLine == null) {
-            return;
-        }
-        togglePanl();
-    }
-
-    /**
-     * 判断是否显示面板
-     */
-    public boolean isPanlShow() {
-        return (mLyKvml != null && mLyKvml.isShown());
+    @Override
+    public void onToolBarItemClick(PageSetEntity pageSetEntity) {
+        mEmoticonsFuncView.setCurrentPageSet(pageSetEntity);
     }
 
     @Override
@@ -318,6 +360,10 @@ public class CustomSimpleEmoticonsKeyBoard extends AutoHeightLayout implements V
         return mEtChat;
     }
 
+    public Button getBtnVoice() {
+        return mBtnVoice;
+    }
+
     public Button getBtnSend() {
         return mBtnSend;
     }
@@ -328,5 +374,9 @@ public class CustomSimpleEmoticonsKeyBoard extends AutoHeightLayout implements V
 
     public EmoticonsIndicatorView getEmoticonsIndicatorView() {
         return mEmoticonsIndicatorView;
+    }
+
+    public EmoticonsToolBarView getEmoticonsToolBarView() {
+        return mEmoticonsToolBarView;
     }
 }

@@ -1,34 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.dou361.ui.CustomSimpleEmoticonsKeyBoard android:id="@+id/ek_bar"
+<com.dou361.ui.CustomSimpleHideEmojiKeyBoard android:id="@+id/ek_bar"
                                              xmlns:android="http://schemas.android.com/apk/res/android"
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent"
                                              android:orientation="vertical">
 
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/sl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_centerInParent="true"
-            android:text="fasdfdsafdsafdsa"/>
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:text="1234153456465456"/>
+            android:orientation="vertical">
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="显示"
-            android:id="@+id/btn_ok"/>
-    </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="fasdfdsafdsafdsa"/>
 
-</com.dou361.ui.CustomSimpleEmoticonsKeyBoard>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:text="1234153456465456"/>
+
+            <Button
+                android:id="@+id/btn_ok"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="点击"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</com.dou361.ui.CustomSimpleHideEmojiKeyBoard>
 

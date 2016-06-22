@@ -19,8 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.CustomSimpleActivity"
-            android:windowSoftInputMode="stateVisible"/>
+        <activity android:name=".activity.CustomSimpleActivity"/>
         <activity android:name=".activity.DatePickActivity"/>
         <activity android:name=".activity.HorizontalListViewActivity"/>
         <activity android:name=".activity.PhotoActivity"/>

@@ -63,6 +63,7 @@ public class SimpleCommonUtils {
     public static void initAllEmoticonsEditText(EmoticonsEditText etContent) {
         etContent.addEmoticonFilter(new EmojiFilter());
         etContent.addEmoticonFilter(new QqFilter());
+        etContent.addEmoticonFilter(new CustomFilter());
     }
 
     /**

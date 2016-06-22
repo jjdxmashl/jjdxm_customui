@@ -41,14 +41,14 @@ import java.util.Random;
  * <p/>
  * 创建日期：2016/3/15 22:07
  * <p/>
- * 描 述：自定义键盘
+ * 描 述：自定义密码键盘
  * <p/>
  * <p/>
  * 修订历史：
  * <p/>
  * ========================================
  */
-public class CustomKeyBoard extends View implements OnClickListener {
+public class CustomPasswordKeyBoard extends View implements OnClickListener {
 
     Context mContext;
     Activity activity;
@@ -68,7 +68,7 @@ public class CustomKeyBoard extends View implements OnClickListener {
     public ArrayList<HashMap<String, Object>> params = new ArrayList<HashMap<String, Object>>();
     EditText et_password;
 
-    public CustomKeyBoard(Context context) {
+    public CustomPasswordKeyBoard(Context context) {
         super(context);
         this.mContext = context;
         activity = (Activity) context;
