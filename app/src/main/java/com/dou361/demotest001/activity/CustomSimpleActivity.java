@@ -42,7 +42,7 @@ public class CustomSimpleActivity extends Activity implements FuncLayout.OnFuncK
     CustomSimpleHideEmojiKeyBoard ekBar;
     private Context mContext;
     private Button btn_ok;
-    private ScrollView sl;
+//    private ScrollView sl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,16 +55,25 @@ public class CustomSimpleActivity extends Activity implements FuncLayout.OnFuncK
     private void initView() {
         ekBar = (CustomSimpleHideEmojiKeyBoard) findViewById(R.id.ek_bar);
         btn_ok = (Button) findViewById(R.id.btn_ok);
-        sl = (ScrollView) findViewById(R.id.sl);
+//        sl = (ScrollView) findViewById(R.id.sl);
         btn_ok.setOnClickListener(this);
         initSimpleEmojiKeyBoardBar();
-        sl.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                ekBar.hideUI();
-                return false;
-            }
-        });
+//        sl.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                ekBar.hideUI();
+//                return false;
+//            }
+//        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(ekBar.isPanlShow()){
+            ekBar.hideUI();
+            return;
+        }
+        super.onBackPressed();
     }
 
     private void initQQEmojiKeyBoardBar() {

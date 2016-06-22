@@ -174,7 +174,7 @@ public class CustomSimpleHideEmojiKeyBoard extends CustomEmojiKeyBoard {
         EmoticonsKeyboardUtils.closeSoftKeyboard(this);
         mLyKvml.hideAllFuncView();
         mBtnFace.setImageResource(ResourceUtils.getResourceIdByName(mContext, "drawable", "customui_icon_face_nomal"));
-        ll_keyboard.setVisibility(GONE);
+//        ll_keyboard.setVisibility(GONE);
     }
 
     /**
@@ -198,7 +198,7 @@ public class CustomSimpleHideEmojiKeyBoard extends CustomEmojiKeyBoard {
      * 判断是否显示面板
      */
     public boolean isPanlShow() {
-        return (mLyKvml != null && mLyKvml.isShown());
+        return (ll_keyboard != null && ll_keyboard.isShown());
     }
 
 
