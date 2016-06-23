@@ -12,7 +12,7 @@
         android:layout_marginRight="12dp"
         android:layout_marginTop="8dp">
 
-        <com.dou361.ui.EmoticonsEditText
+        <com.dou361.customui.ui.EmoticonsEditText
             android:id="@+id/et_chat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
             android:src="@drawable/customui_qq_skin_aio_panel_plus" />
     </LinearLayout>
 
-    <com.dou361.ui.FuncLayout
+    <com.dou361.customui.ui.FuncLayout
         android:id="@+id/ly_kvml"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -7,14 +7,14 @@
 
     <include layout="@layout/customui_ic_spitview_horizontal" />
 
-    <com.dou361.ui.EmoticonsFuncView
+    <com.dou361.customui.ui.EmoticonsFuncView
         android:id="@+id/view_epv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/view_eiv"
         android:orientation="vertical" />
 
-    <com.dou361.ui.EmoticonsIndicatorView
+    <com.dou361.customui.ui.EmoticonsIndicatorView
         android:id="@+id/view_eiv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
         android:layout_height="@dimen/horizontalspit_view_height"
         android:layout_above="@+id/view_etv" />
 
-    <com.dou361.ui.EmoticonsToolBarView
+    <com.dou361.customui.ui.EmoticonsToolBarView
         android:id="@+id/view_etv"
         android:layout_width="match_parent"
         android:layout_height="@dimen/bar_height"

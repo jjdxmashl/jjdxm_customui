@@ -10,9 +10,9 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:id="@+id/ll_main"
-    tools:context="com.dou361.demotest001.activity.DatePickActivity">
+    tools:context="com.dou361.jjdxm_customui.activity.DatePickActivity">
 
-   <com.dou361.ui.PagerTab
+   <com.dou361.customui.ui.PagerTab
        android:id="@+id/tabs"
        android:layout_width="match_parent"
        android:layout_height="48dp"/>

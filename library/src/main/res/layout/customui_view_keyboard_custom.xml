@@ -51,7 +51,7 @@
             android:paddingTop="5dp">
 
             <!--输入框-->
-            <com.dou361.ui.EmoticonsEditText
+            <com.dou361.customui.ui.EmoticonsEditText
                 android:id="@+id/et_chat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -109,7 +109,7 @@
         </RelativeLayout>
     </RelativeLayout>
 
-    <com.dou361.ui.FuncLayout
+    <com.dou361.customui.ui.FuncLayout
         android:id="@+id/ly_kvml"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content" >
 
-    <com.dou361.ui.DateSelectorWheelView
+    <com.dou361.customui.ui.DateSelectorWheelView
         android:id="@+id/pdwv_date_time_selector_wheelView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

@@ -5,9 +5,9 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              tools:context="com.dou361.demotest001.MainActivity">
+              tools:context="com.dou361.jjdxm_customui.MainActivity">
 
-    <com.dou361.ui.PullToRefreshView
+    <com.dou361.customui.ui.PullToRefreshView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -153,5 +153,5 @@
 
             </LinearLayout>
         </ScrollView>
-    </com.dou361.ui.PullToRefreshView>
+    </com.dou361.customui.ui.PullToRefreshView>
 </LinearLayout>

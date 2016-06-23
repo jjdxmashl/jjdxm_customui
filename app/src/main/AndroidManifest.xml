@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.dou361.demotest001"
+<manifest package="com.dou361.jjdxm_customui"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
 
@@ -12,22 +12,22 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.dou361.jjdxm_customui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.CustomSimpleActivity"
-            />
-        <activity android:name=".activity.DatePickActivity"/>
-        <activity android:name=".activity.HorizontalListViewActivity"/>
-        <activity android:name=".activity.PhotoActivity"/>
-        <activity android:name=".activity.KeyBoardActivity"/>
-        <activity android:name=".activity.StickEditTextActivity"/>
-        <activity android:name=".activity.PulltoRefreshActivity"/>
-        <activity android:name=".activity.PageTabActivity"/>
+        <activity android:name="com.dou361.jjdxm_customui.activity.CustomSimpleActivity"
+           android:windowSoftInputMode="adjustPan" />
+        <activity android:name="com.dou361.jjdxm_customui.activity.DatePickActivity"/>
+        <activity android:name="com.dou361.jjdxm_customui.activity.HorizontalListViewActivity"/>
+        <activity android:name="com.dou361.jjdxm_customui.activity.PhotoActivity"/>
+        <activity android:name="com.dou361.jjdxm_customui.activity.KeyBoardActivity"/>
+        <activity android:name="com.dou361.jjdxm_customui.activity.StickEditTextActivity"/>
+        <activity android:name="com.dou361.jjdxm_customui.activity.PulltoRefreshActivity"/>
+        <activity android:name="com.dou361.jjdxm_customui.activity.PageTabActivity"/>
 
     </application>
 
