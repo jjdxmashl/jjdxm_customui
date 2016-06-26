@@ -19,8 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.dou361.jjdxm_customui.activity.CustomSimpleActivity"
-           android:windowSoftInputMode="adjustPan" />
+        <activity android:name="com.dou361.jjdxm_customui.activity.CustomSimpleActivity" />
         <activity android:name="com.dou361.jjdxm_customui.activity.DatePickActivity"/>
         <activity android:name="com.dou361.jjdxm_customui.activity.HorizontalListViewActivity"/>
         <activity android:name="com.dou361.jjdxm_customui.activity.PhotoActivity"/>

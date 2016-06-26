@@ -1,7 +1,7 @@
 
 # [jjdxm_customui][project] #
 ## Introduction ##
-
+这是一个常用的自定义view
 ## Features ##
 
 ## Screenshots ##
