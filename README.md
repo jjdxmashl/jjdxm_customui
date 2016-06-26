@@ -1,7 +1,7 @@
 
 # [jjdxm_customui][project] #
 ## Introduction ##
-[apk下载][downapk]
+
 ## Features ##
 
 ## Screenshots ##
@@ -9,6 +9,29 @@
 <img src="https://raw.githubusercontent.com/jjdxmashl/jjdxm_customui/master/screenshots/icon01.png" width="300"> 
 <img src="https://raw.githubusercontent.com/jjdxmashl/jjdxm_customui/master/screenshots/icon02.png" width="300"> 
  
+## Download ##
+
+[demo apk下载][downapk]
+
+[下载最新版本aar][lastaar]
+
+[下载最新版本jar][lastjar]
+
+Download or grab via Maven:
+
+	<dependency>
+	  <groupId>com.dou361.customui</groupId>
+	  <artifactId>jjdxm-customui</artifactId>
+	  <version>x.x.x</version>
+	</dependency>
+
+or Gradle:
+
+	compile 'com.dou361.customui:jjdxm-customui:x.x.x'
+
+
+jjdxm-customui requires at minimum Java 15 or Android 4.0.
+
 ## Get Started ##
 
 ## More Actions ##
@@ -52,5 +75,7 @@ If you find any bug when using project, please report [here][issues]. Thanks for
 [project]:https://github.com/jjdxmashl/jjdxm_customui/
 [issues]:https://github.com/jjdxmashl/jjdxm_customui/issues/new
 [downapk]:https://raw.githubusercontent.com/jjdxmashl/jjdxm_customui/master/apk/app-debug.apk
+[lastaar]:https://raw.githubusercontent.com/jjdxmashl/jjdxm_baseutils/master/release/jjdxm-customui-1.0.0.aar
+[lastjar]:https://raw.githubusercontent.com/jjdxmashl/jjdxm_baseutils/master/release/jjdxm-customui-1.0.0.jar
 [icon01]:https://raw.githubusercontent.com/jjdxmashl/jjdxm_customui/master/screenshots/icon01.png
 [icon02]:https://raw.githubusercontent.com/jjdxmashl/jjdxm_customui/master/screenshots/icon02.png
