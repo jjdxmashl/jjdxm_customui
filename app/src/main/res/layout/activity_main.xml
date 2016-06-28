@@ -25,11 +25,6 @@
 
                 android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/btn_emoji"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="表情面板"/>
 
                 <Button
                     android:id="@+id/btn_alertview"
@@ -43,11 +38,6 @@
                     android:layout_height="wrap_content"
                     android:text="ChildViewPager 嵌套viewpager使用"/>
 
-                <Button
-                    android:id="@+id/btn_customkeyboard"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="CustomKeyBoard 自定义软键盘"/>
 
                 <Button
                     android:id="@+id/btn_datetimeymdselectordialogbuilder"

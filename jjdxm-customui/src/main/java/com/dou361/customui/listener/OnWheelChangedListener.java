@@ -18,8 +18,8 @@ import com.dou361.customui.ui.WheelView;
  * 描 述：wheel改变监听事件
  * Wheel changed listener interface.
  * <p>The currentItemChanged() method is called whenever current wheel positions is changed:
- * <li> New Wheel position is set
- * <li> Wheel view is scrolled
+ *  New Wheel position is set
+ *  Wheel view is scrolled
  * <p>
  * <p>
  * 修订历史：

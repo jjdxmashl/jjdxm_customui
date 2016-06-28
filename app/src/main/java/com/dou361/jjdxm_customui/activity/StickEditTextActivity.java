@@ -1,36 +1,17 @@
 package com.dou361.jjdxm_customui.activity;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.EditText;
 
 import com.dou361.jjdxm_customui.R;
-import com.dou361.customui.ui.CustomPasswordKeyBoard;
 
-public class StickEditTextActivity extends AppCompatActivity implements View.OnTouchListener {
+public class StickEditTextActivity extends AppCompatActivity {
 
-    private Context mContext;
-    private EditText et_system;
-    private EditText et_custom;
-    private CustomPasswordKeyBoard customKeyBoard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_key_board);
-        mContext = this;
-        et_system = (EditText) findViewById(R.id.et_system);
-        et_custom = (EditText) findViewById(R.id.et_custom);
-        et_custom.setOnTouchListener(this);
-        customKeyBoard = new CustomPasswordKeyBoard(this);
-    }
-
-    @Override
-    public boolean onTouch(View v, MotionEvent event) {
-        return customKeyBoard.onTouch(v, event);
+        setContentView(R.layout.activity_stick_edittext);
     }
 
 }

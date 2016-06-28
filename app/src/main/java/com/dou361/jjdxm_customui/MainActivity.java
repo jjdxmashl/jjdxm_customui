@@ -7,10 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import com.dou361.jjdxm_customui.activity.CustomSimpleActivity;
 import com.dou361.jjdxm_customui.activity.DatePickActivity;
 import com.dou361.jjdxm_customui.activity.HorizontalListViewActivity;
-import com.dou361.jjdxm_customui.activity.KeyBoardActivity;
 import com.dou361.jjdxm_customui.activity.PageTabActivity;
 import com.dou361.jjdxm_customui.activity.PhotoActivity;
 import com.dou361.jjdxm_customui.activity.PulltoRefreshActivity;
@@ -20,10 +18,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private LinearLayout main;
-    private Button btn_emoji;
     private Button btn_alertview;
     private Button btn_childviewpager;
-    private Button btn_customkeyboard;
     private Button btn_datetimeymdselectordialogbuilder;
     private Button btn_horizontallistview;
     private Button btn_indicatorview;
@@ -46,10 +42,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btn_emoji = (Button) findViewById(R.id.btn_emoji);
         btn_alertview = (Button) findViewById(R.id.btn_alertview);
         btn_childviewpager = (Button) findViewById(R.id.btn_childviewpager);
-        btn_customkeyboard = (Button) findViewById(R.id.btn_customkeyboard);
         btn_datetimeymdselectordialogbuilder = (Button) findViewById(R.id.btn_datetimeymdselectordialogbuilder);
         btn_horizontallistview = (Button) findViewById(R.id.btn_horizontallistview);
         btn_indicatorview = (Button) findViewById(R.id.btn_indicatorview);
@@ -67,10 +61,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_roundimageview = (Button) findViewById(R.id.btn_roundimageview);
         btn_selectpicpopupwindow = (Button) findViewById(R.id.btn_selectpicpopupwindow);
         btn_stickedittext = (Button) findViewById(R.id.btn_stickedittext);
-        btn_emoji.setOnClickListener(this);
         btn_alertview.setOnClickListener(this);
         btn_childviewpager.setOnClickListener(this);
-        btn_customkeyboard.setOnClickListener(this);
         btn_datetimeymdselectordialogbuilder.setOnClickListener(this);
         btn_horizontallistview.setOnClickListener(this);
         btn_indicatorview.setOnClickListener(this);
@@ -94,15 +86,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_emoji:
-                startActivity(CustomSimpleActivity.class);
-                break;
             case R.id.btn_alertview:
                 break;
             case R.id.btn_childviewpager:
-                break;
-            case R.id.btn_customkeyboard:
-                startActivity(KeyBoardActivity.class);
                 break;
             case R.id.btn_datetimeymdselectordialogbuilder:
                 startActivity(DatePickActivity.class);

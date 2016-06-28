@@ -16,29 +16,29 @@ import com.dou361.customui.adapter.BaseSectionedAdapter;
 
 /**
  * ========================================
- * <p/>
+ * <p>
  * 版 权：dou361.com 版权所有 （C） 2015
- * <p/>
+ * <p>
  * 作 者：陈冠明
- * <p/>
+ * <p>
  * 个人网站：http://www.dou361.com
- * <p/>
+ * <p>
  * 版 本：1.0
- * <p/>
+ * <p>
  * 创建日期：2015-9-29 下午8:30:16
- * <p/>
+ * <p>
  * 描 述：分组Listview 如果需要添加头部，一定要在Adapter中重写方法
  *
- * @Override public boolean hasHeaderType() {
+ *  public boolean hasHeaderType() {
  * return true;
  * }
  * 默认是false的
  * 一级标题置顶不替换需要mShouldPin = false;
  * 默认是置顶替换;
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * 修订历史：
- * <p/>
+ * <p>
  * ========================================
  */
 public class PinnedHeaderListView extends ListView implements OnScrollListener {

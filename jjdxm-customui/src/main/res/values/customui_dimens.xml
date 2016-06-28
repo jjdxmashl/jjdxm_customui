@@ -31,13 +31,6 @@
     <dimen name="pfv_text_size">14dp</dimen>
     <dimen name="pfv_update_time_text_size">10dp</dimen>
 
-    <dimen name="indicator_margin">10dp</dimen>
-    <dimen name="bar_height">32dp</dimen>
-    <dimen name="bar_tool_btn_width">56dp</dimen>
-    <dimen name="verticalspit_view_width">0.6dp</dimen>
-    <dimen name="horizontalspit_view_height">0.6dp</dimen>
-    <dimen name="item_emoticon_size_default">32dp</dimen>
-    <dimen name="item_emoticon_size_big">60dp</dimen>
 
 
 </resources>

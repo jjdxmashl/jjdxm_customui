@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.dou361.customui.pool.ThreadManagerCUI;
@@ -14,35 +15,35 @@ import com.dou361.customui.utils.ResourceUtils;
 
 /**
  * ========================================
- * <p/>
+ * <p>
  * 版 权：dou361.com 版权所有 （C） 2015
- * <p/>
+ * <p>
  * 作 者：陈冠明
- * <p/>
+ * <p>
  * 个人网站：http://www.dou361.com
- * <p/>
+ * <p>
  * 版 本：1.0
- * <p/>
+ * <p>
  * 创建日期：2016/3/15 21:53
- * <p/>
+ * <p>
  * 描 述：请求网络时显示的页面，总共有四种状态，加载中，加载失败，没有数据，有数据
  * 使用：
  * mLoadingPage = new LoadingPage(mContext) {
  *
- * @Override public View createSuccessView() {
+ *  public View createSuccessView() {
  * return CategoryActivity.this.createSuccessView();
  * }
- * @Override public LoadResult load() {
+ *  public LoadResult load() {
  * return CategoryActivity.this.load();
  * }
  * };
  * ll_content.addView(mLoadingPage, new ViewGroup.LayoutParams(
  * ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
  * mLoadingPage.show();
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * 修订历史：
- * <p/>
+ * <p>
  * ========================================
  */
 public abstract class LoadingPage extends FrameLayout {
@@ -179,9 +180,16 @@ public abstract class LoadingPage extends FrameLayout {
      */
     private View createLoadingView() {
         View view = LayoutInflater.from(mContext).inflate(ResourceUtils.getResourceIdByName(mContext, "layout", "customui_loading_page_loading"), null);
-        ImageView pp = (ImageView) view.findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "pp"));
-        ((AnimationDrawable) pp.getDrawable()).start();
+        ProgressBar iv_loading = (ProgressBar) view.findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "pb_loading"));
+        TextView tv_loading = (TextView) view.findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "tv_loading"));
+        setLoadingView(iv_loading, tv_loading);
         return view;
+    }
+
+    /**
+     * 操作空数据页面
+     */
+    public void setLoadingView(ProgressBar progressBar, TextView tvContent) {
     }
 
     /**

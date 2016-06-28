@@ -8,22 +8,22 @@ import android.widget.ListView;
 
 /**
  * ========================================
- * <p/>
+ * <p>
  * 版 权：dou361.com 版权所有 （C） 2015
- * <p/>
+ * <p>
  * 作 者：陈冠明
- * <p/>
+ * <p>
  * 个人网站：http://www.dou361.com
- * <p/>
+ * <p>
  * 版 本：1.0
- * <p/>
+ * <p>
  * 创建日期：2015-9-29 下午8:30:16
- * <p/>
+ * <p>
  * 描 述：ListView上拉下拉的阻尼效果。
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * 修订历史：
- * <p/>
+ * <p>
  * ========================================
  */
 public class PullToRefreshListView extends PullToRefreshView {

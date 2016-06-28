@@ -113,9 +113,6 @@ public class PhotoUtils {
      * @param requestCode 请求码
      * @param isCrop      true CROP false ACTION_GET_CONTENT
      * @param activity
-     * @return void
-     * @throws
-     * @Title: startImageAction
      */
     public static void cutImage(Uri uri, int outputX, int outputY,
                                 int requestCode, boolean isCrop, Activity activity) {
@@ -183,7 +180,6 @@ public class PhotoUtils {
     /**
      * 回收垃圾 recycle
      *
-     * @throws
      */
     public static void recycle(Bitmap bitmap) {
         // 先判断是否已经回收
@@ -198,8 +194,6 @@ public class PhotoUtils {
     /**
      * 获取指定路径下的图片的指定大小的缩略图 getImageThumbnail
      *
-     * @return Bitmap
-     * @throws
      */
     public static Bitmap getImageThumbnail(String imagePath, int width,
                                            int height) {
@@ -234,12 +228,6 @@ public class PhotoUtils {
 
     /**
      * saveBitmap
-     *
-     * @param @param filename---完整的路径格式-包含目录以及文件名
-     * @param @param bitmap
-     * @param @param isDelete --是否只留一张
-     * @return void
-     * @throws
      */
     public static void saveBitmap(String dirpath, String filename,
                                   Bitmap bitmap, boolean isDelete) {
@@ -349,7 +337,6 @@ public class PhotoUtils {
      * 旋转图片一定角度 rotaingImageView
      *
      * @return Bitmap
-     * @throws
      */
     public static Bitmap rotaingImageView(int angle, Bitmap bitmap) {
         // 旋转图片 动作
@@ -366,7 +353,6 @@ public class PhotoUtils {
      *
      * @param bitmap 原Bitmap图片
      * @param pixels 图片圆角的弧度(单位:像素(px))
-     * @return 带有圆角的图片(Bitmap 类型)
      */
     public static Bitmap toRoundCorner(Bitmap bitmap, int pixels) {
         Bitmap output = Bitmap.createBitmap(bitmap.getWidth(),
@@ -393,8 +379,6 @@ public class PhotoUtils {
     /**
      * 将图片转化为圆形头像
      *
-     * @throws
-     * @Title: toRoundBitmap
      */
     public static Bitmap toRoundBitmap(Bitmap bitmap) {
         int width = bitmap.getWidth();

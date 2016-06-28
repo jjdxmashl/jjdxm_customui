@@ -23,7 +23,7 @@ import com.dou361.customui.ui.PinnedHeaderListView.PinnedSectionedHeaderAdapter;
  * 描 述：分组Listview适配器，结合PinnedHeaderListView使用
  * 如果需要添加头部，一定要在Adapter中重写方法
  *
- * @Override public boolean hasHeaderType() {
+ *  public boolean hasHeaderType() {
  * return true;
  * }
  * 默认是false的

@@ -43,7 +43,7 @@ import java.util.List;
  * private void showAlertDialog() {
  * new AlertView("退出登陆", "是否要退出账号？", null, null, new String[]{"确定", "取消"}, mContext, AlertView.Style.Alert, new AlertView.OnItemClickListener() {
  *
- * @Override public void onItemClick(Object o, int position) {
+ *  public void onItemClick(Object o, int position) {
  * if (position == 0) {
  * logout();
  * }

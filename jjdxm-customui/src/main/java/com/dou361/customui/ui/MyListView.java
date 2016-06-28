@@ -5,22 +5,22 @@ import android.util.AttributeSet;
 import android.widget.ListView;
 /**
  * ========================================
- * <p/>
+ * <p>
  * 版 权：dou361.com 版权所有 （C） 2015
- * <p/>
+ * <p>
  * 作 者：陈冠明
- * <p/>
+ * <p>
  * 个人网站：http://www.dou361.com
- * <p/>
+ * <p>
  * 版 本：1.0
- * <p/>
+ * <p>
  * 创建日期：2016/3/15 23:26
- * <p/>
+ * <p>
  * 描 述：gridview嵌套scollview自适应显示不全
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * 修订历史：
- * <p/>
+ * <p>
  * ========================================
  */
 public class MyListView extends ListView {

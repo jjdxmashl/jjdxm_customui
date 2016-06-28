@@ -56,7 +56,7 @@ import java.util.Comparator;
 /**
  * Layout manager that allows the user to flip left and right
  * through pages of data.  You supply an implementation of a
- * {@link PagerAdapter} to generate the pages that the view shows.
+ * to generate the pages that the view shows.
  *
  * <p>Note this class is currently under early design and
  * development.  The API will likely change in later updates of
@@ -203,17 +203,14 @@ public class LazyViewPager extends ViewGroup {
          * or when it is fully stopped/idle.
          *
          * @param state The new scroll state.
-         * @see android.support.v4.view.ViewPager#SCROLL_STATE_IDLE
-         * @see android.support.v4.view.ViewPager#SCROLL_STATE_DRAGGING
-         * @see android.support.v4.view.ViewPager#SCROLL_STATE_SETTLING
          */
         public void onPageScrollStateChanged(int state);
     }
 
     /**
-     * Simple implementation of the {@link android.support.v4.view.LazyViewPager.OnPageChangeListener} interface with stub
+     * Simple implementation of the interface with stub
      * implementations of each method. Extend this if you do not intend to override
-     * every method of {@link android.support.v4.view.LazyViewPager.OnPageChangeListener}.
+     * every method of .
      */
     public static class SimpleOnPageChangeListener implements OnPageChangeListener {
         @Override

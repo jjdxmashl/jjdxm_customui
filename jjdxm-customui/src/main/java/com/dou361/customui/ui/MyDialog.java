@@ -10,17 +10,17 @@ import android.view.WindowManager;
 
 /**
  * ========================================
- * <p/>
+ * <p>
  * 版 权：dou361.com 版权所有 （C） 2015
- * <p/>
+ * <p>
  * 作 者：陈冠明
- * <p/>
+ * <p>
  * 个人网站：http://www.dou361.com
- * <p/>
+ * <p>
  * 版 本：1.0
- * <p/>
+ * <p>
  * 创建日期：2016/3/15 21:57
- * <p/>
+ * <p>
  * 描 述：自定义Dialog
  * 使用：
  * myDialog = new MyDialog(UIUtils.getActivity());
@@ -28,10 +28,10 @@ import android.view.WindowManager;
  * myDialog.setContentView(R.layout.progressbar_loading);
  * myDialog.setCanceledOnTouchOutside(false);
  * myDialog.show();
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * 修订历史：
- * <p/>
+ * <p>
  * ========================================
  */
 public class MyDialog extends Dialog implements
