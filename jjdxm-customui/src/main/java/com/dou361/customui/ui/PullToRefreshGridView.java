@@ -57,7 +57,6 @@ public class PullToRefreshGridView extends PullToRefreshView {
 	protected void addContentView(Context context) {
 		mGridView = new GridView(context);
 		mGridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
-		mGridView.setVerticalScrollBarEnabled(false);
 		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
 				LinearLayout.LayoutParams.MATCH_PARENT);
 		addView(mGridView, params);

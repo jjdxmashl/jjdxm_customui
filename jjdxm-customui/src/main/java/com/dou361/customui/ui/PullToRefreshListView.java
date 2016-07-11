@@ -57,7 +57,6 @@ public class PullToRefreshListView extends PullToRefreshView {
 		mListView = new ListView(context);
 		mListView.setDivider(new ColorDrawable(Color.TRANSPARENT));
 		mListView.setSelector(new ColorDrawable(Color.TRANSPARENT));
-		mListView.setVerticalScrollBarEnabled(false);
 		LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT,
 				LayoutParams.MATCH_PARENT);
 		addView(mListView, params);

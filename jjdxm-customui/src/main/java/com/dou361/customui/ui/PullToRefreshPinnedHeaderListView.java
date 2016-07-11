@@ -56,7 +56,6 @@ public class PullToRefreshPinnedHeaderListView extends PullToRefreshView {
 		mPinnedHeaderListView = new PinnedHeaderListView(context);
 		mPinnedHeaderListView.setDivider(new ColorDrawable(Color.TRANSPARENT));
 		mPinnedHeaderListView.setSelector(new ColorDrawable(Color.TRANSPARENT));
-		mPinnedHeaderListView.setVerticalScrollBarEnabled(false);
 		LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT,
 				LayoutParams.MATCH_PARENT);
 		addView(mPinnedHeaderListView, params);
