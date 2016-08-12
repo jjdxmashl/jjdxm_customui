@@ -469,7 +469,13 @@ public class PullToRefreshView extends LinearLayout {
                 View child = mAdapterView.getChildAt(0);
                 if (child == null) {
                     /** 如果mAdapterView中没有数据,不拦截 */
-                    return false;
+                    if (mAdapterView.getFirstVisiblePosition() == 0) {
+                        /** 当前在顶部，可以进行下拉 */
+                        mPullState = PULL_DOWN_STATE;
+                        return true;
+                    } else {
+                        return false;
+                    }
                 }
                 if (mAdapterView.getFirstVisiblePosition() == 0
                         && child.getTop() == 0) {

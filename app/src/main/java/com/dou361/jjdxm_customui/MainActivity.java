@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.dou361.jjdxm_customui.activity.AlertViewActivity;
 import com.dou361.jjdxm_customui.activity.DatePickActivity;
 import com.dou361.jjdxm_customui.activity.HorizontalListViewActivity;
 import com.dou361.jjdxm_customui.activity.PageTabActivity;
@@ -14,79 +15,72 @@ import com.dou361.jjdxm_customui.activity.PhotoActivity;
 import com.dou361.jjdxm_customui.activity.PulltoRefreshActivity;
 import com.dou361.jjdxm_customui.activity.StickEditTextActivity;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-    private LinearLayout main;
-    private Button btn_alertview;
-    private Button btn_childviewpager;
-    private Button btn_datetimeymdselectordialogbuilder;
-    private Button btn_horizontallistview;
-    private Button btn_indicatorview;
-    private Button btn_loadingpage;
-    private Button btn_loadingtiedialog;
-    private Button btn_mydialog;
-    private Button btn_mygridview;
-    private Button btn_mylistview;
-    private Button btn_pagertab;
-    private Button btn_pinnedheaderlistview;
-    private Button btn_popuwindowview;
-    private Button btn_pulldoorview;
-    private Button btn_pulltorefreshview;
-    private Button btn_ratiolayout;
-    private Button btn_roundimageview;
-    private Button btn_selectpicpopupwindow;
-    private Button btn_stickedittext;
+    @Bind(R.id.btn_alertview)
+    Button btnAlertview;
+    @Bind(R.id.btn_childviewpager)
+    Button btnChildviewpager;
+    @Bind(R.id.btn_datetimeymdselectordialogbuilder)
+    Button btnDatetimeymdselectordialogbuilder;
+    @Bind(R.id.btn_horizontallistview)
+    Button btnHorizontallistview;
+    @Bind(R.id.btn_indicatorview)
+    Button btnIndicatorview;
+    @Bind(R.id.btn_loadingpage)
+    Button btnLoadingpage;
+    @Bind(R.id.btn_loadingtiedialog)
+    Button btnLoadingtiedialog;
+    @Bind(R.id.btn_mydialog)
+    Button btnMydialog;
+    @Bind(R.id.btn_mygridview)
+    Button btnMygridview;
+    @Bind(R.id.btn_mylistview)
+    Button btnMylistview;
+    @Bind(R.id.btn_pagertab)
+    Button btnPagertab;
+    @Bind(R.id.btn_pinnedheaderlistview)
+    Button btnPinnedheaderlistview;
+    @Bind(R.id.btn_popuwindowview)
+    Button btnPopuwindowview;
+    @Bind(R.id.btn_pulldoorview)
+    Button btnPulldoorview;
+    @Bind(R.id.btn_pulltorefreshview)
+    Button btnPulltorefreshview;
+    @Bind(R.id.btn_ratiolayout)
+    Button btnRatiolayout;
+    @Bind(R.id.btn_roundimageview)
+    Button btnRoundimageview;
+    @Bind(R.id.btn_selectpicpopupwindow)
+    Button btnSelectpicpopupwindow;
+    @Bind(R.id.btn_stickedittext)
+    Button btnStickedittext;
+    @Bind(R.id.main)
+    LinearLayout main;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btn_alertview = (Button) findViewById(R.id.btn_alertview);
-        btn_childviewpager = (Button) findViewById(R.id.btn_childviewpager);
-        btn_datetimeymdselectordialogbuilder = (Button) findViewById(R.id.btn_datetimeymdselectordialogbuilder);
-        btn_horizontallistview = (Button) findViewById(R.id.btn_horizontallistview);
-        btn_indicatorview = (Button) findViewById(R.id.btn_indicatorview);
-        btn_loadingpage = (Button) findViewById(R.id.btn_loadingpage);
-        btn_loadingtiedialog = (Button) findViewById(R.id.btn_loadingtiedialog);
-        btn_mydialog = (Button) findViewById(R.id.btn_mydialog);
-        btn_mygridview = (Button) findViewById(R.id.btn_mygridview);
-        btn_mylistview = (Button) findViewById(R.id.btn_mylistview);
-        btn_pagertab = (Button) findViewById(R.id.btn_pagertab);
-        btn_pinnedheaderlistview = (Button) findViewById(R.id.btn_pinnedheaderlistview);
-        btn_popuwindowview = (Button) findViewById(R.id.btn_popuwindowview);
-        btn_pulldoorview = (Button) findViewById(R.id.btn_pulldoorview);
-        btn_pulltorefreshview = (Button) findViewById(R.id.btn_pulltorefreshview);
-        btn_ratiolayout = (Button) findViewById(R.id.btn_ratiolayout);
-        btn_roundimageview = (Button) findViewById(R.id.btn_roundimageview);
-        btn_selectpicpopupwindow = (Button) findViewById(R.id.btn_selectpicpopupwindow);
-        btn_stickedittext = (Button) findViewById(R.id.btn_stickedittext);
-        btn_alertview.setOnClickListener(this);
-        btn_childviewpager.setOnClickListener(this);
-        btn_datetimeymdselectordialogbuilder.setOnClickListener(this);
-        btn_horizontallistview.setOnClickListener(this);
-        btn_indicatorview.setOnClickListener(this);
-        btn_loadingpage.setOnClickListener(this);
-        btn_loadingtiedialog.setOnClickListener(this);
-        btn_mydialog.setOnClickListener(this);
-        btn_mygridview.setOnClickListener(this);
-        btn_mylistview.setOnClickListener(this);
-        btn_pagertab.setOnClickListener(this);
-        btn_pinnedheaderlistview.setOnClickListener(this);
-        btn_popuwindowview.setOnClickListener(this);
-        btn_pulldoorview.setOnClickListener(this);
-        btn_pulltorefreshview.setOnClickListener(this);
-        btn_ratiolayout.setOnClickListener(this);
-        btn_roundimageview.setOnClickListener(this);
-        btn_selectpicpopupwindow.setOnClickListener(this);
-        btn_stickedittext.setOnClickListener(this);
+        ButterKnife.bind(this);
+    }
+
+    private void startActivity(Class<?> clazz) {
+        Intent intent = new Intent(MainActivity.this, clazz);
+        startActivity(intent);
     }
 
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
+    @OnClick({R.id.btn_alertview, R.id.btn_childviewpager, R.id.btn_datetimeymdselectordialogbuilder, R.id.btn_horizontallistview, R.id.btn_indicatorview, R.id.btn_loadingpage, R.id.btn_loadingtiedialog, R.id.btn_mydialog, R.id.btn_mygridview, R.id.btn_mylistview, R.id.btn_pagertab, R.id.btn_pinnedheaderlistview, R.id.btn_popuwindowview, R.id.btn_pulldoorview, R.id.btn_pulltorefreshview, R.id.btn_ratiolayout, R.id.btn_roundimageview, R.id.btn_selectpicpopupwindow, R.id.btn_stickedittext})
+    public void onClick(View view) {
+        switch (view.getId()) {
             case R.id.btn_alertview:
+                startActivity(AlertViewActivity.class);
                 break;
             case R.id.btn_childviewpager:
                 break;
@@ -132,11 +126,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
-
-    private void startActivity(Class<?> clazz) {
-        Intent intent = new Intent(MainActivity.this, clazz);
-        startActivity(intent);
-    }
-
-
 }

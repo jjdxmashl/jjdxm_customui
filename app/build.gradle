@@ -50,6 +50,7 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
+    compile 'com.jakewharton:butterknife:7.0.1'
     compile rootProject.ext.jjdxm_v7
     compile project(':jjdxm-customui')
 }

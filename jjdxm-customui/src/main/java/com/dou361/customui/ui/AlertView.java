@@ -18,32 +18,32 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.dou361.customui.bean.Popu;
 import com.dou361.customui.utils.ResourceUtils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
  * ========================================
- * <p>
+ * <p/>
  * 版 权：dou361.com 版权所有 （C） 2015
- * <p>
+ * <p/>
  * 作 者：陈冠明
- * <p>
+ * <p/>
  * 个人网站：http://www.dou361.com
- * <p>
+ * <p/>
  * 版 本：1.0
- * <p>
+ * <p/>
  * 创建日期：2015/11/11
- * <p>
+ * <p/>
  * 描 述：精仿iOSAlertViewController控件
  * 点击取消按钮返回 －1，其他按钮从0开始算
  * 使用：
  * private void showAlertDialog() {
  * new AlertView("退出登陆", "是否要退出账号？", null, null, new String[]{"确定", "取消"}, mContext, AlertView.Style.Alert, new AlertView.OnItemClickListener() {
- *
- *  public void onItemClick(Object o, int position) {
+ * <p/>
+ * public void onItemClick(Object o, int position) {
  * if (position == 0) {
  * logout();
  * }
@@ -51,10 +51,10 @@ import java.util.List;
  * }).setCancelable(true)
  * .show();
  * }
- * <p>
- * <p>
+ * <p/>
+ * <p/>
  * 修订历史：
- * <p>
+ * <p/>
  * ========================================
  */
 public class AlertView {
@@ -77,10 +77,10 @@ public class AlertView {
 
     private String title;
     private String msg;
-    private List<String> mDestructive;
-    private List<String> mOthers;
+    private List<Popu> mDestructive;
+    private List<Popu> mOthers;
     private String cancel;
-    private ArrayList<String> mDatas = new ArrayList<String>();
+    private ArrayList<Popu> mDatas = new ArrayList<Popu>();
 
     private Context mContext;
     private ViewGroup contentContainer;
@@ -112,6 +112,45 @@ public class AlertView {
         this.mContext = context;
         if (style != null) this.style = style;
         this.onItemClickListener = onItemClickListener;
+        List<Popu> destructiveList = null;
+        if (destructive != null && destructive.length > 0) {
+            destructiveList = new ArrayList<Popu>();
+            for (int i = 0; i < destructive.length; i++) {
+                Popu popu = new Popu();
+                popu.setTitle(destructive[i]);
+                destructiveList.add(popu);
+            }
+        }
+        List<Popu> othersList = null;
+        if (others != null && others.length > 0) {
+            othersList = new ArrayList<Popu>();
+            for (int i = 0; i < others.length; i++) {
+                Popu popu = new Popu();
+                popu.setTitle(others[i]);
+                othersList.add(popu);
+            }
+        }
+
+        initData(title, msg, cancel, destructiveList, othersList);
+        initViews();
+        init();
+        initEvents();
+    }
+
+    /***
+     * @param title               标题
+     * @param msg                 消息
+     * @param cancel              取消
+     * @param destructive         高亮列表
+     * @param others              非高亮列表
+     * @param context             上下文
+     * @param style               样式
+     * @param onItemClickListener 点击监听
+     */
+    public AlertView(String title, String msg, String cancel, List<Popu> destructive, List<Popu> others, Context context, Style style, OnItemClickListener onItemClickListener) {
+        this.mContext = context;
+        if (style != null) this.style = style;
+        this.onItemClickListener = onItemClickListener;
 
         initData(title, msg, cancel, destructive, others);
         initViews();
@@ -122,22 +161,24 @@ public class AlertView {
     /**
      * 获取数据
      */
-    protected void initData(String title, String msg, String cancel, String[] destructive, String[] others) {
+    protected void initData(String title, String msg, String cancel, List<Popu> destructive, List<Popu> others) {
 
         this.title = title;
         this.msg = msg;
         if (destructive != null) {
-            this.mDestructive = Arrays.asList(destructive);
+            this.mDestructive = destructive;
             this.mDatas.addAll(mDestructive);
         }
         if (others != null) {
-            this.mOthers = Arrays.asList(others);
+            this.mOthers = others;
             this.mDatas.addAll(mOthers);
         }
         if (cancel != null) {
             this.cancel = cancel;
             if (style == Style.Alert && mDatas.size() < HORIZONTAL_BUTTONS_MAXCOUNT) {
-                this.mDatas.add(0, cancel);
+                Popu p = new Popu();
+                p.setTitle(cancel);
+                this.mDatas.add(0, p);
             }
         }
 
@@ -273,7 +314,7 @@ public class AlertView {
                 } else if (i == mDatas.size() - 1) {//设置最右边的按钮效果
                     tvAlert.setBackgroundResource(ResourceUtils.getResourceIdByName(mContext, "drawable", "customui_bg_alertbutton_right"));
                 }
-                String data = mDatas.get(i);
+                String data = mDatas.get(i).getTitle();
                 tvAlert.setText(data);
 
                 //取消按钮的样式
@@ -456,11 +497,11 @@ public class AlertView {
     }
 
     public class AlertViewAdapter extends BaseAdapter {
-        private List<String> mDatas;
-        private List<String> mDestructive;
+        private List<Popu> mDatas;
+        private List<Popu> mDestructive;
         private int hideLine;
 
-        public AlertViewAdapter(List<String> datas, List<String> destructive, int hideLine) {
+        public AlertViewAdapter(List<Popu> datas, List<Popu> destructive, int hideLine) {
             this.mDatas = datas;
             this.mDestructive = destructive;
             this.hideLine = hideLine;
@@ -483,7 +524,7 @@ public class AlertView {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            String data = mDatas.get(position);
+            String data = mDatas.get(position).getTitle();
             Holder holder = null;
             View view = convertView;
             if (view == null) {
