@@ -7,9 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import com.dou361.jjdxm_customui.activity.AlertViewActivity;
 import com.dou361.jjdxm_customui.activity.DatePickActivity;
-import com.dou361.jjdxm_customui.activity.HorizontalListViewActivity;
 import com.dou361.jjdxm_customui.activity.PageTabActivity;
 import com.dou361.jjdxm_customui.activity.PhotoActivity;
 import com.dou361.jjdxm_customui.activity.PulltoRefreshActivity;
@@ -80,7 +78,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_alertview:
-                startActivity(AlertViewActivity.class);
                 break;
             case R.id.btn_childviewpager:
                 break;
@@ -88,7 +85,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(DatePickActivity.class);
                 break;
             case R.id.btn_horizontallistview:
-                startActivity(HorizontalListViewActivity.class);
                 break;
             case R.id.btn_indicatorview:
                 break;

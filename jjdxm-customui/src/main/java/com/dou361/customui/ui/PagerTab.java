@@ -23,7 +23,7 @@ import android.view.ViewTreeObserver;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.dou361.customui.utils.ResourceUtils;
+import com.dou361.customui.R;
 
 /**
  * ========================================
@@ -204,8 +204,8 @@ public class PagerTab extends ViewGroup {
         tab.setSingleLine();
         tab.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTabTextSize);
         tab.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-        tab.setTextColor(mActivity.getResources().getColorStateList(ResourceUtils.getResourceIdByName(mActivity, "drawable", "customui_pagertab_text_color")));
-        tab.setBackgroundDrawable(mActivity.getResources().getDrawable(ResourceUtils.getResourceIdByName(mActivity, "drawable", "customui_pagertab_text_bg")));
+        tab.setTextColor(mActivity.getResources().getColorStateList(R.color.customui_pagertab_text_color));
+        tab.setBackgroundResource(R.drawable.customui_pagertab_text_bg);
         tab.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT));
         addTab(position, tab);
     }

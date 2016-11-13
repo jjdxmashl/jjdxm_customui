@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Scroller;
 
+import com.dou361.customui.R;
 import com.dou361.customui.utils.ResourceUtils;
 
 /**
@@ -91,7 +92,7 @@ public class PullDoorView extends RelativeLayout {
 		mImgView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
 				LayoutParams.MATCH_PARENT));
 		mImgView.setScaleType(ImageView.ScaleType.FIT_XY);// 填充整个屏幕
-		mImgView.setImageResource(ResourceUtils.getResourceIdByName(mContext, "mipmap-xhdpi","customui_bg3")); // 默认背景
+//		mImgView.setImageResource(R.mipmap.customui_bg3); // 默认背景
 		addView(mImgView);
 	}
 

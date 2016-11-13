@@ -11,9 +11,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.dou361.customui.R;
 import com.dou361.customui.adapter.StrericWheelAdapter;
 import com.dou361.customui.listener.OnWheelChangedListener;
-import com.dou361.customui.utils.ResourceUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -120,28 +120,28 @@ public class DateSelectorWheelView extends RelativeLayout implements
     }
 
     private void initLayout(Context context) {
-        LayoutInflater.from(context).inflate(ResourceUtils.getResourceIdByName(context, "layout", "customui_datepick_date_time_layout"), this,
+        LayoutInflater.from(context).inflate(R.layout.customui_datepick_date_time_layout, this,
                 true);
-        rlTitle = (RelativeLayout) findViewById(ResourceUtils.getResourceIdByName(context, "id", "rl_date_time_title"));
-        llWheelViews = (LinearLayout) findViewById(ResourceUtils.getResourceIdByName(context, "id", "ll_wheel_views"));
-        tvSubTitle = (TextView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_date_time_subtitle"));
-        tvYear = (TextView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_date_time_year"));
-        tvMonth = (TextView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_date_time_month"));
-        tvHour = (TextView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_date_time_hour"));
-        tvMinute = (TextView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_date_time_minute"));
-        tvSecond = (TextView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_date_time_second"));
-        line0 = findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_date_time_line0"));
-        tv_empty = (TextView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_date_time_empty"));
-        tv_line1 = (TextView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_date_time_line1"));
-        tv_line2 = (TextView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_date_time_line2"));
+        rlTitle = (RelativeLayout) findViewById(R.id.rl_date_time_title);
+        llWheelViews = (LinearLayout) findViewById(R.id.ll_wheel_views);
+        tvSubTitle = (TextView) findViewById(R.id.tv_date_time_subtitle);
+        tvYear = (TextView) findViewById(R.id.tv_date_time_year);
+        tvMonth = (TextView) findViewById(R.id.tv_date_time_month);
+        tvHour = (TextView) findViewById(R.id.tv_date_time_hour);
+        tvMinute = (TextView) findViewById(R.id.tv_date_time_minute);
+        tvSecond = (TextView) findViewById(R.id.tv_date_time_second);
+        line0 = findViewById(R.id.tv_date_time_line0);
+        tv_empty = (TextView) findViewById(R.id.tv_date_time_empty);
+        tv_line1 = (TextView) findViewById(R.id.tv_date_time_line1);
+        tv_line2 = (TextView) findViewById(R.id.tv_date_time_line2);
 
-        tvDay = (TextView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_date_time_day"));
-        wvYear = (WheelView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "wv_date_of_year"));
-        wvMonth = (WheelView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "wv_date_of_month"));
-        wvDay = (WheelView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "wv_date_of_day"));
-        wvHour = (WheelView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "wv_date_of_hour"));
-        wvMinute = (WheelView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "wv_date_of_minute"));
-        wvSecond = (WheelView) findViewById(ResourceUtils.getResourceIdByName(context, "id", "wv_date_of_second"));
+        tvDay = (TextView) findViewById(R.id.tv_date_time_day);
+        wvYear = (WheelView) findViewById(R.id.wv_date_of_year);
+        wvMonth = (WheelView) findViewById(R.id.wv_date_of_month);
+        wvDay = (WheelView) findViewById(R.id.wv_date_of_day);
+        wvHour = (WheelView) findViewById(R.id.wv_date_of_hour);
+        wvMinute = (WheelView) findViewById(R.id.wv_date_of_minute);
+        wvSecond = (WheelView) findViewById(R.id.wv_date_of_second);
         wvYear.addChangingListener(this);
         wvMonth.addChangingListener(this);
         wvDay.addChangingListener(this);

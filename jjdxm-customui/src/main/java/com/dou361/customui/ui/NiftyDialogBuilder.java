@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.dou361.customui.R;
 import com.dou361.customui.utils.ResourceUtils;
 
 /**
@@ -179,7 +180,7 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
         }
         getWindow().setAttributes(
                 (WindowManager.LayoutParams) params);
-        getWindow().setBackgroundDrawableResource(ResourceUtils.getResourceIdByName(context, "drawable", "customui_datepick_background_transparent"));
+        getWindow().setBackgroundDrawableResource(R.drawable.customui_datepick_background_transparent);
     }
 
     public static NiftyDialogBuilder getInstance(Context context) {
@@ -193,7 +194,7 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
         if (instance == null || ((Activity) context).isFinishing()) {
             synchronized (NiftyDialogBuilder.class) {
                 if (instance == null) {
-                    instance = new NiftyDialogBuilder(context, ResourceUtils.getResourceIdByName(context, "style", "customui_datepick_dialog_untran"));
+                    instance = new NiftyDialogBuilder(context, R.style.customui_datepick_dialog_untran);
                 }
             }
         }
@@ -203,40 +204,40 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
 
     private void init(Context context) {
 
-        mDialogView = View.inflate(context, ResourceUtils.getResourceIdByName(context, "layout", "customui_datepick_dialog_layout"), null);
+        mDialogView = View.inflate(context, R.layout.customui_datepick_dialog_layout, null);
         mLinearLayoutView = (LinearLayout) mDialogView
-                .findViewById(ResourceUtils.getResourceIdByName(context, "id", "parentPanel"));
+                .findViewById(R.id.parentPanel);
         mRelativeLayoutView = (RelativeLayout) mDialogView
-                .findViewById(ResourceUtils.getResourceIdByName(context, "id", "main"));
+                .findViewById(R.id.main);
         mLinearLayoutTopView = (LinearLayout) mDialogView
-                .findViewById(ResourceUtils.getResourceIdByName(context, "id", "topPanel"));
+                .findViewById(R.id.topPanel);
         mLinearLayoutMsgView = (LinearLayout) mDialogView
-                .findViewById(ResourceUtils.getResourceIdByName(context, "id", "contentPanel"));
+                .findViewById(R.id.contentPanel);
         mFrameLayoutCustomView = (FrameLayout) mDialogView
-                .findViewById(ResourceUtils.getResourceIdByName(context, "id", "customPanel"));
+                .findViewById(R.id.customPanel);
         mNextCustomLayout = (FrameLayout) mDialogView
-                .findViewById(ResourceUtils.getResourceIdByName(context, "id", "fl_custom_next_layout"));
+                .findViewById(R.id.fl_custom_next_layout);
         mNextCustomLayout.setVisibility(View.GONE);
 
-        mTitle = (TextView) mDialogView.findViewById(ResourceUtils.getResourceIdByName(context, "id", "alertTitle"));
-        mMessage = (TextView) mDialogView.findViewById(ResourceUtils.getResourceIdByName(context, "id", "message"));
+        mTitle = (TextView) mDialogView.findViewById(R.id.alertTitle);
+        mMessage = (TextView) mDialogView.findViewById(R.id.message);
 
         mPreviousLayout = (FrameLayout) mDialogView
-                .findViewById(ResourceUtils.getResourceIdByName(context, "id", "fl_dialog_title_previous"));
-        mIcon = (ImageView) mDialogView.findViewById(ResourceUtils.getResourceIdByName(context, "id", "icon"));
+                .findViewById(R.id.fl_dialog_title_previous);
+        mIcon = (ImageView) mDialogView.findViewById(R.id.icon);
         mPreviousText = (TextView) mDialogView
-                .findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_dialog_title_previous_text"));
+                .findViewById(R.id.tv_dialog_title_previous_text);
         mNextLayout = (FrameLayout) mDialogView
-                .findViewById(ResourceUtils.getResourceIdByName(context, "id", "fl_dialog_title_next"));
+                .findViewById(R.id.fl_dialog_title_next);
         mNextLayout.setVisibility(View.VISIBLE);
         mNextImage = (ImageView) mDialogView
-                .findViewById(ResourceUtils.getResourceIdByName(context, "id", "iv_dialog_title_next_img"));
+                .findViewById(R.id.iv_dialog_title_next_img);
         mNextText = (TextView) mDialogView
-                .findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_dialog_title_next_text"));
+                .findViewById(R.id.tv_dialog_title_next_text);
 
-        mDivider = mDialogView.findViewById(ResourceUtils.getResourceIdByName(context, "id", "titleDivider"));
-        mButton1 = (Button) mDialogView.findViewById(ResourceUtils.getResourceIdByName(context, "id", "button1"));
-        mButton2 = (Button) mDialogView.findViewById(ResourceUtils.getResourceIdByName(context, "id", "button2"));
+        mDivider = mDialogView.findViewById(R.id.titleDivider);
+        mButton1 = (Button) mDialogView.findViewById(R.id.button1);
+        mButton2 = (Button) mDialogView.findViewById(R.id.button2);
         /**  去掉原有的标题栏 */
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(mDialogView);

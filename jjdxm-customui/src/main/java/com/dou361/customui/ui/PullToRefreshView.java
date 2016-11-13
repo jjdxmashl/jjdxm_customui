@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.dou361.customui.R;
 import com.dou361.customui.utils.ResourceUtils;
 
 import java.text.SimpleDateFormat;
@@ -241,17 +242,17 @@ public class PullToRefreshView extends LinearLayout {
      */
     private void addHeaderView() {
         /** header view */
-        mHeaderView = mInflater.inflate(ResourceUtils.getResourceIdByName(mContext, "layout", "customui_pfv_refresh_header"), this,
+        mHeaderView = mInflater.inflate(R.layout.customui_pfv_refresh_header, this,
                 false);
 
         mHeaderImageView = (ImageView) mHeaderView
-                .findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "pull_to_refresh_image"));
+                .findViewById(R.id.pull_to_refresh_image);
         mHeaderTextView = (TextView) mHeaderView
-                .findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "pull_to_refresh_text"));
+                .findViewById(R.id.pull_to_refresh_text);
         mHeaderUpdateTextView = (TextView) mHeaderView
-                .findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "pull_to_refresh_updated_at"));
+                .findViewById(R.id.pull_to_refresh_updated_at);
         mHeaderProgressBar = (ProgressBar) mHeaderView
-                .findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "pull_to_refresh_progress"));
+                .findViewById(R.id.pull_to_refresh_progress);
         /** header layout */
         measureView(mHeaderView);
         mHeaderViewHeight = mHeaderView.getMeasuredHeight();
@@ -279,16 +280,16 @@ public class PullToRefreshView extends LinearLayout {
      */
     private void addFooterView() {
         /** footer view */
-        mFooterView = mInflater.inflate(ResourceUtils.getResourceIdByName(mContext, "layout", "customui_pfv_refresh_footer"), this,
+        mFooterView = mInflater.inflate(R.layout.customui_pfv_refresh_footer, this,
                 false);
         mFooterImageView = (ImageView) mFooterView
-                .findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "pull_to_load_image"));
+                .findViewById(R.id.pull_to_load_image);
         mFooterTextView = (TextView) mFooterView
-                .findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "pull_to_load_text"));
+                .findViewById(R.id.pull_to_load_text);
         mFooterUpdateTextView = (TextView) mFooterView
-                .findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "pull_to_load_updated_at"));
+                .findViewById(R.id.pull_to_load_updated_at);
         mFooterProgressBar = (ProgressBar) mFooterView
-                .findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "pull_to_load_progress"));
+                .findViewById(R.id.pull_to_load_progress);
         /** footer layout */
         measureView(mFooterView);
         mFooterViewHeight = mFooterView.getMeasuredHeight();
@@ -539,7 +540,7 @@ public class PullToRefreshView extends LinearLayout {
         int newTopMargin = changingHeaderViewTopMargin(deltaY);
         if (newTopMargin >= 0 && mHeaderState != RELEASE_TO_REFRESH) {
             /** 当header view的topMargin>=0时，说明已经完全显示出来了,修改header view 的提示状态 */
-            mHeaderTextView.setText(ResourceUtils.getResourceIdByName(mContext, "string", "pfv_pull_to_refresh_release_label"));
+            mHeaderTextView.setText(R.string.pfv_pull_to_refresh_release_label);
             mHeaderUpdateTextView.setVisibility(View.VISIBLE);
             mHeaderImageView.clearAnimation();
             mHeaderImageView.startAnimation(mReverseFlipAnimation);
@@ -548,7 +549,7 @@ public class PullToRefreshView extends LinearLayout {
             /** 拖动时没有释放 */
             mHeaderImageView.clearAnimation();
             mHeaderImageView.startAnimation(mReverseFlipAnimation);
-            mHeaderTextView.setText(ResourceUtils.getResourceIdByName(mContext, "string", "pfv_pull_to_refresh_pull_label"));
+            mHeaderTextView.setText(R.string.pfv_pull_to_refresh_pull_label);
             mHeaderState = PULL_TO_REFRESH;
         }
     }
@@ -568,7 +569,7 @@ public class PullToRefreshView extends LinearLayout {
              * view 完全显示出来了，修改footer view 的提示状态
              */
             mFooterTextView
-                    .setText(ResourceUtils.getResourceIdByName(mContext, "string", "pfv_pull_to_refresh_footer_release_label"));
+                    .setText(R.string.pfv_pull_to_refresh_footer_release_label);
             mFooterImageView.clearAnimation();
             mFooterImageView.startAnimation(mReverseFlipAnimation);
             mFooterState = RELEASE_TO_REFRESH;
@@ -576,7 +577,7 @@ public class PullToRefreshView extends LinearLayout {
             mFooterImageView.clearAnimation();
             mFooterImageView.startAnimation(mReverseFlipAnimation);
             mFooterTextView
-                    .setText(ResourceUtils.getResourceIdByName(mContext, "string", "pfv_pull_to_refresh_footer_pull_label"));
+                    .setText(R.string.pfv_pull_to_refresh_footer_pull_label);
             mFooterState = PULL_TO_REFRESH;
         }
     }
@@ -618,7 +619,7 @@ public class PullToRefreshView extends LinearLayout {
         mHeaderImageView.clearAnimation();
         mHeaderImageView.setImageDrawable(null);
         mHeaderProgressBar.setVisibility(View.VISIBLE);
-        mHeaderTextView.setText(ResourceUtils.getResourceIdByName(mContext, "string", "pfv_pull_to_refresh_refreshing_label"));
+        mHeaderTextView.setText(R.string.pfv_pull_to_refresh_refreshing_label);
         if (mOnHeaderRefreshListener != null) {
             mOnHeaderRefreshListener.onHeaderRefresh(PullToRefreshView.this);
         }
@@ -636,7 +637,7 @@ public class PullToRefreshView extends LinearLayout {
         mFooterImageView.setImageDrawable(null);
         mFooterProgressBar.setVisibility(View.VISIBLE);
         mFooterTextView
-                .setText(ResourceUtils.getResourceIdByName(mContext, "string", "pfv_pull_to_refresh_footer_refreshing_label"));
+                .setText(R.string.pfv_pull_to_refresh_footer_refreshing_label);
         if (mOnFooterRefreshListener != null) {
             mOnFooterRefreshListener.onFooterRefresh(PullToRefreshView.this);
         }
@@ -662,8 +663,8 @@ public class PullToRefreshView extends LinearLayout {
     public void onHeaderRefreshComplete() {
         setHeaderTopMargin(-mHeaderViewHeight);
         mHeaderImageView.setVisibility(View.VISIBLE);
-        mHeaderImageView.setImageResource(ResourceUtils.getResourceIdByName(mContext, "drawable", "customui_ic_pulltorefresh_arrow"));
-        mHeaderTextView.setText(ResourceUtils.getResourceIdByName(mContext, "string", "pfv_pull_to_refresh_pull_label"));
+        mHeaderImageView.setImageResource(R.drawable.customui_ic_pulltorefresh_arrow);
+        mHeaderTextView.setText(R.string.pfv_pull_to_refresh_pull_label);
         mHeaderProgressBar.setVisibility(View.GONE);
         mHeaderState = PULL_TO_REFRESH;
     }
@@ -684,8 +685,8 @@ public class PullToRefreshView extends LinearLayout {
     public void onFooterRefreshComplete() {
         setHeaderTopMargin(-mHeaderViewHeight);
         mFooterImageView.setVisibility(View.VISIBLE);
-        mFooterImageView.setImageResource(ResourceUtils.getResourceIdByName(mContext, "drawable", "customui_ic_pulltorefresh_arrow_up"));
-        mFooterTextView.setText(ResourceUtils.getResourceIdByName(mContext, "string", "pfv_pull_to_refresh_footer_pull_label"));
+        mFooterImageView.setImageResource(R.drawable.customui_ic_pulltorefresh_arrow_up);
+        mFooterTextView.setText(R.string.pfv_pull_to_refresh_footer_pull_label);
         mFooterProgressBar.setVisibility(View.GONE);
         mFooterState = PULL_TO_REFRESH;
     }

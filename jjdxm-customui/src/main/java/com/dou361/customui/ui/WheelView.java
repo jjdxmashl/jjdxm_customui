@@ -41,6 +41,7 @@ import android.view.View;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
 
+import com.dou361.customui.R;
 import com.dou361.customui.adapter.WheelAdapter;
 import com.dou361.customui.listener.OnWheelChangedListener;
 import com.dou361.customui.listener.OnWheelScrollListener;
@@ -475,7 +476,7 @@ public class WheelView extends View {
         }
 
         if (centerDrawable == null) {
-            centerDrawable = getContext().getResources().getDrawable(ResourceUtils.getResourceIdByName(getContext(), "drawable", "customui_wheel_val"));
+            centerDrawable = getContext().getResources().getDrawable(R.drawable.customui_wheel_val);
         }
 
         if (topShadow == null) {

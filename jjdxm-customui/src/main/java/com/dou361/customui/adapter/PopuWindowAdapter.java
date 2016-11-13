@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.dou361.customui.R;
 import com.dou361.customui.bean.Popu;
 import com.dou361.customui.utils.ResourceUtils;
 
@@ -76,13 +77,13 @@ public class PopuWindowAdapter extends BaseAdapter {
         if (convertView == null) {
 
             holder = new ViewHolder();
-            convertView = inflater.inflate(ResourceUtils.getResourceIdByName(mContext, "layout", "customui_popu_option_item"), null);
+            convertView = inflater.inflate(R.layout.customui_popu_option_item, null);
 
             holder.textView = (TextView) convertView
-                    .findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "customui_item_text"));
+                    .findViewById(R.id.customui_item_text);
 
             holder.imageView = (ImageView) convertView
-                    .findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "customui_delImage"));
+                    .findViewById(R.id.customui_delImage);
 
             convertView.setTag(holder);
         } else {

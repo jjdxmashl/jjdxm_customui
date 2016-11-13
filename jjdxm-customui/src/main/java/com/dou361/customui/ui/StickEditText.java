@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.dou361.customui.R;
 import com.dou361.customui.utils.ResourceUtils;
 
 import java.util.Timer;
@@ -72,9 +73,9 @@ public class StickEditText extends PopupWindow {
 
     public StickEditText(final Activity mContext) {
         super(mContext);
-        mMenuView = LayoutInflater.from(mContext).inflate(ResourceUtils.getResourceIdByName(mContext, "layout", "customui_popu_stickedittext"), null);
-        et_content = (EditText) mMenuView.findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "customui_et_content"));
-        iv_opereator = (ImageView) mMenuView.findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "customui_iv_opereator"));
+        mMenuView = LayoutInflater.from(mContext).inflate(R.layout.customui_popu_stickedittext, null);
+        et_content = (EditText) mMenuView.findViewById(R.id.customui_et_content);
+        iv_opereator = (ImageView) mMenuView.findViewById(R.id.customui_iv_opereator);
         // 取消按钮
         iv_opereator.setOnClickListener(new OnClickListener() {
 
@@ -151,14 +152,14 @@ public class StickEditText extends PopupWindow {
         this.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE |
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         this.setInputMethodMode(PopupWindow.INPUT_METHOD_NEEDED);
-        this.setAnimationStyle(ResourceUtils.getResourceIdByName(mContext,"style","Animations_GrowFromBottom"));
+        this.setAnimationStyle(R.style.Animations_GrowFromBottom);
 
         // mMenuView添加OnTouchListener监听判断获取触屏位置如果在选择框外面则销毁弹出框
 //        mMenuView.setOnTouchListener(new OnTouchListener() {
 //
 //            public boolean onTouch(View v, MotionEvent event) {
 //
-//                int height = mMenuView.findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "customui_pop_layout")).getTop();
+//                int height = mMenuView.findViewById(R.id.customui_pop_layout")).getTop();
 //                int y = (int) event.getY();
 //                if (event.getAction() == MotionEvent.ACTION_UP) {
 //                    if (y < height) {

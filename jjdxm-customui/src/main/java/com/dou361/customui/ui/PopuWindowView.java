@@ -8,6 +8,7 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 
+import com.dou361.customui.R;
 import com.dou361.customui.adapter.PopuWindowAdapter;
 import com.dou361.customui.bean.Popu;
 import com.dou361.customui.utils.ResourceUtils;
@@ -48,8 +49,8 @@ public class PopuWindowView {
     public PopuWindowView(Context mContext, int width) {
         this.mContext = mContext;
         LayoutInflater inflater = LayoutInflater.from(mContext);
-        viewItem = inflater.inflate(ResourceUtils.getResourceIdByName(mContext, "layout", "customui_popu_options"), null);
-        pupoListView = (ListView) viewItem.findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "customui_list"));
+        viewItem = inflater.inflate(R.layout.customui_popu_options, null);
+        pupoListView = (ListView) viewItem.findViewById(R.id.customui_list);
         mPopuWindowAdapter = new PopuWindowAdapter(mContext, popuLists);
         pupoListView.setAdapter(mPopuWindowAdapter);
         pullDownView = new PopupWindow(viewItem, width,

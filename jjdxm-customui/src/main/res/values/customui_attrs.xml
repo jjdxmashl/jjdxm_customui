@@ -2,7 +2,7 @@
 <resources>
 
     <!--roundimage-->
-    <declare-styleable name="roundedimageview">
+    <declare-styleable name="customui_round_imageview">
         <attr name="border_thickness" format="dimension" />
         <attr name="border_inside_color" format="color" />
         <attr name="border_outside_color" format="color"></attr>
@@ -10,7 +10,7 @@
 
 
     <!--PagerTab-->
-    <declare-styleable name="PagerTab">
+    <declare-styleable name="customui_pagerTab">
         <attr name="pstsIndicatorColor" format="color" />
         <attr name="pstsDividerColor" format="color" />
         <attr name="pstsIndicatorHeight" format="dimension" />
@@ -23,18 +23,8 @@
     </declare-styleable>
 
     <!--RatioLayout-->
-    <declare-styleable name="RatioLayout">
+    <declare-styleable name="customui_ratiolayout">
         <attr name="ratio" format="float" />
     </declare-styleable>
-
-    <!--HorizontalListView-->
-    <declare-styleable name="HorizontalListView">
-        <attr name="dividerWidth" format="dimension" />
-        <attr name="android:divider" />
-        <attr name="android:requiresFadingEdge" />
-        <attr name="android:fadingEdgeLength" />
-    </declare-styleable>
-
-
 
 </resources>

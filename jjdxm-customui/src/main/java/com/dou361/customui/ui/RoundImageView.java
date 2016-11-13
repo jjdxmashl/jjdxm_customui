@@ -15,6 +15,7 @@ import android.graphics.drawable.NinePatchDrawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
+import com.dou361.customui.R;
 import com.dou361.customui.utils.ResourceUtils;
 
 /**
@@ -66,14 +67,14 @@ public class RoundImageView extends ImageView {
     }
 
     private void setCustomAttributes(AttributeSet attrs) {
-        TypedArray a = ResourceUtils.getTypedArray(mContext, attrs, "roundedimageview");
+        TypedArray a = mContext.obtainStyledAttributes(attrs,R.styleable.customui_round_imageview);
         mBorderThickness = a.getDimensionPixelSize(
-                ResourceUtils.getResourceIdByName(mContext, "styleable", "roundedimageview_border_thickness"), 0);
+                R.styleable.customui_round_imageview_border_thickness, 0);
         mBorderOutsideColor = a
-                .getColor(ResourceUtils.getResourceIdByName(mContext, "styleable", "roundedimageview_border_outside_color"),
+                .getColor(R.styleable.customui_round_imageview_border_outside_color,
                         defaultColor);
         mBorderInsideColor = a.getColor(
-                ResourceUtils.getResourceIdByName(mContext, "styleable", "roundedimageview_border_inside_color"), defaultColor);
+                R.styleable.customui_round_imageview_border_inside_color, defaultColor);
     }
 
     @Override

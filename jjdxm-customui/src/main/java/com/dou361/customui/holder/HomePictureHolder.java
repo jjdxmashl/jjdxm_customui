@@ -14,6 +14,7 @@ import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.dou361.customui.R;
 import com.dou361.customui.bean.AdvChart;
 import com.dou361.customui.ui.ChildViewPager;
 import com.dou361.customui.ui.IndicatorView;
@@ -82,10 +83,10 @@ public class HomePictureHolder extends BaseHolder<List<AdvChart>>
     @Override
     public View initView() {
 
-        view = LayoutInflater.from(mContext).inflate(ResourceUtils.getResourceIdByName(mContext, "layout", "customui_holder_home_picture"), null);
-        mViewPager = (ChildViewPager) view.findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "view_pager"));
-        tv_title = (TextView) view.findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "tv_title"));
-        ll = (LinearLayout) view.findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "ll"));
+        view = LayoutInflater.from(mContext).inflate(R.layout.customui_holder_home_picture, null);
+        mViewPager = (ChildViewPager) view.findViewById(R.id.view_pager);
+        tv_title = (TextView) view.findViewById(R.id.tv_title);
+        ll = (LinearLayout) view.findViewById(R.id.ll);
         mPagerAdapter = new MyPagerAdapter();
         mViewPager.setAdapter(mPagerAdapter);
 

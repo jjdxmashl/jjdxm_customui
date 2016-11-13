@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 
+import com.dou361.customui.R;
 import com.dou361.customui.utils.ResourceUtils;
 
 /**
@@ -57,7 +58,7 @@ public class IndicatorView extends View {
      */
     private void init() {
         mSelection = POSITION_NONE;
-        mDrbIndicator = mContext.getResources().getDrawable(ResourceUtils.getResourceIdByName(mContext, "drawable", "customui_indicator"));
+        mDrbIndicator = mContext.getResources().getDrawable(R.drawable.customui_indicator);
     }
 
     /**

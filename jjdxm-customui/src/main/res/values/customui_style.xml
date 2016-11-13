@@ -12,22 +12,6 @@
         <item name="android:indeterminateDuration">3500</item>
     </style>
 
-    <style name="AlertActivity_AlertStyle" parent="android:Theme.Dialog">
-        <!--<item name="android:windowAnimationStyle">@style/AnimAlert</item>-->
-        <!-- 边框 -->
-        <item name="android:windowFrame">@null</item>
-        <!-- 是否浮现在activity之上 -->
-        <item name="android:windowIsFloating">true</item>
-        <!-- 半透明 -->
-        <item name="android:windowIsTranslucent">true</item>
-        <!-- 无标题 -->
-        <item name="android:windowNoTitle">true</item>
-        <!-- 背景透明 -->
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <!-- 模糊 -->
-        <item name="android:backgroundDimEnabled">true</item>
-    </style>
-
     <style name="Animations_GrowFromBottom">
         <item name="@android:windowEnterAnimation">@anim/customui_grow_from_bottom</item>
         <item name="@android:windowExitAnimation">@anim/customui_shrink_from_top</item>

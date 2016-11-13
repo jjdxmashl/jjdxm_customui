@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.dou361.customui.R;
 import com.dou361.customui.utils.ResourceUtils;
 
 /**
@@ -59,7 +60,7 @@ public class LoadingTieDialog {
     public LoadingTieDialog(Activity mContext) {
         this.mContext = mContext;
         LayoutInflater inflater = LayoutInflater.from(mContext);
-        viewItem = inflater.inflate(ResourceUtils.getResourceIdByName(mContext, "layout", "customui_progressbar_loading"), null);
+        viewItem = inflater.inflate(R.layout.customui_progressbar_loading, null);
         mDialog = new Dialog(mContext);
         mDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         mDialog.setContentView(viewItem);

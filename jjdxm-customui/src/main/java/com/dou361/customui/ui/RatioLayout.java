@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
+import com.dou361.customui.R;
 import com.dou361.customui.utils.ResourceUtils;
 
 /**
@@ -41,8 +42,9 @@ public class RatioLayout extends FrameLayout {
 
     public RatioLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        TypedArray a = ResourceUtils.getTypedArray(context, attrs, "RatioLayout");
-        ratio = a.getFloat(ResourceUtils.getResourceIdByName(context, "styleable", "RatioLayout_ratio"), 0.0f);
+        TypedArray a = context.obtainStyledAttributes(attrs,
+                R.styleable.customui_ratiolayout);
+        ratio = a.getFloat(R.styleable.customui_ratiolayout_ratio, 0.0f);
         a.recycle();
     }
 

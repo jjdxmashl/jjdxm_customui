@@ -9,6 +9,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
+import com.dou361.customui.R;
 import com.dou361.customui.utils.ResourceUtils;
 
 /**
@@ -75,7 +76,7 @@ public class DateTimeSelectorDialogBuilder extends NiftyDialogBuilder implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setBackgroundDrawableResource(ResourceUtils.getResourceIdByName(context, "drawable", "customui_datepick_edit_dialog_coner"));
+        getWindow().setBackgroundDrawableResource(R.drawable.customui_datepick_edit_dialog_coner);
     }
 
     public static DateTimeSelectorDialogBuilder getInstance(Context context) {
@@ -89,7 +90,7 @@ public class DateTimeSelectorDialogBuilder extends NiftyDialogBuilder implements
         if (instance == null || ((Activity) context).isFinishing()) {
             synchronized (DateTimeSelectorDialogBuilder.class) {
                 if (instance == null) {
-                    instance = new DateTimeSelectorDialogBuilder(context, ResourceUtils.getResourceIdByName(context, "style", "customui_datepick_dialog_untran"));
+                    instance = new DateTimeSelectorDialogBuilder(context, R.style.customui_datepick_dialog_untran);
                 }
             }
         }
@@ -99,12 +100,12 @@ public class DateTimeSelectorDialogBuilder extends NiftyDialogBuilder implements
 
     private void initDialog() {
         rlCustomLayout = (RelativeLayout) LayoutInflater.from(context).inflate(
-                ResourceUtils.getResourceIdByName(context, "layout", "customui_datepick_selector_dialog_layout"), null);
+                R.layout.customui_datepick_selector_dialog_layout, null);
         dateWheelView = (DateSelectorWheelView) rlCustomLayout
-                .findViewById(ResourceUtils.getResourceIdByName(context, "id", "pdwv_date_time_selector_wheelView"));
+                .findViewById(R.id.pdwv_date_time_selector_wheelView);
         dateWheelView.setTitleClick(this);
         flSecondeCustomLayout = (FrameLayout) rlCustomLayout
-                .findViewById(ResourceUtils.getResourceIdByName(context, "id", "fl_date_time_custom_layout"));
+                .findViewById(R.id.fl_date_time_custom_layout);
         setDialogProperties();
     }
 

@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.RelativeLayout;
 
+import com.dou361.customui.R;
 import com.dou361.customui.adapter.BaseHasMoreAdapter;
-import com.dou361.customui.utils.ResourceUtils;
 
 /**
  * ========================================
@@ -64,9 +64,9 @@ public class MoreHolder extends BaseHolder<Integer> implements OnClickListener {
 
     @Override
     public View initView() {
-        view = LayoutInflater.from(mContext).inflate(ResourceUtils.getResourceIdByName(mContext, "layout", "customui_holder_more_loading"), null);
-        mLoading = (RelativeLayout) view.findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "customui_rl_more_loading"));
-        mError = (RelativeLayout) view.findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "customui_rl_more_error"));
+        view = LayoutInflater.from(mContext).inflate(R.layout.customui_holder_more_loading, null);
+        mLoading = (RelativeLayout) view.findViewById(R.id.customui_rl_more_loading);
+        mError = (RelativeLayout) view.findViewById(R.id.customui_rl_more_error);
         mError.setOnClickListener(this);
         return view;
     }
@@ -95,7 +95,7 @@ public class MoreHolder extends BaseHolder<Integer> implements OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == ResourceUtils.getResourceIdByName(mContext, "id", "customui_rl_more_error")) {
+        if (v.getId() == R.id.customui_rl_more_error) {
             if (mLoading != null) {
                 mLoading.setVisibility(View.VISIBLE);
             }

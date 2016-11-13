@@ -1,17 +1,17 @@
 package com.dou361.customui.ui;
 
 import android.content.Context;
-import android.graphics.drawable.AnimationDrawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.dou361.customui.R;
 import com.dou361.customui.pool.ThreadManagerCUI;
-import com.dou361.customui.utils.ResourceUtils;
 
 /**
  * ========================================
@@ -29,11 +29,11 @@ import com.dou361.customui.utils.ResourceUtils;
  * 描 述：请求网络时显示的页面，总共有四种状态，加载中，加载失败，没有数据，有数据
  * 使用：
  * mLoadingPage = new LoadingPage(mContext) {
- *
- *  public View createSuccessView() {
+ * <p>
+ * public View createSuccessView() {
  * return CategoryActivity.this.createSuccessView();
  * }
- *  public LoadResult load() {
+ * public LoadResult load() {
  * return CategoryActivity.this.load();
  * }
  * };
@@ -94,37 +94,42 @@ public abstract class LoadingPage extends FrameLayout {
 
     public LoadingPage(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init(context);
+        init(context, null);
     }
 
     public LoadingPage(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context);
+        init(context, null);
+    }
+
+    public LoadingPage(Context context, ViewGroup root) {
+        super(context);
+        init(context, root);
     }
 
     public LoadingPage(Context context) {
         super(context);
-        init(context);
+        init(context, null);
     }
 
     /**
      * 初始化Page
      */
-    private void init(Context context) {
+    private void init(Context context, ViewGroup root) {
         this.mContext = context;
         mState = STATE_DEFAULt;
         if (mLoadingView == null) {
-            mLoadingView = createLoadingView();
+            mLoadingView = createLoadingView(root);
             addView(mLoadingView, new LayoutParams(LayoutParams.MATCH_PARENT,
                     LayoutParams.MATCH_PARENT));
         }
         if (mErrorView == null) {
-            mErrorView = createErrorView();
+            mErrorView = createErrorView(root);
             addView(mErrorView, new LayoutParams(LayoutParams.MATCH_PARENT,
                     LayoutParams.MATCH_PARENT));
         }
         if (mEmptyView == null) {
-            mEmptyView = createEmptyView();
+            mEmptyView = createEmptyView(root);
             addView(mEmptyView, new LayoutParams(LayoutParams.MATCH_PARENT,
                     LayoutParams.MATCH_PARENT));
         }
@@ -178,11 +183,40 @@ public abstract class LoadingPage extends FrameLayout {
     /**
      * 创建加载中的View
      */
-    private View createLoadingView() {
-        View view = LayoutInflater.from(mContext).inflate(ResourceUtils.getResourceIdByName(mContext, "layout", "customui_loading_page_loading"), null);
-        ProgressBar iv_loading = (ProgressBar) view.findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "pb_loading"));
-        TextView tv_loading = (TextView) view.findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "tv_loading"));
+    public View createLoadingView(ViewGroup root) {
+        View view = LayoutInflater.from(mContext).inflate(R.layout.customui_loading_page_loading, root, false);
+        ProgressBar iv_loading = (ProgressBar) view.findViewById(R.id.pb_loading);
+        TextView tv_loading = (TextView) view.findViewById(R.id.tv_loading);
         setLoadingView(iv_loading, tv_loading);
+        return view;
+    }
+
+    /**
+     * 创建加载失败的View
+     */
+    public View createErrorView(ViewGroup root) {
+        View view = LayoutInflater.from(mContext).inflate(R.layout.customui_loading_page_error, root, false);
+        ImageView ivIcon = (ImageView) view.findViewById(R.id.iv_icon);
+        TextView tvContent = (TextView) view.findViewById(R.id.tv_content);
+        view.findViewById(R.id.ll_content).setOnClickListener(
+                new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        show();
+                    }
+                });
+        setErrorView(ivIcon, tvContent);
+        return view;
+    }
+
+    /**
+     * 创建加载成功但数据为空的View
+     */
+    public View createEmptyView(ViewGroup root) {
+        View view = LayoutInflater.from(mContext).inflate(R.layout.customui_loading_page_empty, root, false);
+        ImageView ivIcon = (ImageView) view.findViewById(R.id.iv_icon);
+        TextView tvContent = (TextView) view.findViewById(R.id.tv_content);
+        setEmptyView(ivIcon, tvContent);
         return view;
     }
 
@@ -193,35 +227,16 @@ public abstract class LoadingPage extends FrameLayout {
     }
 
     /**
-     * 创建加载失败的View
-     */
-    private View createErrorView() {
-        View view = LayoutInflater.from(mContext).inflate(ResourceUtils.getResourceIdByName(mContext, "layout", "customui_loading_page_error"), null);
-        view.findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "ll_content")).setOnClickListener(
-                new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        show();
-                    }
-                });
-        return view;
-    }
-
-    /**
-     * 创建加载成功但数据为空的View
-     */
-    private View createEmptyView() {
-        View view = LayoutInflater.from(mContext).inflate(ResourceUtils.getResourceIdByName(mContext, "layout", "customui_loading_page_empty"), null);
-        ImageView ivIcon = (ImageView) view.findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "iv_icon"));
-        TextView tvContent = (TextView) view.findViewById(ResourceUtils.getResourceIdByName(mContext, "id", "tv_content"));
-        setEmptyView(ivIcon, tvContent);
-        return view;
-    }
-
-    /**
      * 操作空数据页面
      */
     public void setEmptyView(ImageView ivIcon, TextView tvContent) {
+
+    }
+
+    /**
+     * 操作错误页面
+     */
+    public void setErrorView(ImageView ivIcon, TextView tvContent) {
 
     }
 

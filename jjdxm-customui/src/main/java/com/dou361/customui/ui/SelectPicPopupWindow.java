@@ -11,6 +11,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.dou361.customui.R;
 import com.dou361.customui.utils.ResourceUtils;
 
 /**
@@ -26,10 +27,10 @@ public class SelectPicPopupWindow extends PopupWindow {
 
     public SelectPicPopupWindow(final Activity context, OnClickListener itemsOnClick, boolean showTakePhoto) {
         super(context);
-        mMenuView = LayoutInflater.from(context).inflate(ResourceUtils.getResourceIdByName(context, "layout", "customui_photo_popuwindow_photo"), null);
-        tv_take_photo = (TextView) mMenuView.findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_take_photo"));
-        tv_pick_photo = (TextView) mMenuView.findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_pick_photo"));
-        tv_cancel = (TextView) mMenuView.findViewById(ResourceUtils.getResourceIdByName(context, "id", "tv_cancel"));
+        mMenuView = LayoutInflater.from(context).inflate(R.layout.customui_photo_popuwindow_photo, null);
+        tv_take_photo = (TextView) mMenuView.findViewById(R.id.tv_take_photo);
+        tv_pick_photo = (TextView) mMenuView.findViewById(R.id.tv_pick_photo);
+        tv_cancel = (TextView) mMenuView.findViewById(R.id.tv_cancel);
         // 取消按钮
         tv_cancel.setOnClickListener(new OnClickListener() {
 
@@ -65,7 +66,7 @@ public class SelectPicPopupWindow extends PopupWindow {
 
             public boolean onTouch(View v, MotionEvent event) {
 
-                int height = mMenuView.findViewById(ResourceUtils.getResourceIdByName(context, "id", "pop_layout")).getTop();
+                int height = mMenuView.findViewById(R.id.pop_layout).getTop();
                 int y = (int) event.getY();
                 if (event.getAction() == MotionEvent.ACTION_UP) {
                     if (y < height) {
