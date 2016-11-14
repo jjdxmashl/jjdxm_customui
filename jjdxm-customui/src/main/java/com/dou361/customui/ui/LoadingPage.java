@@ -241,14 +241,6 @@ public abstract class LoadingPage extends FrameLayout {
     }
 
     /**
-     * 显示空数据页面
-     */
-    public void showEmptyView() {
-        mState = STATE_EMPTY;
-        showPage();
-    }
-
-    /**
      * 创建成功状态的View
      */
     public abstract View createSuccessView();
@@ -274,22 +266,18 @@ public abstract class LoadingPage extends FrameLayout {
     }
 
     /**
-     * 重新显示页面
+     * 不执行内部加载直接显示空白页面
      */
-    public synchronized void reShow() {
-        if (mState == STATE_ERROR || mState == STATE_EMPTY
-                || mState == STATE_SUCCESS) {
-            mState = STATE_DEFAULt;
-        }
-        if (mSuccessView != null) {
-            removeView(mSuccessView);
-        }
-        mSuccessView = null;
-        if (mState == STATE_DEFAULt) {
-            mState = STATE_LONDING;
-            LoadingTask task = new LoadingTask();
-            ThreadManagerCUI.getLongPool().execute(task);
-        }
+    public synchronized void showEmpty() {
+        mState = STATE_EMPTY;
+        showSafePage();
+    }
+
+    /**
+     * 不执行内部加载直接显示错误页面
+     */
+    public synchronized void showError() {
+        mState = STATE_ERROR;
         showSafePage();
     }
 

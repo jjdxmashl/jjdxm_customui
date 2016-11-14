@@ -20,7 +20,6 @@
             </intent-filter>
         </activity>
         <activity android:name="com.dou361.jjdxm_customui.activity.DatePickActivity"/>
-        <activity android:name="com.dou361.jjdxm_customui.activity.PhotoActivity"/>
         <activity android:name="com.dou361.jjdxm_customui.activity.StickEditTextActivity"/>
         <activity android:name="com.dou361.jjdxm_customui.activity.PulltoRefreshActivity"/>
         <activity android:name="com.dou361.jjdxm_customui.activity.PageTabActivity"/>

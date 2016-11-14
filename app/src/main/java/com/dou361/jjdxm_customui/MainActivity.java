@@ -9,7 +9,6 @@ import android.widget.LinearLayout;
 
 import com.dou361.jjdxm_customui.activity.DatePickActivity;
 import com.dou361.jjdxm_customui.activity.PageTabActivity;
-import com.dou361.jjdxm_customui.activity.PhotoActivity;
 import com.dou361.jjdxm_customui.activity.PulltoRefreshActivity;
 import com.dou361.jjdxm_customui.activity.StickEditTextActivity;
 
@@ -115,7 +114,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_roundimageview:
                 break;
             case R.id.btn_selectpicpopupwindow:
-                startActivity(PhotoActivity.class);
                 break;
             case R.id.btn_stickedittext:
                 startActivity(StickEditTextActivity.class);

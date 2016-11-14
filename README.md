@@ -13,10 +13,6 @@
 
 [demo apk下载][downapk]
 
-[下载最新版本aar][lastaar]
-
-[下载最新版本jar][lastjar]
-
 Download or grab via Maven:
 
 	<dependency>
@@ -29,8 +25,17 @@ or Gradle:
 
 	compile 'com.dou361.customui:jjdxm-customui:x.x.x'
 
+历史版本
 
-jjdxm-customui requires at minimum Java 15 or Android 4.0.
+
+	compile 'com.dou361.customui:jjdxm-customui:1.0.4'
+	compile 'com.dou361.customui:jjdxm-customui:1.0.3'
+	compile 'com.dou361.customui:jjdxm-customui:1.0.2'
+	compile 'com.dou361.customui:jjdxm-customui:1.0.1'
+	compile 'com.dou361.customui:jjdxm-customui:1.0.0'
+
+
+jjdxm-customui requires at minimum Java 9 or Android 2.3.
 
 ## Get Started ##
 
