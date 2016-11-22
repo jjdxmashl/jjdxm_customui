@@ -3,7 +3,7 @@ package com.dou361.customui.holder;
 import android.content.Context;
 import android.view.View;
 
-import com.dou361.customui.ui.LoadingPage;
+import com.dou361.customui.widget.LoadingPage;
 
 import java.util.List;
 

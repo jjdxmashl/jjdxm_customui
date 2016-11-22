@@ -16,9 +16,8 @@ import android.widget.TextView;
 
 import com.dou361.customui.R;
 import com.dou361.customui.bean.AdvChart;
-import com.dou361.customui.ui.ChildViewPager;
-import com.dou361.customui.ui.IndicatorView;
-import com.dou361.customui.utils.ResourceUtils;
+import com.dou361.customui.widget.ChildViewPager;
+import com.dou361.customui.widget.IndicatorView;
 
 import java.util.ArrayList;
 import java.util.List;

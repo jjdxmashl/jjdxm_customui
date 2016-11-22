@@ -2,7 +2,7 @@
 <resources>
 
     <!--PagerTab-->
-    <declare-styleable name="customui_pagerTab">
+    <declare-styleable name="customui_pagertab">
         <attr name="pstsIndicatorColor" format="color"/>
         <attr name="pstsDividerColor" format="color"/>
         <attr name="pstsIndicatorHeight" format="dimension"/>

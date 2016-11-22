@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.dou361.jjdxm_customui.activity.DatePickActivity"/>
+        <activity android:name="com.dou361.jjdxm_customui.activity.LoadingPagerActivity"/>
         <activity android:name="com.dou361.jjdxm_customui.activity.StickEditTextActivity"/>
         <activity android:name="com.dou361.jjdxm_customui.activity.PulltoRefreshActivity"/>
         <activity android:name="com.dou361.jjdxm_customui.activity.PageTabActivity"/>

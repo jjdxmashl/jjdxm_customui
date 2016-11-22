@@ -6,17 +6,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.dou361.customui.widget.PullToRefreshListView;
+import com.dou361.customui.widget.PullToRefreshView;
 import com.dou361.jjdxm_customui.R;
-import com.dou361.customui.ui.PullToRefreshListView;
 
 import java.util.Arrays;
-import java.util.LinkedList;
 
-public class PulltoRefreshActivity extends AppCompatActivity {
+public class PulltoRefreshActivity extends AppCompatActivity implements PullToRefreshView.OnFooterRefreshListener, PullToRefreshView.OnHeaderRefreshListener {
 
     private Context mContext;
     private PullToRefreshListView plv;
-    private LinkedList<String> mListItems;
     private ArrayAdapter<String> mAdapter;
     private ListView mListView;
 
@@ -26,10 +25,12 @@ public class PulltoRefreshActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pulltorefresh);
         mContext = this;
         plv = (PullToRefreshListView) findViewById(R.id.plv);
+        plv.setPullDownDamp(true);
+        plv.setPullUpDamp(true);
+        plv.setOnFooterRefreshListener(this);
+        plv.setOnHeaderRefreshListener(this);
         mListView = plv.getContentView();
-        mListItems = new LinkedList<String>();
-        mListItems.addAll(Arrays.asList(mStrings));
-        mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mListItems);
+        mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, Arrays.asList(mStrings));
         mListView.setAdapter(mAdapter);
 
     }
@@ -41,4 +42,25 @@ public class PulltoRefreshActivity extends AppCompatActivity {
             "Allgauer Emmentaler"};
 
 
+    @Override
+    public void onFooterRefresh(PullToRefreshView view) {
+        plv.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mAdapter.notifyDataSetChanged();
+                plv.onHeaderRefreshCompleteAndTime();
+            }
+        }, plv.delay_DURATION);
+    }
+
+    @Override
+    public void onHeaderRefresh(PullToRefreshView view) {
+        plv.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mAdapter.notifyDataSetChanged();
+                plv.onFooterRefreshComplete();
+            }
+        }, plv.delay_DURATION);
+    }
 }

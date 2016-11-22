@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.dou361.jjdxm_customui.R;
-import com.dou361.jjdxm_customui.adapter.VODDetailAdapter;
-import com.dou361.customui.ui.PagerTab;
+import com.dou361.jjdxm_customui.adapter.PagerTabAdapter;
+import com.dou361.customui.widget.PagerTab;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ public class PageTabActivity extends AppCompatActivity implements ViewPager.OnPa
 
     private Context mContext;
     private PagerTab mPageTabs;
-    private VODDetailAdapter mAdapter;
+    private PagerTabAdapter mAdapter;
     private ViewPager mPager;
     private String[] mTabTitles;
     private List<View> lists;
@@ -35,7 +35,7 @@ public class PageTabActivity extends AppCompatActivity implements ViewPager.OnPa
         for (int i = 0; i < mTabTitles.length; i++) {
             lists.add(new TextView(this));
         }
-        mAdapter = new VODDetailAdapter(lists, mTabTitles);
+        mAdapter = new PagerTabAdapter(lists, mTabTitles);
         mPager.setAdapter(mAdapter);
         mPageTabs.setViewPager(mPager);
         mPageTabs.setOnPageChangeListener(this);

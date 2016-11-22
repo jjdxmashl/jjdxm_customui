@@ -28,6 +28,7 @@ or Gradle:
 历史版本
 
 
+    compile 'com.dou361.customui:jjdxm-customui:1.0.5'
 	compile 'com.dou361.customui:jjdxm-customui:1.0.4'
 	compile 'com.dou361.customui:jjdxm-customui:1.0.3'
 	compile 'com.dou361.customui:jjdxm-customui:1.0.2'
@@ -42,6 +43,8 @@ jjdxm-customui requires at minimum Java 9 or Android 2.3.
 ## More Actions ##
 
 ## ChangeLog ##
+
+2016.11.22 1.0.5版本打包，移除日期选择，移除popuwindow、移除加载框
 
 ## About Author ##
 

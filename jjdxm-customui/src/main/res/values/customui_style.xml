@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="ProgressBarSmall">
-        <item name="android:indeterminateDrawable">@drawable/customui_progress_small</item>
+    <style name="customui_progressbar_small">
+        <item name="android:indeterminateDrawable">@drawable/customui_loading</item>
         <item name="android:minWidth">20dip</item>
         <item name="android:maxWidth">20dip</item>
         <item name="android:minHeight">20dip</item>
@@ -12,58 +12,8 @@
         <item name="android:indeterminateDuration">3500</item>
     </style>
 
-    <style name="Animations_GrowFromBottom">
-        <item name="@android:windowEnterAnimation">@anim/customui_grow_from_bottom</item>
-        <item name="@android:windowExitAnimation">@anim/customui_shrink_from_top</item>
-    </style>
 
-    <!-- 自定义Dialog在初始化时的样式 -->
-    <style name="customui_datepick_dialog_untran" parent="dialog_tran">
-        <item name="android:backgroundDimEnabled">true</item>
-    </style>
 
-    <!-- 自定义Dialog在显示时的样式 -->
-    <style name="dialog_tran" parent="android:style/Theme.Dialog">
-        <item name="android:windowFrame">@null</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowIsFloating">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:backgroundDimEnabled">false</item>
-        <item name="android:backgroundDimAmount">0.4</item>
-    </style>
 
-    <!-- 黑色中字体 -->
-    <style name="FontStyleNormalBlackMiddle" parent="@android:style/TextAppearance">
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">#000000</item>
-        <item name="android:textSize">14sp</item>
-    </style>
-
-    <!-- 蓝色中等字体 -->
-    <style name="FontStyleNormalBlueMiddle" parent="@android:style/TextAppearance">
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/datepick_surance_blue</item>
-        <item name="android:textSize">14sp</item>
-    </style>
-
-    <!-- 中浅黑色字体 -->
-    <style name="customui_datepick_FontStyleNormalLightBlackMiddle"  parent="@android:style/TextAppearance">
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">#ff333333</item>
-        <item name="android:textSize">16sp</item>
-    </style>
-    <!-- 自定义Dialog中button的样式 -->
-    <style name="customui_datepick_dialog_btn">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:minHeight">36dp</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:layout_marginBottom">10dp</item>
-        <item name="android:background">@drawable/customui_datepick_btn_selector</item>
-        <item name="android:textColor">#ffffff</item>
-        <item name="android:gravity">center</item>
-    </style>
 
 </resources>

@@ -14,7 +14,7 @@
 
         <ProgressBar
             android:id="@+id/loading_pb"
-            style="@style/ProgressBarSmall"
+            style="@style/customui_progressbar_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true" />
