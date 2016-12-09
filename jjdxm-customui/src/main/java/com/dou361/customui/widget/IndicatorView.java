@@ -3,10 +3,10 @@ package com.dou361.customui.widget;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.os.Looper;
 import android.view.View;
 
 import com.dou361.customui.R;
-import com.dou361.customui.utils.ResourceUtils;
 
 /**
  * ========================================
@@ -104,7 +104,7 @@ public class IndicatorView extends View {
     }
 
     private void requestInvalidate() {
-        if (ResourceUtils.isRunInMainThread()) {
+        if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
             invalidate();
         } else {
             postInvalidate();

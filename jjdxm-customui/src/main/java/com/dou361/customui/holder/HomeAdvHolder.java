@@ -2,24 +2,21 @@ package com.dou361.customui.holder;
 
 import android.content.Context;
 import android.os.Handler;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dou361.customui.R;
-import com.dou361.customui.bean.AdvChart;
+import com.dou361.customui.adapter.HomePicturePagerAdapter;
+import com.dou361.customui.bean.AdvBean;
+import com.dou361.customui.listener.AdvClickListener;
+import com.dou361.customui.listener.AdvLoadingListener;
 import com.dou361.customui.widget.ChildViewPager;
 import com.dou361.customui.widget.IndicatorView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -43,11 +40,11 @@ import java.util.List;
  * <p>
  * ========================================
  */
-public class HomePictureHolder extends BaseHolder<List<AdvChart>>
+public class HomeAdvHolder extends BaseHolder<List<AdvBean>>
         implements OnPageChangeListener {
 
     private final Handler mHanlder;
-    private MyPagerAdapter mPagerAdapter;
+    private HomePicturePagerAdapter mPagerAdapter;
     private AutoPlayRunnable mAutoPlayRunnable;
     private View view;
     ChildViewPager mViewPager;
@@ -55,28 +52,24 @@ public class HomePictureHolder extends BaseHolder<List<AdvChart>>
     LinearLayout ll;
     private IndicatorView mIndicator;
     private int currentIndex;
-    private TypeClickListener mTypeClickListener;
-    private ImageloaderListener mImageloaderListener;
 
-    public HomePictureHolder(Context mContext, Handler mHanlder) {
+    public HomeAdvHolder(Context mContext, Handler mHanlder) {
         super(mContext);
         this.mHanlder = mHanlder;
     }
 
-    public interface ImageloaderListener {
-        void onImageloaderListener(ImageView iamgeView, String url);
+
+    public void setOnAdvLoadingListener(AdvLoadingListener l) {
+        if (mPagerAdapter != null) {
+            mPagerAdapter.setOnAdvLoadingListener(l);
+        }
     }
 
-    public void setOnImageloaderListener(ImageloaderListener l) {
-        mImageloaderListener = l;
-    }
 
-    public interface TypeClickListener {
-        void onTypeClickListener(int type, int vodType, String content);
-    }
-
-    public void setTypeClickListener(TypeClickListener l) {
-        mTypeClickListener = l;
+    public void setAdvClickListener(AdvClickListener l) {
+        if (mPagerAdapter != null) {
+            mPagerAdapter.setAdvClickListener(l);
+        }
     }
 
     @Override
@@ -86,9 +79,8 @@ public class HomePictureHolder extends BaseHolder<List<AdvChart>>
         mViewPager = (ChildViewPager) view.findViewById(R.id.view_pager);
         tv_title = (TextView) view.findViewById(R.id.tv_title);
         ll = (LinearLayout) view.findViewById(R.id.ll);
-        mPagerAdapter = new MyPagerAdapter();
+        mPagerAdapter = new HomePicturePagerAdapter();
         mViewPager.setAdapter(mPagerAdapter);
-
         mIndicator = new IndicatorView(mContext);
         // 设置点和点之间的间隙
         mIndicator.setInterval(5);
@@ -115,64 +107,13 @@ public class HomePictureHolder extends BaseHolder<List<AdvChart>>
 
     @Override
     public void refreshView() {
-        List<AdvChart> datas = getData();
+        List<AdvBean> datas = getData();
+        mPagerAdapter.setList(datas);
         mIndicator.setCount(datas.size());
         mViewPager.setCurrentItem(datas.size() * 1000, false);
         mAutoPlayRunnable.start();
     }
 
-    class MyPagerAdapter extends PagerAdapter {
-        List<ImageView> mViewCache = new ArrayList<ImageView>();
-
-        @Override
-        public int getCount() {
-            return Integer.MAX_VALUE;
-        }
-
-        @Override
-        public boolean isViewFromObject(View view, Object o) {
-            return view == o;
-        }
-
-        @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
-            if (object != null && object instanceof ImageView) {
-                ImageView imageView = (ImageView) object;
-                container.removeView(imageView);
-                mViewCache.add(imageView);
-            }
-        }
-
-        @Override
-        public Object instantiateItem(ViewGroup container, int position) {
-            ImageView imageView;
-            if (mViewCache.size() > 0) {
-                imageView = mViewCache.remove(0);
-            } else {
-                imageView = new ImageView(mContext);
-                imageView.setScaleType(ScaleType.FIT_XY);
-            }
-            int index = position % (getData().size());
-            String url = getData().get(index).getUrl();
-            mImageloaderListener.onImageloaderListener(imageView, url);
-            imageView.setOnClickListener(new OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    try {
-                        AdvChart data = getData().get(currentIndex);
-                        if (data != null) {
-                            mTypeClickListener.onTypeClickListener(data.getType(), data.getSubType(), data.getContent());
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-            container.addView(imageView, 0);
-            return imageView;
-        }
-    }
 
     @Override
     public void onPageScrollStateChanged(int arg0) {

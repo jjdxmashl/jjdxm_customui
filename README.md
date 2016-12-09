@@ -7,7 +7,9 @@
 ## Screenshots ##
 
 <img src="https://raw.githubusercontent.com/jjdxmashl/jjdxm_customui/master/screenshots/icon01.png" width="300"> 
-<img src="https://raw.githubusercontent.com/jjdxmashl/jjdxm_customui/master/screenshots/icon02.png" width="300"> 
+<img src="https://raw.githubusercontent.com/jjdxmashl/jjdxm_customui/master/screenshots/icon02.png" width="300">
+<img src="https://raw.githubusercontent.com/jjdxmashl/jjdxm_customui/master/screenshots/icon03.png" width="300">
+<img src="https://raw.githubusercontent.com/jjdxmashl/jjdxm_customui/master/screenshots/icon04.png" width="300">
  
 ## Download ##
 
@@ -28,6 +30,7 @@ or Gradle:
 历史版本
 
 
+    compile 'com.dou361.customui:jjdxm-customui:1.0.6'
     compile 'com.dou361.customui:jjdxm-customui:1.0.5'
 	compile 'com.dou361.customui:jjdxm-customui:1.0.4'
 	compile 'com.dou361.customui:jjdxm-customui:1.0.3'
@@ -43,6 +46,8 @@ jjdxm-customui requires at minimum Java 9 or Android 2.3.
 ## More Actions ##
 
 ## ChangeLog ##
+
+2016.12.07 1.0.6版本打包移除反射降低最小支持
 
 2016.11.22 1.0.5版本打包，移除日期选择，移除popuwindow、移除加载框
 

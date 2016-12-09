@@ -4,25 +4,25 @@ import java.io.Serializable;
 
 /**
  * ========================================
- * <p>
- * 版 权：dou361 版权所有 （C） 2015
- * <p>
+ * <p/>
+ * 版 权：dou361.com 版权所有 （C） 2015
+ * <p/>
  * 作 者：陈冠明
- * <p>
+ * <p/>
  * 个人网站：http://www.dou361.com
- * <p>
+ * <p/>
  * 版 本：1.0
- * <p>
- * 创建日期：2015/12/23 9:42
- * <p>
- * 描 述：广告图片
- * <p>
- * <p>
+ * <p/>
+ * 创建日期：2016/12/9 10:34
+ * <p/>
+ * 描 述：广告
+ * <p/>
+ * <p/>
  * 修订历史：
- * <p>
+ * <p/>
  * ========================================
  */
-public class AdvChart implements Serializable {
+public class AdvBean implements Serializable {
 
     /**
      *
@@ -30,7 +30,7 @@ public class AdvChart implements Serializable {
     private static final long serialVersionUID = 3428856308723065293L;
     private int id;
     /**
-     * 图片对应的页面动作类型 广告的种类，区分点击事件的响应方式，1--网页链接，2--跳转课程，3--跳转班级
+     * 图片对应的页面动作类型 广告的种类，区分点击事件的响应方式
      */
     private int type;
     /**
@@ -45,10 +45,6 @@ public class AdvChart implements Serializable {
      * 跳转内容
      */
     private String content;
-    /**
-     * 跳转子类型
-     */
-    private int subType;
 
     public int getId() {
         return id;
@@ -90,11 +86,4 @@ public class AdvChart implements Serializable {
         this.content = content;
     }
 
-    public int getSubType() {
-        return subType;
-    }
-
-    public void setSubType(int subType) {
-        this.subType = subType;
-    }
 }

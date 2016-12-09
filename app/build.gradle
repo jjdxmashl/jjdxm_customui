@@ -53,4 +53,6 @@ dependencies {
     compile 'com.jakewharton:butterknife:7.0.1'
     compile rootProject.ext.jjdxm_v7
     compile project(':jjdxm-customui')
+    //图片加载类库
+    compile 'com.github.bumptech.glide:glide:3.7.0'
 }

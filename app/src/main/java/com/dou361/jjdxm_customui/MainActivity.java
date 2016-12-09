@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.dou361.jjdxm_customui.activity.IndicatorviewActivity;
 import com.dou361.jjdxm_customui.activity.LoadingPagerActivity;
 import com.dou361.jjdxm_customui.activity.PageTabActivity;
 import com.dou361.jjdxm_customui.activity.PulltoRefreshActivity;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_indicatorview:
+                startActivity(IndicatorviewActivity.class);
                 break;
             case R.id.btn_loadingpage:
                 startActivity(LoadingPagerActivity.class);
