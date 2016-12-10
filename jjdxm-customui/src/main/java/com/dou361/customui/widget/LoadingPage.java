@@ -37,7 +37,7 @@ import com.dou361.customui.pool.ThreadManagerCUI;
  * return CategoryActivity.this.load();
  * }
  * };
- * ll_content.addView(mLoadingPage, new ViewGroup.LayoutParams(
+ * v_root.addView(mLoadingPage, new ViewGroup.LayoutParams(
  * ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
  * mLoadingPage.show();
  * <p>
@@ -187,6 +187,7 @@ public abstract class LoadingPage extends FrameLayout {
         View view = LayoutInflater.from(mContext).inflate(R.layout.customui_loading_page_loading, root, false);
         ProgressBar iv_loading = (ProgressBar) view.findViewById(R.id.pb_loading);
         TextView tv_loading = (TextView) view.findViewById(R.id.tv_loading);
+        setRootViewBg(view);
         setLoadingView(iv_loading, tv_loading);
         return view;
     }
@@ -198,13 +199,14 @@ public abstract class LoadingPage extends FrameLayout {
         View view = LayoutInflater.from(mContext).inflate(R.layout.customui_loading_page_error, root, false);
         ImageView ivIcon = (ImageView) view.findViewById(R.id.iv_icon);
         TextView tvContent = (TextView) view.findViewById(R.id.tv_content);
-        view.findViewById(R.id.ll_content).setOnClickListener(
+        view.findViewById(R.id.v_root).setOnClickListener(
                 new OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         show();
                     }
                 });
+        setRootViewBg(view);
         setErrorView(ivIcon, tvContent);
         return view;
     }
@@ -216,12 +218,19 @@ public abstract class LoadingPage extends FrameLayout {
         View view = LayoutInflater.from(mContext).inflate(R.layout.customui_loading_page_empty, root, false);
         ImageView ivIcon = (ImageView) view.findViewById(R.id.iv_icon);
         TextView tvContent = (TextView) view.findViewById(R.id.tv_content);
+        setRootViewBg(view);
         setEmptyView(ivIcon, tvContent);
         return view;
     }
 
     /**
-     * 操作空数据页面
+     * 统一设置背景色
+     */
+    public void setRootViewBg(View vRoot) {
+    }
+
+    /**
+     * 操作加载中页面
      */
     public void setLoadingView(ProgressBar progressBar, TextView tvContent) {
     }
