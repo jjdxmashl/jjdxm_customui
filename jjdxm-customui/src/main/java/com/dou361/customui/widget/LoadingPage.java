@@ -290,6 +290,14 @@ public abstract class LoadingPage extends FrameLayout {
         showSafePage();
     }
 
+    /**
+     * 不执行内部加载直接显示成功页面
+     */
+    public synchronized void showEmpty2Data() {
+        mState = STATE_SUCCESS;
+        showSafePage();
+    }
+
     private class LoadingTask implements Runnable {
 
         @Override

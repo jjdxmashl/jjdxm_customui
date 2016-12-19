@@ -30,6 +30,7 @@ or Gradle:
 历史版本
 
 
+    compile 'com.dou361.customui:jjdxm-customui:1.0.8'
     compile 'com.dou361.customui:jjdxm-customui:1.0.7'
     compile 'com.dou361.customui:jjdxm-customui:1.0.6'
     compile 'com.dou361.customui:jjdxm-customui:1.0.5'
@@ -49,7 +50,7 @@ jjdxm-customui requires at minimum Java 9 or Android 2.3.
 引入依赖，如果主程序项目中有重复的类库，可以用打开注释来移除重复依赖。
 
 
-        compile ('com.dou361.customui:jjdxm-customui:1.0.7'){
+        compile ('com.dou361.customui:jjdxm-customui:1.0.8'){
     //        exclude group: 'com.android.support', module: 'support-v4'
         }
 
@@ -57,6 +58,8 @@ jjdxm-customui requires at minimum Java 9 or Android 2.3.
 ## More Actions ##
 
 ## ChangeLog ##
+
+2016.12.10 1.0.8版本打包添加加载view删除收据后显示空页面，再设置数据时显示成功页面
 
 2016.12.10 1.0.7版本打包添加加载view统一背景色设置
 

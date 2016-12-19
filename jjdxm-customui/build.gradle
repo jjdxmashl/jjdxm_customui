@@ -9,7 +9,7 @@ ext {
     jjdxm_groupId = 'com.dou361.customui'
     jjdxm_artifactId = 'jjdxm-customui'
 
-    jjdxm_libraryVersion = '1.0.7'
+    jjdxm_libraryVersion = '1.0.8'
     jjdxm_libraryName = 'jjdxm-customui'
     jjdxm_libraryDescription = 'this is a customui library of the application'
 
