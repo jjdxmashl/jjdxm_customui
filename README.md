@@ -29,7 +29,7 @@ or Gradle:
 
 历史版本
 
-
+    compile 'com.dou361.customui:jjdxm-customui:1.0.9'
     compile 'com.dou361.customui:jjdxm-customui:1.0.8'
     compile 'com.dou361.customui:jjdxm-customui:1.0.7'
     compile 'com.dou361.customui:jjdxm-customui:1.0.6'
@@ -45,19 +45,33 @@ jjdxm-customui requires at minimum Java 9 or Android 2.3.
 
 ## Get Started ##
 
+多种SpannableString设置
+
+    SSSUtils.with(mContext)
+                    .setCornersRadiusRes(R.dimen.global_padding_small)
+                    .setSeparator(" ")
+                    .addTextPart("第一部分内容", UIUtils.getColor(R.color.color_orange))
+                    .addTextPart("第二部分内容", UIUtils.getColor(R.color.white), colorType)
+                    .addTextPart("第三部分内容", UIUtils.getColor(R.color.color_orange))
+                    .addTextPart("第四部分内容")
+                    .into(tvName);
+
+
 ### step1 ###
 
 引入依赖，如果主程序项目中有重复的类库，可以用打开注释来移除重复依赖。
 
 
         compile ('com.dou361.customui:jjdxm-customui:1.0.8'){
-    //        exclude group: 'com.android.support', module: 'support-v4'
+    //        exclude group: 'com.android.support', module: 'appcompat-v7'
         }
 
 
 ## More Actions ##
 
 ## ChangeLog ##
+
+2016.12.26 1.0.9版本打包添加多种SpannableString的设置和带艾特功能的编辑框
 
 2016.12.10 1.0.8版本打包添加加载view删除收据后显示空页面，再设置数据时显示成功页面
 

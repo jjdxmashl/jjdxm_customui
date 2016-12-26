@@ -9,7 +9,7 @@ ext {
     jjdxm_groupId = 'com.dou361.customui'
     jjdxm_artifactId = 'jjdxm-customui'
 
-    jjdxm_libraryVersion = '1.0.8'
+    jjdxm_libraryVersion = '1.0.9'
     jjdxm_libraryName = 'jjdxm-customui'
     jjdxm_libraryDescription = 'this is a customui library of the application'
 
@@ -49,7 +49,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile rootProject.ext.jjdxm_v4
+    compile rootProject.ext.jjdxm_v7
 }
 
 //apply from: 'https://raw.githubusercontent.com/jjdxmashl/jjdxm_ecodingprocess/master/bulidlib.gradle'
