@@ -56,6 +56,7 @@ jjdxm-customui requires at minimum Java 9 or Android 2.3.
                     .addTextPart("第四部分内容")
                     .into(tvName);
 
+网络加载veiw LoadingPage
 
 ### step1 ###
 
